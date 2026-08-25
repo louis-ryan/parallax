@@ -55,6 +55,17 @@ All asset files are now in place locally (done 2026-08-25 — `video/` and
    (6 video, 2 audio) now exist and should resolve. Confirm both audio
    tracks are present (the lane fix above) and iterate visually as needed.
 
+**Frame-rate bug found and fixed (2026-08-25)**: 5 video assets
+(sky_sea_background, burning_longships, viking_backs, lightning,
+embers_overlay) were declared `format="r1"` (30.00fps,
+`FFVideoFormat1080p30`) but actually encoded at 29.97fps (`30000/1001`) —
+the standard rate from methodology.md's ffmpeg reference. This file also
+declares a second format, `r4` (`FFVideoFormat1080p2997`, true 29.97fps),
+which `paper_background` was already correctly using. This was a genuine
+mismatch, not the usual stale-path false trail (see methodology.md #6e) —
+fixed by pointing all 5 assets at `r4` instead of `r1`. `r1` remains in use
+by the two `<sequence>` elements, which is unrelated and correct.
+
 ## Questions for you
 
 (none open)

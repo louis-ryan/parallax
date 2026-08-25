@@ -104,7 +104,7 @@
         <!-- Gaussian Blur effect — syntax confirmed via real FCP export, see methodology.md #7. -->
         <effect id="r12" name="Gaussian" uid=".../Effects.localized/Blur.localized/Gaussian.localized/Gaussian.moef"/>
 
-        <asset id="r3" name="sky_sea_background" uid="burning_longships_sky_sea_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+        <asset id="r3" name="sky_sea_background" uid="burning_longships_sky_sea_mov_uid" start="0s" duration="20s" hasVideo="1" format="r4" videoSources="1">
             <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/viking-invasion/burning-longships/video/sky_sea_background.mov"/>
         </asset>
 
@@ -118,20 +118,20 @@
             <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/universal-assets/paper_background.mp4"/>
         </asset>
 
-        <asset id="r6" name="burning_longships" uid="burning_longships_ships_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+        <asset id="r6" name="burning_longships" uid="burning_longships_ships_mov_uid" start="0s" duration="20s" hasVideo="1" format="r4" videoSources="1">
             <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/viking-invasion/burning-longships/video/burning_longships.mov"/>
         </asset>
-        <asset id="r7" name="viking_backs" uid="burning_longships_vikings_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+        <asset id="r7" name="viking_backs" uid="burning_longships_vikings_mov_uid" start="0s" duration="20s" hasVideo="1" format="r4" videoSources="1">
             <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/viking-invasion/burning-longships/video/viking_backs.mov"/>
         </asset>
 
         <!-- LIGHTNING — reused file, same uid as the other viking-invasion scenes; this
              scene's own copy lives at its own video/ path per methodology.md #6b. -->
-        <asset id="r8" name="lightning" uid="lightning_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+        <asset id="r8" name="lightning" uid="lightning_mov_uid" start="0s" duration="20s" hasVideo="1" format="r4" videoSources="1">
             <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/viking-invasion/burning-longships/video/lightning.mov"/>
         </asset>
 
-        <asset id="r9" name="embers_overlay" uid="burning_longships_embers_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+        <asset id="r9" name="embers_overlay" uid="burning_longships_embers_mov_uid" start="0s" duration="20s" hasVideo="1" format="r4" videoSources="1">
             <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/viking-invasion/burning-longships/video/embers_overlay.mov"/>
         </asset>
 

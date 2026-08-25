@@ -266,6 +266,38 @@ a scene folder, renaming a project directory) — re-verify every `media-rep src
 path in every FCPXML under the moved directory, not just the ones edited that
 session.
 
+### 6e. "The video frame rates don't match" can also be a REAL mismatch — when the file has BOTH a 30fps and 29.97fps `<format>` defined
+
+Bug #6d (above) documents this error message being a false trail for a stale
+path. But confirmed the hard way in `burning_longships.fcpxml`: this can also
+be a genuine frame-rate mismatch, specifically when the FCPXML's `<resources>`
+declares **two different formats** — e.g. `r1` (`FFVideoFormat1080p30`,
+`1001/30030s`, true 30.00fps) and `r4` (`FFVideoFormat1080p2997`,
+`1001/30000s`, true 29.97fps) — and a video `<asset>` is wired to the wrong
+one relative to how it was actually encoded (every asset here was encoded at
+the standard `30000/1001` ≈ 29.97fps via the ffmpeg reference below, but
+declared `format="r1"`, the 30.00fps format).
+
+This is easy to get wrong when a scene reuses an asset from another scene
+(per bug #6b) that itself uses the dual-format pattern: `viking_ocean.fcpxml`
+declares both `r1` and `r4` and correctly puts **every video asset** (including
+`lightning`, which gets reused across scenes) on `r4`; a new scene that copies
+`lightning.mov` from `viking-ocean` but writes its own `<asset>` entries on
+`r1` (matching that scene's `<sequence>` format, which is a different,
+unrelated attribute) will hit this exact error — not because of a bad path,
+but because `r1` genuinely doesn't match a 29.97fps-encoded file.
+
+**Distinguishing this from bug #6d**: check whether the FCPXML's
+`<resources>` block declares more than one `<format>`. If it only has one
+`format` (like `church_on_the_hill.fcpxml`, `approaching_britain.fcpxml`),
+the declared-vs-actual 30/29.97 gap is tolerated fine (per 6d) and the error
+is a path problem. If it declares **two** formats and different assets use
+different ones, verify each video asset's `format` attribute actually matches
+its own encode rate (`ffprobe -show_entries stream=r_frame_rate` — `30000/1001`
+→ use the 29.97fps format id, not the 30fps one) rather than assuming it
+should match the `<sequence>`'s format, which is a separate concern (the
+project/timeline rate, not the source asset's rate).
+
 ### 7. Gaussian Blur syntax (confirmed via real FCP export)
 
 ```xml
