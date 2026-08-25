@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE fcpxml>
+
+<fcpxml version="1.14">
+    <resources>
+        <format id="r1" name="FFVideoFormat1080p30" frameDuration="1001/30030s" width="1920" height="1080" colorSpace="1-1-1 (Rec. 709)"/>
+
+        <!-- COMPOUND SCENE — layers pre-composed here purely to keep the project structure
+             consistent with the other scenes (see ../../context/methodology.md). Unlike
+             viking-ocean, the outer ref-clip carries NO transform in this scene: applying
+             zoom/pan to the outer wrapper scales the flattened compound as one rigid image,
+             which exposes its own canvas edges as black/empty space instead of revealing
+             more scene. The zoom-out reveal is instead built by animating EACH layer's own
+             adjust-transform individually, since each layer's source canvas already extends
+             well beyond the frame at rest (scale 1.15-1.2), giving real room to zoom into. -->
+        <media id="r2" name="Church On The Hill Compound" uid="church_hill_compound_uid">
+            <sequence format="r1" duration="20s" tcStart="0s" tcFormat="NDF" audioLayout="stereo" audioRate="48k">
+                <spine>
+
+                    <!-- SKY — same world as the other scenes: dusk/storm gradient, clouds. This is
+                         now the base/backmost clip; LIGHTNING attaches on lane 1 directly above it
+                         (so lightning renders in FRONT of the sky, per request) but every other layer
+                         (sea, land, hillside, church) attaches on higher lanes still, so lightning
+                         stays behind all of those — it's "distant," sitting just above the sky. -->
+                    <asset-clip ref="r3" offset="0s" name="Sky – Storm Over the Coast" duration="20s" tcFormat="NDF">
+                        <adjust-transform>
+                            <param name="scale">
+                                <keyframeAnimation>
+                                    <keyframe time="0s" value="4.32 4.32" curve="linear"/>
+                                    <keyframe time="20s" value="1.2 1.2" curve="linear"/>
+                                </keyframeAnimation>
+                            </param>
+                            <param name="position">
+                                <keyframeAnimation>
+                                    <keyframe time="0s" value="111.9444 -12.5185" curve="linear"/>
+                                    <keyframe time="20s" value="0 0" curve="linear"/>
+                                </keyframeAnimation>
+                            </param>
+                        </adjust-transform>
+
+                        <!-- LIGHTNING — distant storm flashes, sits just above the sky, scaled up
+                             + dimmed relative to the sea-scene version so it reads as further away. -->
+                        <asset-clip ref="r10" lane="1" offset="0s" name="Lightning – Distant" duration="20s" tcFormat="NDF">
+                            <adjust-transform scale="1.8 1.8"/>
+                            <adjust-blend amount="0.5" mode="add"/>
+                        </asset-clip>
+
+                        <!-- SEA — distant water beyond the coastline -->
+                        <asset-clip ref="r4" lane="2" offset="0s" name="Sea" duration="20s" tcFormat="NDF">
+                            <adjust-transform>
+                                <param name="scale">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s" value="4.14 4.14" curve="linear"/>
+                                        <keyframe time="20s" value="1.15 1.15" curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="position">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s" value="111.9444 -12.5185" curve="linear"/>
+                                        <keyframe time="20s" value="0 0" curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                            </adjust-transform>
+                        </asset-clip>
+
+                        <!-- LAND / BEACH — coastline strip between sea and hillside -->
+                        <asset-clip ref="r5" lane="3" offset="0s" name="Land – Beach" duration="20s" tcFormat="NDF">
+                            <adjust-transform>
+                                <param name="scale">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s" value="4.14 4.14" curve="linear"/>
+                                        <keyframe time="20s" value="1.15 1.15" curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="position">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s" value="111.9444 -12.5185" curve="linear"/>
+                                        <keyframe time="20s" value="0 0" curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                            </adjust-transform>
+                        </asset-clip>
+
+                        <!-- HILLSIDE — the slope we're looking down from the church -->
+                        <asset-clip ref="r6" lane="4" offset="0s" name="Hillside" duration="20s" tcFormat="NDF">
+                            <adjust-transform>
+                                <param name="scale">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s" value="4.14 4.14" curve="linear"/>
+                                        <keyframe time="20s" value="1.15 1.15" curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="position">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s" value="111.9444 -12.5185" curve="linear"/>
+                                        <keyframe time="20s" value="0 0" curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                            </adjust-transform>
+                        </asset-clip>
+
+                        <!-- CHURCH GROUND — a small mound of grass the church sits on, anchored to
+                             the church with IDENTICAL scale/position keyframes so the two never
+                             separate. Both this and CHURCH zoom out to their resting scale by 10s
+                             (reaching full view sooner) and then hold flat from 10s-20s, at a much
+                             shallower rate than the background layers (4.14->2.2 here vs 4.14->1.15
+                             for sky/sea/land/hillside) — so the church still visibly recedes/keeps
+                             pushing out, just slower and settling earlier, while the background keeps
+                             revealing behind it for the full 20s. -->
+                        <asset-clip ref="r11" lane="5" offset="0s" name="Church Ground" duration="20s" tcFormat="NDF">
+                            <adjust-transform>
+                                <param name="scale">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s"  value="4.14 4.14" curve="linear"/>
+                                        <keyframe time="10s" value="2.2 2.2"  curve="linear"/>
+                                        <keyframe time="20s" value="2.2 2.2"  curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="position">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s"  value="178.6333 -20.3167" curve="linear"/>
+                                        <keyframe time="10s" value="94.9259 -10.7963"  curve="linear"/>
+                                        <keyframe time="20s" value="94.9259 -10.7963"  curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                            </adjust-transform>
+                        </asset-clip>
+
+                        <!-- CHURCH — bell tower, foreground subject. This is the focal point the
+                             zoom keys off of. Continues zooming for the full 20s alongside Church
+                             Ground above, at the same shallow rate, so the two stay locked together
+                             while still visibly pushing out (slower than the background layers).
+                             NOTE: position is NOT (0,0) at rest — the church's painted content sits
+                             off-center within its own 1920x1080 source canvas (content center measured
+                             at (494,487) vs canvas center (960,540)), so position must offset by
+                             (-dx*scale, -dy*scale) at every keyframe to bring the actual church content
+                             to true screen-center, not just re-center the canvas itself. Values below
+                             are already /10.8-corrected. See church_ground above for the identical
+                             values (same framing target, must stay locked together). -->
+                        <asset-clip ref="r7" lane="6" offset="0s" name="Church – Bell Tower" duration="20s" tcFormat="NDF">
+                            <adjust-transform>
+                                <param name="scale">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s"  value="4.14 4.14" curve="linear"/>
+                                        <keyframe time="10s" value="2.2 2.2"  curve="linear"/>
+                                        <keyframe time="20s" value="2.2 2.2"  curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="position">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s"  value="178.6333 -20.3167" curve="linear"/>
+                                        <keyframe time="10s" value="94.9259 -10.7963"  curve="linear"/>
+                                        <keyframe time="20s" value="94.9259 -10.7963"  curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                            </adjust-transform>
+                        </asset-clip>
+
+                    </asset-clip>
+                </spine>
+            </sequence>
+        </media>
+
+        <asset id="r3" name="sky_background" uid="church_sky_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/viking-invasion/church-on-the-hill/video/sky_background.mov"/>
+        </asset>
+        <asset id="r4" name="sea" uid="church_sea_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/viking-invasion/church-on-the-hill/video/sea.mov"/>
+        </asset>
+        <asset id="r5" name="land_beach" uid="church_land_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/viking-invasion/church-on-the-hill/video/land_beach.mov"/>
+        </asset>
+        <asset id="r6" name="hillside" uid="church_hillside_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/viking-invasion/church-on-the-hill/video/hillside.mov"/>
+        </asset>
+        <asset id="r7" name="church" uid="church_building_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/viking-invasion/church-on-the-hill/video/church.mov"/>
+        </asset>
+        <asset id="r8" name="bell" uid="church_bell_audio_uid" start="0s" duration="20s" hasAudio="1" audioSources="1" audioChannels="2" audioRate="48000">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/viking-invasion/church-on-the-hill/audio/bell.wav"/>
+        </asset>
+        <asset id="r9" name="ocean_waves" uid="ocean_waves_audio_uid" start="0s" duration="20s" hasAudio="1" audioSources="1" audioChannels="2" audioRate="48000">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/viking-invasion/church-on-the-hill/audio/ocean_waves.wav"/>
+        </asset>
+        <asset id="r10" name="lightning" uid="lightning_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/viking-invasion/church-on-the-hill/video/lightning.mov"/>
+        </asset>
+        <asset id="r11" name="church_ground" uid="church_ground_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/viking-invasion/church-on-the-hill/video/church_ground.mov"/>
+        </asset>
+    </resources>
+
+    <library>
+        <event name="Church On The Hill">
+            <project name="Church On The Hill Scene">
+                <sequence format="r1" duration="20s" tcStart="0s" audioLayout="stereo" audioRate="48k">
+                    <spine>
+
+                        <!-- CAMERA RIG — plain wrapper, no transform. The zoom-out reveal lives on
+                             each individual layer above, not here (see the long comment on the
+                             compound <media> element for why). -->
+                        <ref-clip ref="r2" offset="0s" name="Church On The Hill – Camera Pull-Out" duration="20s">
+                            <asset-clip ref="r8" lane="-1" offset="0s" name="Bell Audio" duration="20s" audioRole="effects"/>
+                            <asset-clip ref="r9" lane="-1" offset="0s" name="Ocean Waves Audio" duration="20s" audioRole="effects">
+                                <adjust-volume amount="-18dB"/>
+                            </asset-clip>
+                        </ref-clip>
+
+                    </spine>
+                </sequence>
+            </project>
+        </event>
+    </library>
+</fcpxml>

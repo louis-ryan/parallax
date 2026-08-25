@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE fcpxml>
+
+<fcpxml version="1.14">
+    <resources>
+        <format id="r1" name="FFVideoFormat1080p30" frameDuration="1001/30030s" width="1920" height="1080" colorSpace="1-1-1 (Rec. 709)"/>
+
+        <!-- COMPOUND SCENE — all layers pre-composed here, per the standard project
+             pattern (see ../../../context/methodology.md). No whole-scene camera
+             transform is applied on the outer ref-clip in this scene (see bottom) —
+             this is a flat infographic, not a moving-camera environment scene, so
+             there's nothing that needs a "camera rig" wrapper transform. -->
+        <media id="r2" name="Three Threats Compound" uid="three_threats_compound_uid">
+            <sequence format="r1" duration="20s" tcStart="0s" tcFormat="NDF" audioLayout="stereo" audioRate="48k">
+                <spine>
+
+                    <!-- HESSIAN BACKGROUND — true base layer, full frame, static, opaque.
+                         Paper texture is nested inside as a multiply-blended lane directly
+                         above it, per the user's asset layering request. -->
+                    <asset-clip ref="r3" offset="0s" name="Hessian Background" duration="20s" tcFormat="NDF">
+                        <adjust-transform scale="1.0 1.0"/>
+
+                        <!-- PAPER TEXTURE — multiply-blended over Hessian. NOTE: mode="multiply"
+                             is UNVERIFIED — per ../../../context/requirements.md, this string
+                             hasn't been confirmed via manual FCP export the way "14 (Overlay)"
+                             and "add" were confirmed elsewhere in this project. If it doesn't
+                             render as multiply in FCP, apply Multiply manually in the UI to one
+                             clip and re-export to get the exact string, then fix this. -->
+                        <asset-clip ref="r13" lane="1" offset="0s" name="Paper Texture (multiply)" duration="20s" tcFormat="NDF">
+                            <adjust-transform scale="1.0 1.0"/>
+                            <adjust-blend mode="multiply"/>
+                        </asset-clip>
+
+                        <!-- ================= NUCLEAR CARD (left) ================= -->
+                        <!-- Stop-motion entrance: held offscreen/invisible (scale 0) until 0.5s,
+                             then SNAPS (no easing, curve="linear" between near-identical-time
+                             keyframes = an instant jump, not a smooth tween) to an overshot scale,
+                             holds one frame, settles to rest scale. All position/scale values below
+                             are pre-divided by 10.8 per methodology.md bug #2. -->
+                        <asset-clip ref="r4" lane="2" offset="0s" name="Card – Nuclear (color)" duration="20s" tcFormat="NDF">
+                            <adjust-transform>
+                                <param name="scale">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s"     value="0 0"           curve="linear"/>
+                                        <keyframe time="0.48s"  value="0 0"           curve="linear"/>
+                                        <keyframe time="0.5s"   value="0.905 0.905"   curve="linear"/>
+                                        <keyframe time="0.66s"  value="0.905 0.905"   curve="linear"/>
+                                        <keyframe time="0.7s"   value="0.85 0.85"     curve="linear"/>
+                                        <!-- idle stepped jitter, 3s-6s -->
+                                        <keyframe time="3s"     value="0.85 0.85"     curve="linear"/>
+                                        <keyframe time="3.4s"   value="0.855 0.845"   curve="linear"/>
+                                        <keyframe time="3.9s"   value="0.848 0.852"   curve="linear"/>
+                                        <keyframe time="4.5s"   value="0.85 0.85"     curve="linear"/>
+                                        <keyframe time="5.1s"   value="0.853 0.847"   curve="linear"/>
+                                        <keyframe time="5.7s"   value="0.85 0.85"     curve="linear"/>
+                                        <keyframe time="20s"    value="0.85 0.85"     curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="position">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s"     value="-59.2593 0"        curve="linear"/>
+                                        <keyframe time="0.7s"   value="-59.2593 0"        curve="linear"/>
+                                        <keyframe time="3.4s"   value="-58.7963 0.3704"   curve="linear"/>
+                                        <keyframe time="3.9s"   value="-59.6296 -0.2778"  curve="linear"/>
+                                        <keyframe time="4.5s"   value="-59.2593 0"        curve="linear"/>
+                                        <keyframe time="5.1s"   value="-58.9815 0.3241"   curve="linear"/>
+                                        <keyframe time="5.7s"   value="-59.2593 0"        curve="linear"/>
+                                        <keyframe time="20s"    value="-59.2593 0"        curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                            </adjust-transform>
+                        </asset-clip>
+
+                        <!-- Nuclear B&W card sits directly above the color one, invisible (scale 0)
+                             until the moment the cross mark lands (7s) — then SNAPS to the same
+                             rest scale/position as the color card, in the same instant, so it
+                             instantly replaces it (hard "turns black and white" cut, stop-motion
+                             style, rather than a crossfade). -->
+                        <asset-clip ref="r5" lane="3" offset="0s" name="Card – Nuclear (B&amp;W)" duration="20s" tcFormat="NDF">
+                            <adjust-transform>
+                                <param name="scale">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s"    value="0 0"       curve="linear"/>
+                                        <keyframe time="6.98s" value="0 0"       curve="linear"/>
+                                        <keyframe time="7s"    value="0.85 0.85" curve="linear"/>
+                                        <keyframe time="20s"   value="0.85 0.85" curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="position" value="-59.2593 0"/>
+                            </adjust-transform>
+                        </asset-clip>
+
+                        <!-- Cross mark for nuclear: stop-motion slam-on at 6.8s (slightly before the
+                             B&W swap at 7s, so the cross visibly lands an instant before the color
+                             flips — reads as "the cross caused the elimination"). -->
+                        <asset-clip ref="r6" lane="4" offset="0s" name="Cross – Nuclear" duration="20s" tcFormat="NDF">
+                            <adjust-transform>
+                                <param name="scale">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s"    value="0 0"           curve="linear"/>
+                                        <keyframe time="6.78s" value="0 0"           curve="linear"/>
+                                        <keyframe time="6.8s"  value="1.105 1.105"   curve="linear"/>
+                                        <keyframe time="6.9s"  value="1.105 1.105"   curve="linear"/>
+                                        <keyframe time="6.94s" value="1.0 1.0"       curve="linear"/>
+                                        <keyframe time="20s"   value="1.0 1.0"       curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="position" value="-59.2593 0"/>
+                            </adjust-transform>
+                        </asset-clip>
+
+                        <!-- ================= CLIMATE CARD (center) ================= -->
+                        <asset-clip ref="r7" lane="5" offset="0s" name="Card – Climate (color)" duration="20s" tcFormat="NDF">
+                            <adjust-transform>
+                                <param name="scale">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s"     value="0 0"           curve="linear"/>
+                                        <keyframe time="1.48s"  value="0 0"           curve="linear"/>
+                                        <keyframe time="1.5s"   value="0.905 0.905"   curve="linear"/>
+                                        <keyframe time="1.66s"  value="0.905 0.905"   curve="linear"/>
+                                        <keyframe time="1.7s"   value="0.85 0.85"     curve="linear"/>
+                                        <keyframe time="3s"     value="0.85 0.85"     curve="linear"/>
+                                        <keyframe time="3.6s"   value="0.847 0.853"   curve="linear"/>
+                                        <keyframe time="4.2s"   value="0.853 0.847"   curve="linear"/>
+                                        <keyframe time="4.8s"   value="0.85 0.85"     curve="linear"/>
+                                        <keyframe time="5.4s"   value="0.848 0.852"   curve="linear"/>
+                                        <keyframe time="6s"     value="0.85 0.85"     curve="linear"/>
+                                        <keyframe time="20s"    value="0.85 0.85"     curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="position">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s"    value="0 0"          curve="linear"/>
+                                        <keyframe time="1.7s"  value="0 0"          curve="linear"/>
+                                        <keyframe time="3.6s"  value="0.3704 -0.2778" curve="linear"/>
+                                        <keyframe time="4.2s"  value="-0.3241 0.2315" curve="linear"/>
+                                        <keyframe time="4.8s"  value="0 0"          curve="linear"/>
+                                        <keyframe time="5.4s"  value="0.2778 -0.1852" curve="linear"/>
+                                        <keyframe time="6s"    value="0 0"          curve="linear"/>
+                                        <keyframe time="20s"   value="0 0"          curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                            </adjust-transform>
+                        </asset-clip>
+
+                        <asset-clip ref="r8" lane="6" offset="0s" name="Card – Climate (B&amp;W)" duration="20s" tcFormat="NDF">
+                            <adjust-transform>
+                                <param name="scale">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s"    value="0 0"       curve="linear"/>
+                                        <keyframe time="8.98s" value="0 0"       curve="linear"/>
+                                        <keyframe time="9s"    value="0.85 0.85" curve="linear"/>
+                                        <keyframe time="20s"   value="0.85 0.85" curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="position" value="0 0"/>
+                            </adjust-transform>
+                        </asset-clip>
+
+                        <asset-clip ref="r11" lane="7" offset="0s" name="Cross – Climate" duration="20s" tcFormat="NDF">
+                            <adjust-transform>
+                                <param name="scale">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s"    value="0 0"           curve="linear"/>
+                                        <keyframe time="8.78s" value="0 0"           curve="linear"/>
+                                        <keyframe time="8.8s"  value="1.105 1.105"   curve="linear"/>
+                                        <keyframe time="8.9s"  value="1.105 1.105"   curve="linear"/>
+                                        <keyframe time="8.94s" value="1.0 1.0"       curve="linear"/>
+                                        <keyframe time="20s"   value="1.0 1.0"       curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="position" value="0 0"/>
+                            </adjust-transform>
+                        </asset-clip>
+
+                        <!-- ================= AI CARD (right) ================= -->
+                        <asset-clip ref="r9" lane="8" offset="0s" name="Card – AI (color)" duration="20s" tcFormat="NDF">
+                            <adjust-transform>
+                                <param name="scale">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s"     value="0 0"           curve="linear"/>
+                                        <keyframe time="2.48s"  value="0 0"           curve="linear"/>
+                                        <keyframe time="2.5s"   value="0.905 0.905"   curve="linear"/>
+                                        <keyframe time="2.66s"  value="0.905 0.905"   curve="linear"/>
+                                        <keyframe time="2.7s"   value="0.85 0.85"     curve="linear"/>
+                                        <keyframe time="3.2s"   value="0.85 0.85"     curve="linear"/>
+                                        <keyframe time="3.8s"   value="0.852 0.848"   curve="linear"/>
+                                        <keyframe time="4.4s"   value="0.846 0.854"   curve="linear"/>
+                                        <keyframe time="5s"     value="0.85 0.85"     curve="linear"/>
+                                        <keyframe time="5.6s"   value="0.854 0.846"   curve="linear"/>
+                                        <keyframe time="6.2s"   value="0.85 0.85"     curve="linear"/>
+                                        <keyframe time="20s"    value="0.85 0.85"     curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="position">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s"    value="59.2593 0"          curve="linear"/>
+                                        <keyframe time="2.7s"  value="59.2593 0"          curve="linear"/>
+                                        <keyframe time="3.8s"  value="59.7222 0.2778"     curve="linear"/>
+                                        <keyframe time="4.4s"  value="58.8889 -0.3241"    curve="linear"/>
+                                        <keyframe time="5s"    value="59.2593 0"          curve="linear"/>
+                                        <keyframe time="5.6s"  value="59.5370 0.3704"     curve="linear"/>
+                                        <keyframe time="6.2s"  value="59.2593 0"          curve="linear"/>
+                                        <keyframe time="20s"   value="59.2593 0"          curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                            </adjust-transform>
+                        </asset-clip>
+
+                        <asset-clip ref="r10" lane="9" offset="0s" name="Card – AI (B&amp;W)" duration="20s" tcFormat="NDF">
+                            <adjust-transform>
+                                <param name="scale">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s"     value="0 0"       curve="linear"/>
+                                        <keyframe time="10.98s" value="0 0"       curve="linear"/>
+                                        <keyframe time="11s"    value="0.85 0.85" curve="linear"/>
+                                        <keyframe time="20s"    value="0.85 0.85" curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="position" value="59.2593 0"/>
+                            </adjust-transform>
+                        </asset-clip>
+
+                        <asset-clip ref="r12" lane="10" offset="0s" name="Cross – AI" duration="20s" tcFormat="NDF">
+                            <adjust-transform>
+                                <param name="scale">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s"     value="0 0"           curve="linear"/>
+                                        <keyframe time="10.78s" value="0 0"           curve="linear"/>
+                                        <keyframe time="10.8s"  value="1.105 1.105"   curve="linear"/>
+                                        <keyframe time="10.9s"  value="1.105 1.105"   curve="linear"/>
+                                        <keyframe time="10.94s" value="1.0 1.0"       curve="linear"/>
+                                        <keyframe time="20s"    value="1.0 1.0"       curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="position" value="59.2593 0"/>
+                            </adjust-transform>
+                        </asset-clip>
+
+                    </asset-clip>
+                </spine>
+            </sequence>
+        </media>
+
+        <asset id="r3" name="hessian_background" uid="three_threats_hessian_bg_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/infographic/three-threats/video/hessian_background.mov"/>
+        </asset>
+        <asset id="r13" name="paper_background" uid="three_threats_paper_bg_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/infographic/three-threats/video/paper_background.mov"/>
+        </asset>
+        <asset id="r4" name="card_icon_nuclear" uid="three_threats_card_nuclear_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/infographic/three-threats/video/card_icon_nuclear.mov"/>
+        </asset>
+        <asset id="r5" name="card_icon_nuclear_bw" uid="three_threats_card_nuclear_bw_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/infographic/three-threats/video/card_icon_nuclear_bw.mov"/>
+        </asset>
+        <asset id="r6" name="cross_mark" uid="three_threats_cross_mark_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/infographic/three-threats/video/cross_mark.mov"/>
+        </asset>
+        <asset id="r7" name="card_icon_climate" uid="three_threats_card_climate_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/infographic/three-threats/video/card_icon_climate.mov"/>
+        </asset>
+        <asset id="r8" name="card_icon_climate_bw" uid="three_threats_card_climate_bw_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/infographic/three-threats/video/card_icon_climate_bw.mov"/>
+        </asset>
+        <asset id="r9" name="card_icon_ai" uid="three_threats_card_ai_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/infographic/three-threats/video/card_icon_ai.mov"/>
+        </asset>
+        <asset id="r10" name="card_icon_ai_bw" uid="three_threats_card_ai_bw_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/infographic/three-threats/video/card_icon_ai_bw.mov"/>
+        </asset>
+        <!-- Separate asset entries for the climate/AI cross marks, each pointing at the
+             SAME underlying cross_mark.mov file as r6 but with distinct id/uid — avoids
+             methodology.md bug #6 (duplicate ref across sibling connected clips corrupts
+             position values). Each cross-mark clip below now references its own asset
+             entry instead of all three sharing r6. -->
+        <asset id="r11" name="cross_mark_climate" uid="three_threats_cross_mark_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/infographic/three-threats/video/cross_mark.mov"/>
+        </asset>
+        <asset id="r12" name="cross_mark_ai" uid="three_threats_cross_mark_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/infographic/three-threats/video/cross_mark.mov"/>
+        </asset>
+    </resources>
+
+    <library>
+        <event name="Three Threats">
+            <project name="Three Threats Scene">
+                <sequence format="r1" duration="20s" tcStart="0s" audioLayout="stereo" audioRate="48k">
+                    <spine>
+                        <ref-clip ref="r2" offset="0s" name="Three Threats – Master" duration="20s"/>
+                    </spine>
+                </sequence>
+            </project>
+        </event>
+    </library>
+</fcpxml>

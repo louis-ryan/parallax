@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE fcpxml>
+
+<fcpxml version="1.14">
+    <resources>
+        <format id="r1" name="FFVideoFormat1080p30" frameDuration="100/3000s" width="1920" height="1080" colorSpace="1-1-1 (Rec. 709)"/>
+        <media id="r2" name="Ocean Scene Compound" uid="wXW0/yqVS9a7hZ7qtOV0iA" modDate="2026-08-07 15:48:36 +0200">
+            <sequence format="r1" duration="20s" tcStart="0s" tcFormat="NDF" audioLayout="stereo" audioRate="48k">
+                <spine>
+                    <asset-clip ref="r3" offset="0s" name="Background – Sky/Horizon" duration="20s" tcFormat="NDF">
+                        <adjust-transform scale="1.2 1.2">
+                            <param name="position">
+                                <keyframeAnimation>
+                                    <keyframe time="0s" value="3.7037 0" curve="linear"/>
+                                    <keyframe time="20s" value="-3.7037 0" curve="linear"/>
+                                </keyframeAnimation>
+                            </param>
+                        </adjust-transform>
+                        <asset-clip ref="r5" lane="1" offset="0s" name="Mid Ocean – Tile Left" duration="20s" tcFormat="NDF">
+                            <adjust-transform scale="1.4 1.4">
+                                <param name="position">
+                                    <param name="X" key="1">
+                                        <keyframeAnimation>
+                                            <keyframe time="0s" value="40" curve="linear"/>
+                                            <keyframe time="20s" value="-237.778" curve="linear"/>
+                                        </keyframeAnimation>
+                                    </param>
+                                    <param name="Y" key="2">
+                                        <keyframeAnimation>
+                                            <keyframe time="0s" value="-1.8519" curve="linear"/>
+                                            <keyframe time="5088000/720000s" value="-16.9167"/>
+                                            <keyframe time="20s" value="-1.8519" curve="linear"/>
+                                        </keyframeAnimation>
+                                    </param>
+                                </param>
+                            </adjust-transform>
+                        </asset-clip>
+                        <asset-clip ref="r5" lane="2" offset="0s" name="Mid Ocean – Tile Center" duration="20s" tcFormat="NDF">
+                            <adjust-transform scale="1.4 1.4">
+                                <param name="position">
+                                    <param name="X" key="1">
+                                        <keyframeAnimation>
+                                            <keyframe time="0s" value="138.889" curve="linear"/>
+                                            <keyframe time="20s" value="-138.889" curve="linear"/>
+                                        </keyframeAnimation>
+                                    </param>
+                                    <param name="Y" key="2">
+                                        <keyframeAnimation>
+                                            <keyframe time="0s" value="-1.8519" curve="linear"/>
+                                            <keyframe time="5088000/720000s" value="-16.9167"/>
+                                            <keyframe time="20s" value="-1.8519" curve="linear"/>
+                                        </keyframeAnimation>
+                                    </param>
+                                </param>
+                            </adjust-transform>
+                        </asset-clip>
+                        <asset-clip ref="r5" lane="3" offset="0s" name="Mid Ocean – Tile Right" duration="20s" tcFormat="NDF">
+                            <adjust-transform scale="1.4 1.4">
+                                <param name="position">
+                                    <param name="X" key="1">
+                                        <keyframeAnimation>
+                                            <keyframe time="0s" value="237.778" curve="linear"/>
+                                            <keyframe time="20s" value="-40" curve="linear"/>
+                                        </keyframeAnimation>
+                                    </param>
+                                    <param name="Y" key="2">
+                                        <keyframeAnimation>
+                                            <keyframe time="0s" value="-1.8519" curve="linear"/>
+                                            <keyframe time="5088000/720000s" value="-16.9167"/>
+                                            <keyframe time="20s" value="-1.8519" curve="linear"/>
+                                        </keyframeAnimation>
+                                    </param>
+                                </param>
+                            </adjust-transform>
+                        </asset-clip>
+                        <asset-clip ref="r6" lane="4" offset="0s" name="Boat" duration="20s" tcFormat="NDF">
+                            <adjust-transform>
+                                <param name="position">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s" value="138.889 -1.8519" curve="linear"/>
+                                        <keyframe time="20s" value="-138.889 -1.8519" curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="rotation">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s" value="0"/>
+                                        <keyframe time="45045/30030s" value="9"/>
+                                        <keyframe time="3s" value="0"/>
+                                        <keyframe time="135135/30030s" value="-9"/>
+                                        <keyframe time="6s" value="0"/>
+                                        <keyframe time="225225/30030s" value="9"/>
+                                        <keyframe time="9s" value="0"/>
+                                        <keyframe time="315315/30030s" value="-9"/>
+                                        <keyframe time="12s" value="0"/>
+                                        <keyframe time="405405/30030s" value="9"/>
+                                        <keyframe time="15s" value="0"/>
+                                        <keyframe time="495495/30030s" value="-9"/>
+                                        <keyframe time="18s" value="0"/>
+                                        <keyframe time="585585/30030s" value="9"/>
+                                        <keyframe time="20s" value="0"/>
+                                    </keyframeAnimation>
+                                </param>
+                            </adjust-transform>
+                            <filter-video ref="r7" name="Color Adjustments">
+                                <param name="Control Range" key="19" value="0 (SDR)"/>
+                                <param name="trigger Enhance" key="18" value="6"/>
+                                <param name="Exposure" key="3" value="-12"/>
+                                <param name="Contrast" key="17" value="-41"/>
+                                <param name="Brightness" key="2" value="-41"/>
+                                <param name="Highlights" key="7" value="-30"/>
+                                <param name="Black Point" key="1" value="-61"/>
+                                <param name="Shadows" key="4" value="0"/>
+                                <param name="Super Highlights" key="25" value="0"/>
+                                <param name="Saturation" key="16" value="0"/>
+                                <param name="Highlights Warmth" key="10" value="0"/>
+                                <param name="Highlights Tint" key="11" value="0"/>
+                                <param name="Midtones Warmth" key="12" value="0"/>
+                                <param name="Midtones Tint" key="13" value="0"/>
+                                <param name="Shadows Warmth" key="14" value="0"/>
+                                <param name="Shadows Tint" key="15" value="0"/>
+                            </filter-video>
+                        </asset-clip>
+                        <asset-clip ref="r8" lane="5" offset="0s" name="Foreground – Tile Left" duration="20s" tcFormat="NDF">
+                            <adjust-transform scale="1.6 1.6">
+                                <param name="position">
+                                    <param name="X" key="1">
+                                        <keyframeAnimation>
+                                            <keyframe time="0s" value="117.037" curve="linear"/>
+                                            <keyframe time="20s" value="-345.926" curve="linear"/>
+                                        </keyframeAnimation>
+                                    </param>
+                                    <param name="Y" key="2">
+                                        <keyframeAnimation>
+                                            <keyframe time="0s" value="-1.8519" curve="linear"/>
+                                            <keyframe time="1s" value="1.00926"/>
+                                            <keyframe time="20s" value="-1.8519" curve="linear"/>
+                                        </keyframeAnimation>
+                                    </param>
+                                </param>
+                                <param name="rotation">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s" value="0"/>
+                                        <keyframe time="75075/30030s" value="2"/>
+                                        <keyframe time="5s" value="0"/>
+                                        <keyframe time="225225/30030s" value="-2"/>
+                                        <keyframe time="10s" value="0"/>
+                                        <keyframe time="375375/30030s" value="2"/>
+                                        <keyframe time="15s" value="0"/>
+                                        <keyframe time="525525/30030s" value="-2"/>
+                                        <keyframe time="20s" value="0"/>
+                                    </keyframeAnimation>
+                                </param>
+                            </adjust-transform>
+                            <filter-video ref="r9" name="Gaussian">
+                                <param name="Amount" key="9999/986883370/100/986883376/2/100" value="0.0697"/>
+                                <param name="Blur Boost" key="9999/986883370/100/986884620/2/100" value="0.108"/>
+                            </filter-video>
+                        </asset-clip>
+                        <asset-clip ref="r8" lane="6" offset="0s" name="Foreground – Tile Center" duration="20s" tcFormat="NDF">
+                            <adjust-transform scale="1.6 1.6">
+                                <param name="position">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s" value="231.482 -1.8519" curve="linear"/>
+                                        <keyframe time="20s" value="-231.482 -1.8519" curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="rotation">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s" value="0"/>
+                                        <keyframe time="75075/30030s" value="2"/>
+                                        <keyframe time="5s" value="0"/>
+                                        <keyframe time="225225/30030s" value="-2"/>
+                                        <keyframe time="10s" value="0"/>
+                                        <keyframe time="375375/30030s" value="2"/>
+                                        <keyframe time="15s" value="0"/>
+                                        <keyframe time="525525/30030s" value="-2"/>
+                                        <keyframe time="20s" value="0"/>
+                                    </keyframeAnimation>
+                                </param>
+                            </adjust-transform>
+                            <filter-video ref="r9" name="Gaussian">
+                                <param name="Amount" key="9999/986883370/100/986883376/2/100" value="0.0282"/>
+                                <param name="Blur Boost" key="9999/986883370/100/986884620/2/100" value="0.174"/>
+                            </filter-video>
+                        </asset-clip>
+                        <asset-clip ref="r8" lane="7" offset="0s" name="Foreground – Tile Right" duration="20s" tcFormat="NDF">
+                            <adjust-transform scale="1.6 1.6">
+                                <param name="position">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s" value="345.926 -1.8519" curve="linear"/>
+                                        <keyframe time="20s" value="-117.037 -1.8519" curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="rotation">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s" value="0"/>
+                                        <keyframe time="75075/30030s" value="2"/>
+                                        <keyframe time="5s" value="0"/>
+                                        <keyframe time="225225/30030s" value="-2"/>
+                                        <keyframe time="10s" value="0"/>
+                                        <keyframe time="375375/30030s" value="2"/>
+                                        <keyframe time="15s" value="0"/>
+                                        <keyframe time="525525/30030s" value="-2"/>
+                                        <keyframe time="20s" value="0"/>
+                                    </keyframeAnimation>
+                                </param>
+                            </adjust-transform>
+                            <filter-video ref="r9" name="Gaussian">
+                                <param name="Amount" key="9999/986883370/100/986883376/2/100" value="0.0675"/>
+                                <param name="Blur Boost" key="9999/986883370/100/986884620/2/100" value="0.0766667"/>
+                            </filter-video>
+                        </asset-clip>
+                        <asset-clip ref="r10" lane="8" offset="0s" name="Lightning Overlay" duration="20s" tcFormat="NDF">
+                            <adjust-transform scale="1.15 1.15"/>
+                            <adjust-blend mode="14 (Overlay)"/>
+                            <filter-video ref="r11" name="Luma Keyer">
+                                <param name="Invert" key="50" value="0"/>
+                                <param name="Luma Rolloff" key="14" value="0"/>
+                                <param name="Fill Holes" key="47/48" value="0"/>
+                                <param name="Edge Distance" key="47/54" value="3"/>
+                                <param name="Shrink/Expand" key="47/53" value="0"/>
+                                <param name="Soften" key="47/51" value="0"/>
+                                <param name="Erode" key="47/52" value="0"/>
+                                <param name="Amount" key="33/29" value="0"/>
+                                <param name="Intensity" key="33/30" value="1"/>
+                                <param name="Opacity" key="33/31" value="1"/>
+                                <param name="Mode" key="33/32" value="0 (Normal)"/>
+                                <param name="Preserve RGB" key="7" value="0"/>
+                            </filter-video>
+                        </asset-clip>
+                        <filter-video ref="r9" name="Gaussian">
+                            <param name="Amount" key="9999/986883370/100/986883376/2/100" value="0.0947"/>
+                            <param name="Blur Boost" key="9999/986883370/100/986884620/2/100" value="0.084"/>
+                        </filter-video>
+                    </asset-clip>
+                </spine>
+            </sequence>
+        </media>
+        <asset id="r3" name="ocean_background" uid="ocean_background_mov_uid" start="0s" duration="19987/1000s" hasVideo="1" format="r4" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/viking-ocean/video/ocean_background.mov"/>
+        </asset>
+        <format id="r4" name="FFVideoFormat1080p2997" frameDuration="1001/30000s" width="1920" height="1080" colorSpace="1-1-1 (Rec. 709)"/>
+        <asset id="r5" name="ocean_mid_tile" uid="ocean_mid_tile_mov_uid" start="0s" duration="19987/1000s" hasVideo="1" format="r4" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/viking-ocean/video/ocean_mid_tile.mov"/>
+        </asset>
+        <asset id="r6" name="boat" uid="boat_mov_uid" start="0s" duration="19987/1000s" hasVideo="1" format="r4" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/viking-ocean/video/boat.mov"/>
+        </asset>
+        <effect id="r7" name="Color Adjustments" uid="FxPlug:7E2022A5-202B-4EEB-A311-AC2B585D01B0"/>
+        <asset id="r8" name="ocean_foreground_tile" uid="ocean_foreground_tile_mov_uid" start="0s" duration="19987/1000s" hasVideo="1" format="r4" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/viking-ocean/video/ocean_foreground_tile.mov"/>
+        </asset>
+        <effect id="r9" name="Gaussian" uid=".../Effects.localized/Blur.localized/Gaussian.localized/Gaussian.moef"/>
+        <asset id="r10" name="lightning" uid="lightning_mov_uid" start="0s" duration="20020/1000s" hasVideo="1" format="r4" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/viking-ocean/video/lightning.mov"/>
+        </asset>
+        <effect id="r11" name="Luma Keyer" uid="FxPlug:7E9178C5-7B0F-4B86-884D-FE79F568B6CE"/>
+        <asset id="r12" name="thunder" uid="thunder_audio_uid" start="0s" duration="20s" hasAudio="1" audioSources="1" audioChannels="2" audioRate="48000">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/viking-ocean/audio/thunder.wav"/>
+        </asset>
+        <asset id="r13" name="Mironczarnia - Jakub Neske" uid="2E6C2601B1B86884DC0ED13B371A2724" start="0s" duration="11616256/44100s" hasAudio="1" audioSources="1" audioChannels="2" audioRate="44100">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/viking-ocean/audio/Mironczarnia%20-%20Jakub%20Neske.mp3"/>
+        </asset>
+        <format id="r14" name="FFVideoFormatRateUndefined"/>
+        <asset id="r15" name="ocean_waves" uid="ocean_waves_audio_uid" start="0s" duration="20s" hasAudio="1" audioSources="1" audioChannels="2" audioRate="48000">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/viking-ocean/audio/ocean_waves.wav"/>
+        </asset>
+    </resources>
+    <library>
+        <event name="Viking Ocean">
+            <project name="Viking Ocean Scene">
+                <sequence format="r1" duration="20s" tcStart="0s" audioLayout="stereo" audioRate="48k">
+                    <spine>
+                        <ref-clip ref="r2" offset="0s" name="Ocean Scene Compound" duration="20s">
+                            <adjust-transform scale="1.35 1.35">
+                                <param name="rotation">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s" value="0"/>
+                                        <keyframe time="4s" value="1.6"/>
+                                        <keyframe time="8s" value="-1.2"/>
+                                        <keyframe time="12s" value="1.4"/>
+                                        <keyframe time="16s" value="-1.6"/>
+                                        <keyframe time="20s" value="0"/>
+                                    </keyframeAnimation>
+                                </param>
+                            </adjust-transform>
+                            <asset-clip ref="r12" lane="-2" offset="0s" name="Thunder Audio" duration="20s" audioRole="effects"/>
+                            <asset-clip ref="r13" lane="-1" offset="0s" name="Mironczarnia - Jakub Neske" start="129112585/720000s" duration="51900474/720000s" format="r14" audioRole="dialogue"/>
+                            <asset-clip ref="r15" lane="-1" offset="0s" name="Ocean Waves Audio" duration="20s" audioRole="effects">
+                                <adjust-volume amount="-12dB"/>
+                            </asset-clip>
+                        </ref-clip>
+                    </spine>
+                </sequence>
+            </project>
+        </event>
+    </library>
+</fcpxml>

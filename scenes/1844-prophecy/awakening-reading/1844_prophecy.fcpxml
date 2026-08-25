@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE fcpxml>
+
+<!--
+SOURCE ATTRIBUTION:
+- Vincent van Gogh, "Still Life with Bible" (1885, Van Gogh Museum, public domain,
+  via Wikimedia Commons) — hero image
+- Pexels: "Close-up of a single candle flame flickering in the darkness" by
+  Nothing Ahead (pexels.com/video/close-up-of-flickering-candlelight-4055411/,
+  free-use Pexels license) — real candle flame footage, cropped to isolate the
+  flame and composited with mode="add" onto the painted candle's wick
+
+Geometry backdrop and equation text are procedurally generated (PIL scripts in
+source_images/), not sourced imagery. Equation text references the real 1844
+Millerite calculation: Daniel 8:14's "2300 evenings and mornings", the 457 BC
+decree of Artaxerxes (Ezra 7) as the starting point, and Daniel 9:24's "seventy
+weeks" (490 years) — the actual prophetic chronology William Miller used to
+arrive at 1843/1844.
+
+This scene originally began as a fourth entry in scenes/infographic/, but the user
+asked for it to become its own top-level project with a different visual language
+(geometric/illuminated realism, not paper-cutout collage) — see ../style.md.
+-->
+
+<fcpxml version="1.14">
+    <resources>
+        <format id="r1" name="FFVideoFormat1080p30" frameDuration="1001/30030s" width="1920" height="1080" colorSpace="1-1-1 (Rec. 709)"/>
+
+        <!-- COMPOUND SCENE — see ../../../context/methodology.md. Unlike the
+             infographic-project scenes, this one DOES use a whole-scene camera
+             transform (a slow upward pan) on the outer ref-clip — see the bottom
+             of this file. Per methodology.md bug #5, the outer-ref-clip-transform
+             trick only works for SMALL transforms; this pan is deliberately subtle
+             (a few percent drift) to stay within that limit. -->
+        <media id="r2" name="1844 Prophecy Compound" uid="prophecy_1844_v2_compound_uid">
+            <sequence format="r1" duration="20s" tcStart="0s" tcFormat="NDF" audioLayout="stereo" audioRate="48k">
+                <spine>
+
+                    <!-- BASE COLOR — the spine's root clip: a real solid near-black
+                         .mov rendered via ffmpeg (`color=c=0x120e0a`), not an FCP
+                         generator element (avoided since that syntax isn't confirmed —
+                         see methodology.md's guidance on verifying unfamiliar effect/
+                         generator syntax via manual export before trusting it blind;
+                         a plain rendered solid-color video sidesteps the risk
+                         entirely). Everything else nests inside as lane children. -->
+                    <asset-clip ref="r3" offset="0s" name="Base Color" duration="20s" tcFormat="NDF">
+                        <adjust-transform scale="1.0 1.0"/>
+
+                        <!-- GEOMETRIC DESK SCENE — a low-poly/flat-shaded desk, wall,
+                             window, and bookshelf built from geometric shapes (see
+                             source_images/build_desk_scene.py), replacing the earlier
+                             abstract halo/rings/rays backdrop, which the user reported
+                             as reading as invisible/imperceptible decoration rather
+                             than an actual environment. The geometry now constructs a
+                             real room the Bible sits IN, not atmosphere behind it. -->
+                        <asset-clip ref="r4" lane="1" offset="0s" name="Geometry – Desk Scene" duration="20s" tcFormat="NDF">
+                            <adjust-transform scale="1.0 1.0"/>
+                        </asset-clip>
+
+                        <!-- Warm candlelight glow pool on the desk surface, additive,
+                             so the flat-shaded desk reads as lit by the candle rather
+                             than uniformly flat. -->
+                        <asset-clip ref="r5" lane="2" offset="0s" name="Geometry – Desk Glow" duration="20s" tcFormat="NDF">
+                            <adjust-transform scale="1.0 1.0"/>
+                            <adjust-blend mode="add"/>
+                        </asset-clip>
+
+                        <!-- PAPER TEXTURE — kept for consistency with every other scene
+                             in the library per the user's explicit request, but at
+                             REDUCED opacity (unlike infographic/'s scenes, where paper
+                             texture is full-opacity and only the Hessian layer gets
+                             reduced — this scene skips Hessian entirely, since its
+                             burlap-weave look doesn't fit this candlelit-dark
+                             aesthetic, per the user's choice) so the grain doesn't
+                             compete with the candlelight glow. Reuses the SAME
+                             underlying paper_background.mp4 file as every infographic
+                             scene; own re-encoded .mov file here (new project, new
+                             video/ folder), so own scene-local asset id (r8), but uid
+                             MUST match the already-registered uid per methodology.md
+                             bug #6b (content-based tracking applies across the whole
+                             FCP library, not scoped per-project). DTD ordering:
+                             adjust-transform before adjust-blend (bug #6c). -->
+                        <asset-clip ref="r8" lane="3" offset="0s" name="Paper Texture (multiply, reduced)" duration="20s" tcFormat="NDF">
+                            <adjust-transform scale="1.0 1.0"/>
+                            <adjust-blend amount="0.35" mode="multiply"/>
+                        </asset-clip>
+
+                        <!-- ================= HERO STILL LIFE =================
+                             Van Gogh's Bible and candle, now positioned ON the desk
+                             surface (true px (40, 277), scale 0.55) rather than
+                             centered in an abstract void — see ../style.md's
+                             "Geometric desk environment" section. All position/scale
+                             values pre-divided by 10.8 per methodology.md bug #2.
+                             Smooth eased entrance (curve="smooth"), not a stop-motion
+                             snap — per ../style.md this project uses continuous
+                             motion. -->
+                        <asset-clip ref="r9" lane="4" offset="0s" name="Hero – Bible and Candle" duration="20s" tcFormat="NDF">
+                            <adjust-transform>
+                                <param name="scale">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s"    value="0.4 0.4"     curve="smooth"/>
+                                        <keyframe time="2.5s"  value="0.55 0.55"   curve="smooth"/>
+                                        <keyframe time="20s"   value="0.55 0.55"   curve="smooth"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="position" value="3.7037 -25.6481"/>
+                            </adjust-transform>
+                        </asset-clip>
+
+                        <!-- CANDLE FLAME — real Pexels footage, cropped to isolate just
+                             the flame, positioned so its native-canvas placement (baked
+                             in during ffmpeg crop/pad) tracks the hero's rest scale/
+                             position. mode="add" so the near-black footage background
+                             contributes nothing and only the flame glows onto the
+                             painting. No flicker keyframing needed — flicker comes from
+                             the real footage itself. -->
+                        <asset-clip ref="r10" lane="5" offset="0s" name="Candle Flame (real footage)" duration="20s" tcFormat="NDF">
+                            <adjust-transform>
+                                <param name="scale">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s"    value="0.4 0.4"     curve="smooth"/>
+                                        <keyframe time="2.5s"  value="0.55 0.55"   curve="smooth"/>
+                                        <keyframe time="20s"   value="0.55 0.55"   curve="smooth"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="position" value="16.6552 -11.1373"/>
+                            </adjust-transform>
+                            <adjust-blend mode="add"/>
+                        </asset-clip>
+
+                        <!-- ================= EMERGING EQUATION TEXT =================
+                             Four plain glowing text fragments, drifting slowly outward
+                             and upward from the book over the clip's duration —
+                             curve="smooth" continuous motion, staggered start times,
+                             NOT the stop-motion snap-to-rest technique used in
+                             infographic/. Scale fades up from near-0 (materializing)
+                             alongside the position drift. -->
+
+                        <!-- Daniel 8:14 — drifts to lower-left. -->
+                        <asset-clip ref="r11" lane="6" offset="0s" name="Text – Daniel 8:14" duration="20s" tcFormat="NDF">
+                            <adjust-transform>
+                                <param name="scale">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s"    value="0 0"         curve="smooth"/>
+                                        <keyframe time="2s"    value="0 0"         curve="smooth"/>
+                                        <keyframe time="3s"    value="0.55 0.55"   curve="smooth"/>
+                                        <keyframe time="20s"   value="0.75 0.75"   curve="smooth"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="position">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s"    value="-3.7037 -31.2037"    curve="smooth"/>
+                                        <keyframe time="2s"    value="-3.7037 -31.2037"    curve="smooth"/>
+                                        <keyframe time="20s"   value="-53.7037 -51.5741"   curve="smooth"/>
+                                    </keyframeAnimation>
+                                </param>
+                            </adjust-transform>
+                        </asset-clip>
+
+                        <!-- 2300-457=1843 — drifts to lower-right. -->
+                        <asset-clip ref="r12" lane="7" offset="0s" name="Text – Years" duration="20s" tcFormat="NDF">
+                            <adjust-transform>
+                                <param name="scale">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s"    value="0 0"         curve="smooth"/>
+                                        <keyframe time="4s"    value="0 0"         curve="smooth"/>
+                                        <keyframe time="5s"    value="0.55 0.55"   curve="smooth"/>
+                                        <keyframe time="20s"   value="0.75 0.75"   curve="smooth"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="position">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s"    value="12.963 -29.3519"   curve="smooth"/>
+                                        <keyframe time="4s"    value="12.963 -29.3519"   curve="smooth"/>
+                                        <keyframe time="20s"   value="59.2593 -49.7222"  curve="smooth"/>
+                                    </keyframeAnimation>
+                                </param>
+                            </adjust-transform>
+                        </asset-clip>
+
+                        <!-- 457 B.C. Ezra decree — drifts to upper-left. -->
+                        <asset-clip ref="r13" lane="8" offset="0s" name="Text – Ezra Decree" duration="20s" tcFormat="NDF">
+                            <adjust-transform>
+                                <param name="scale">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s"    value="0 0"         curve="smooth"/>
+                                        <keyframe time="6s"    value="0 0"         curve="smooth"/>
+                                        <keyframe time="7s"    value="0.52 0.52"   curve="smooth"/>
+                                        <keyframe time="20s"   value="0.72 0.72"   curve="smooth"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="position">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s"    value="-1.8519 -16.3889"  curve="smooth"/>
+                                        <keyframe time="6s"    value="-1.8519 -16.3889"  curve="smooth"/>
+                                        <keyframe time="20s"   value="-46.2963 3.9815"   curve="smooth"/>
+                                    </keyframeAnimation>
+                                </param>
+                            </adjust-transform>
+                        </asset-clip>
+
+                        <!-- 7x70 weeks — drifts to upper-right, last to emerge. -->
+                        <asset-clip ref="r14" lane="9" offset="0s" name="Text – Numerology" duration="20s" tcFormat="NDF">
+                            <adjust-transform>
+                                <param name="scale">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s"    value="0 0"         curve="smooth"/>
+                                        <keyframe time="8s"    value="0 0"         curve="smooth"/>
+                                        <keyframe time="9s"    value="0.52 0.52"   curve="smooth"/>
+                                        <keyframe time="20s"   value="0.72 0.72"   curve="smooth"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="position">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s"    value="11.1111 -18.2407"  curve="smooth"/>
+                                        <keyframe time="8s"    value="11.1111 -18.2407"  curve="smooth"/>
+                                        <keyframe time="20s"   value="55.5556 2.1296"    curve="smooth"/>
+                                    </keyframeAnimation>
+                                </param>
+                            </adjust-transform>
+                        </asset-clip>
+
+                    </asset-clip>
+                </spine>
+            </sequence>
+        </media>
+
+        <!-- Paper texture: SAME underlying file as every infographic scene, reusing
+             its exact uid string per methodology.md bug #6b (uid tracking is
+             content-based across the whole FCP library, not scoped per-project —
+             this is a brand-new project directory, but the underlying
+             paper_background.mp4 bytes are already registered in the user's library
+             under this uid). Hessian is deliberately NOT included in this scene —
+             see ../style.md and this file's spine comments. -->
+        <asset id="r8" name="paper_background" uid="three_threats_paper_bg_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/1844-prophecy/awakening-reading/video/paper_background.mov"/>
+        </asset>
+
+        <!-- Scene-local pieces — fresh uids, no reuse elsewhere. -->
+        <asset id="r3" name="base_color" uid="prophecy_1844_v2_base_color_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/1844-prophecy/awakening-reading/video/base_color.mov"/>
+        </asset>
+        <asset id="r4" name="desk_scene" uid="prophecy_1844_v2_desk_scene_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/1844-prophecy/awakening-reading/video/desk_scene.mov"/>
+        </asset>
+        <asset id="r5" name="desk_glow" uid="prophecy_1844_v2_desk_glow_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/1844-prophecy/awakening-reading/video/desk_glow.mov"/>
+        </asset>
+        <asset id="r9" name="piece_hero_bible" uid="prophecy_1844_v2_piece_hero_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/1844-prophecy/awakening-reading/video/piece_hero_bible.mov"/>
+        </asset>
+        <asset id="r10" name="flame" uid="prophecy_1844_v2_flame_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/1844-prophecy/awakening-reading/video/flame.mov"/>
+        </asset>
+        <asset id="r11" name="text_daniel_2300" uid="prophecy_1844_v2_text_daniel_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/1844-prophecy/awakening-reading/video/text_daniel_2300.mov"/>
+        </asset>
+        <asset id="r12" name="text_years" uid="prophecy_1844_v2_text_years_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/1844-prophecy/awakening-reading/video/text_years.mov"/>
+        </asset>
+        <asset id="r13" name="text_ezra" uid="prophecy_1844_v2_text_ezra_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/1844-prophecy/awakening-reading/video/text_ezra.mov"/>
+        </asset>
+        <asset id="r14" name="text_numerology" uid="prophecy_1844_v2_text_numerology_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/1844-prophecy/awakening-reading/video/text_numerology.mov"/>
+        </asset>
+    </resources>
+
+    <library>
+        <event name="1844 Prophecy">
+            <project name="1844 Prophecy — Awakening Reading">
+                <sequence format="r1" duration="20s" tcStart="0s" tcFormat="NDF" audioLayout="stereo" audioRate="48k">
+                    <spine>
+                        <!-- Slow upward camera pan — small amplitude, per
+                             methodology.md bug #5's limit on outer-ref-clip transforms.
+                             Drifts up (+y) and zooms in very slightly over the full
+                             20s, curve="smooth" for a slow reverent movement rather
+                             than a mechanical linear pan. -->
+                        <ref-clip ref="r2" offset="0s" name="1844 Prophecy – Master" duration="20s">
+                            <adjust-transform>
+                                <param name="scale">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s"   value="1.0 1.0"     curve="smooth"/>
+                                        <keyframe time="20s"  value="1.04 1.04"   curve="smooth"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="position">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s"   value="0 0"        curve="smooth"/>
+                                        <keyframe time="20s"  value="0 3.7037"   curve="smooth"/>
+                                    </keyframeAnimation>
+                                </param>
+                            </adjust-transform>
+                        </ref-clip>
+                    </spine>
+                </sequence>
+            </project>
+        </event>
+    </library>
+</fcpxml>

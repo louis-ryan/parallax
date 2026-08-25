@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE fcpxml>
+
+<!--
+SOURCE ATTRIBUTION (all public domain, via Wikimedia Commons):
+- Carl Spitzweg, "Der Zeitungsleser" / "Newspaper Reader in the Garden" (1868) — hero figure
+- Francisco de Goya, "A Procession of Flagellants" (c.1814-1816) — thought bubble
+- Master of the Chronique scandaleuse, "Denise Poncher before a Vision of Death"
+  (c.1500, J. Paul Getty Museum / Poncher Hours) — thought bubble
+- Michael Wolgemut, "Danse Macabre" (1493 woodcut, Nuremberg Chronicle) — thought bubble
+- Anonymous, "Torturing and execution of witches" (14th c. medieval miniature,
+  Chroniques de France ou de St Denis, British Library Royal MS 16 G VI) — thought bubble
+-->
+
+<fcpxml version="1.14">
+    <resources>
+        <format id="r1" name="FFVideoFormat1080p30" frameDuration="1001/30030s" width="1920" height="1080" colorSpace="1-1-1 (Rec. 709)"/>
+
+        <!-- COMPOUND SCENE — all layers pre-composed here, per the standard project
+             pattern (see ../../../context/methodology.md). No whole-scene camera
+             transform on the outer ref-clip — flat infographic collage, not a
+             moving-camera environment scene. Structure mirrors
+             ../religious-hysteria/religious_hysteria.fcpxml (Hessian base + multiply
+             paper texture + stop-motion paper-cutout pieces), adapted for a
+             "hero figure + rising thought-bubble chain" composition. -->
+        <media id="r2" name="Romantic Dream Compound" uid="romantic_dream_compound_uid">
+            <sequence format="r1" duration="20s" tcStart="0s" tcFormat="NDF" audioLayout="stereo" audioRate="48k">
+                <spine>
+
+                    <!-- HESSIAN BACKGROUND — true base layer, full frame, static, opaque.
+                         Encoded generously oversized then cropped to 1920x1080 (NOT a
+                         naive stretch of the 956x1000 source) so it genuinely fills the
+                         frame horizontally — see ../style.md's "Background layering"
+                         section, a fix the user had to apply by hand on the previous two
+                         scenes. Reuses the SAME underlying hessian.jpg as
+                         ../three-threats and ../religious-hysteria; this scene has its
+                         own re-encoded .mov file, so its own scene-local asset id (r3),
+                         but the uid MUST match those scenes' registered uid per
+                         methodology.md bug #6b (both are already imported into the
+                         user's FCP library). DTD ordering: adjust-transform before
+                         adjust-blend (methodology.md bug #6c). -->
+                    <asset-clip ref="r3" offset="0s" name="Hessian Background" duration="20s" tcFormat="NDF">
+                        <adjust-transform scale="1.0 1.0"/>
+                        <adjust-blend amount="0.7"/>
+
+                        <!-- PAPER TEXTURE — multiply-blended over Hessian at full
+                             opacity (only the Hessian gets the 70% opacity reduction,
+                             per the user's instruction). Double-checked mode="multiply"
+                             is actually present here, not just described in a comment —
+                             this exact bug (blend mode silently missing/ineffective)
+                             is what the user had to fix by hand on both prior scenes. -->
+                        <asset-clip ref="r4" lane="1" offset="0s" name="Paper Texture (multiply)" duration="20s" tcFormat="NDF">
+                            <adjust-transform scale="1.0 1.0"/>
+                            <adjust-blend mode="multiply"/>
+                        </asset-clip>
+
+                        <!-- ================= HERO FIGURE =================
+                             The Romantic gentleman, standing in his garden — Carl
+                             Spitzweg's "Der Zeitungsleser". Largest/lowest element,
+                             enters first. Rest position: true px (-380, -160), scale
+                             1.35. All position/scale values pre-divided by 10.8 per
+                             methodology.md bug #2. -->
+                        <asset-clip ref="r5" lane="2" offset="0s" name="Hero – Romantic Figure" duration="20s" tcFormat="NDF">
+                            <adjust-transform>
+                                <param name="scale">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s"     value="0 0"           curve="linear"/>
+                                        <keyframe time="0.48s"  value="0 0"           curve="linear"/>
+                                        <keyframe time="0.5s"   value="1.43 1.43"     curve="linear"/>
+                                        <keyframe time="0.68s"  value="1.43 1.43"     curve="linear"/>
+                                        <keyframe time="0.72s"  value="1.35 1.35"     curve="linear"/>
+                                        <keyframe time="5s"     value="1.35 1.35"     curve="linear"/>
+                                        <keyframe time="6s"     value="1.355 1.345"   curve="linear"/>
+                                        <keyframe time="7.2s"   value="1.347 1.353"   curve="linear"/>
+                                        <keyframe time="8.5s"   value="1.35 1.35"     curve="linear"/>
+                                        <keyframe time="11s"    value="1.353 1.347"   curve="linear"/>
+                                        <keyframe time="14s"    value="1.35 1.35"     curve="linear"/>
+                                        <keyframe time="17.5s"  value="1.348 1.352"   curve="linear"/>
+                                        <keyframe time="20s"    value="1.35 1.35"     curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="position">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s"     value="-35.1852 -14.8148"  curve="linear"/>
+                                        <keyframe time="0.72s"  value="-35.1852 -14.8148"  curve="linear"/>
+                                        <keyframe time="6s"     value="-34.7222 -14.4444"  curve="linear"/>
+                                        <keyframe time="7.2s"   value="-35.6481 -15.1852"  curve="linear"/>
+                                        <keyframe time="8.5s"   value="-35.1852 -14.8148"  curve="linear"/>
+                                        <keyframe time="11s"    value="-34.9074 -15.0926"  curve="linear"/>
+                                        <keyframe time="14s"    value="-35.1852 -14.8148"  curve="linear"/>
+                                        <keyframe time="17.5s"  value="-35.463 -14.537"    curve="linear"/>
+                                        <keyframe time="20s"    value="-35.1852 -14.8148"  curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="rotation">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s"     value="0"     curve="linear"/>
+                                        <keyframe time="0.48s"  value="0"     curve="linear"/>
+                                        <keyframe time="0.5s"   value="3.2"   curve="linear"/>
+                                        <keyframe time="0.68s"  value="3.2"   curve="linear"/>
+                                        <keyframe time="0.72s"  value="1.4"   curve="linear"/>
+                                        <keyframe time="6s"     value="1.4"   curve="linear"/>
+                                        <keyframe time="7.2s"   value="1.2"   curve="linear"/>
+                                        <keyframe time="11s"    value="1.4"   curve="linear"/>
+                                        <keyframe time="14s"    value="1.6"   curve="linear"/>
+                                        <keyframe time="20s"    value="1.4"   curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                            </adjust-transform>
+                        </asset-clip>
+
+                        <!-- Trailing thought-circles connecting his head to the bubble
+                             chain — enters second, right after the hero settles.
+                             Rest position: true px (-40, 60), scale 1.0. -->
+                        <asset-clip ref="r6" lane="3" offset="0s" name="Thought Trail" duration="20s" tcFormat="NDF">
+                            <adjust-transform>
+                                <param name="scale">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s"     value="0 0"       curve="linear"/>
+                                        <keyframe time="1.28s"  value="0 0"       curve="linear"/>
+                                        <keyframe time="1.3s"   value="1.1 1.1"   curve="linear"/>
+                                        <keyframe time="1.46s"  value="1.1 1.1"   curve="linear"/>
+                                        <keyframe time="1.5s"   value="1.0 1.0"   curve="linear"/>
+                                        <keyframe time="20s"    value="1.0 1.0"   curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="position" value="-3.7037 5.5556"/>
+                            </adjust-transform>
+                        </asset-clip>
+
+                        <!-- ================= THOUGHT BUBBLE CHAIN =================
+                             Four medieval-hysteria visions, staggered entrance rising
+                             from near the head outward, each a stop-motion snap with
+                             overshoot-bounce (same technique as ../three-threats and
+                             ../religious-hysteria). Idle jitter ~5s-14s, hold to 20s. -->
+
+                        <!-- Bubble 1 (nearest head) — Flagellants. Rest: true px (280, 260), scale 0.95. -->
+                        <asset-clip ref="r7" lane="4" offset="0s" name="Thought – Flagellants" duration="20s" tcFormat="NDF">
+                            <adjust-transform>
+                                <param name="scale">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s"     value="0 0"           curve="linear"/>
+                                        <keyframe time="2.08s"  value="0 0"           curve="linear"/>
+                                        <keyframe time="2.1s"   value="1.02 1.02"     curve="linear"/>
+                                        <keyframe time="2.26s"  value="1.02 1.02"     curve="linear"/>
+                                        <keyframe time="2.3s"   value="0.95 0.95"     curve="linear"/>
+                                        <keyframe time="5.6s"   value="0.95 0.95"     curve="linear"/>
+                                        <keyframe time="6.4s"   value="0.956 0.944"   curve="linear"/>
+                                        <keyframe time="7.3s"   value="0.945 0.955"   curve="linear"/>
+                                        <keyframe time="8.2s"   value="0.95 0.95"     curve="linear"/>
+                                        <keyframe time="10.5s"  value="0.953 0.947"   curve="linear"/>
+                                        <keyframe time="14s"    value="0.95 0.95"     curve="linear"/>
+                                        <keyframe time="17.5s"  value="0.948 0.952"   curve="linear"/>
+                                        <keyframe time="20s"    value="0.95 0.95"     curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="position">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s"     value="25.9259 24.0741"   curve="linear"/>
+                                        <keyframe time="2.3s"   value="25.9259 24.0741"   curve="linear"/>
+                                        <keyframe time="6.4s"   value="26.3889 24.537"    curve="linear"/>
+                                        <keyframe time="7.3s"   value="25.5556 23.7963"   curve="linear"/>
+                                        <keyframe time="8.2s"   value="25.9259 24.0741"   curve="linear"/>
+                                        <keyframe time="10.5s"  value="26.2037 24.3519"   curve="linear"/>
+                                        <keyframe time="14s"    value="25.9259 24.0741"   curve="linear"/>
+                                        <keyframe time="17.5s"  value="25.6481 23.7963"   curve="linear"/>
+                                        <keyframe time="20s"    value="25.9259 24.0741"   curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="rotation">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s"     value="0"     curve="linear"/>
+                                        <keyframe time="2.08s"  value="0"     curve="linear"/>
+                                        <keyframe time="2.1s"   value="-5.5"  curve="linear"/>
+                                        <keyframe time="2.26s"  value="-5.5"  curve="linear"/>
+                                        <keyframe time="2.3s"   value="-2.8"  curve="linear"/>
+                                        <keyframe time="6.4s"   value="-2.8"  curve="linear"/>
+                                        <keyframe time="7.3s"   value="-2.5"  curve="linear"/>
+                                        <keyframe time="10.5s"  value="-2.8"  curve="linear"/>
+                                        <keyframe time="14s"    value="-3.0"  curve="linear"/>
+                                        <keyframe time="20s"    value="-2.8"  curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                            </adjust-transform>
+                        </asset-clip>
+
+                        <!-- Bubble 2 — Poncher/Vision of Death. Rest: true px (560, 380), scale 1.05. -->
+                        <asset-clip ref="r8" lane="5" offset="0s" name="Thought – Death" duration="20s" tcFormat="NDF">
+                            <adjust-transform>
+                                <param name="scale">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s"     value="0 0"           curve="linear"/>
+                                        <keyframe time="2.88s"  value="0 0"           curve="linear"/>
+                                        <keyframe time="2.9s"   value="1.13 1.13"     curve="linear"/>
+                                        <keyframe time="3.06s"  value="1.13 1.13"     curve="linear"/>
+                                        <keyframe time="3.1s"   value="1.05 1.05"     curve="linear"/>
+                                        <keyframe time="6.2s"   value="1.05 1.05"     curve="linear"/>
+                                        <keyframe time="7s"     value="1.057 1.043"   curve="linear"/>
+                                        <keyframe time="7.9s"   value="1.045 1.055"   curve="linear"/>
+                                        <keyframe time="8.8s"   value="1.05 1.05"     curve="linear"/>
+                                        <keyframe time="11.5s"  value="1.053 1.047"   curve="linear"/>
+                                        <keyframe time="15s"    value="1.05 1.05"     curve="linear"/>
+                                        <keyframe time="18.5s"  value="1.048 1.052"   curve="linear"/>
+                                        <keyframe time="20s"    value="1.05 1.05"     curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="position">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s"     value="51.8519 35.1852"   curve="linear"/>
+                                        <keyframe time="3.1s"   value="51.8519 35.1852"   curve="linear"/>
+                                        <keyframe time="7s"     value="52.3148 35.5556"   curve="linear"/>
+                                        <keyframe time="7.9s"   value="51.4815 34.8148"   curve="linear"/>
+                                        <keyframe time="8.8s"   value="51.8519 35.1852"   curve="linear"/>
+                                        <keyframe time="11.5s"  value="52.1296 35.463"    curve="linear"/>
+                                        <keyframe time="15s"    value="51.8519 35.1852"   curve="linear"/>
+                                        <keyframe time="18.5s"  value="51.5741 34.9074"   curve="linear"/>
+                                        <keyframe time="20s"    value="51.8519 35.1852"   curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="rotation">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s"     value="0"    curve="linear"/>
+                                        <keyframe time="2.88s"  value="0"    curve="linear"/>
+                                        <keyframe time="2.9s"   value="5.0"  curve="linear"/>
+                                        <keyframe time="3.06s"  value="5.0"  curve="linear"/>
+                                        <keyframe time="3.1s"   value="2.6"  curve="linear"/>
+                                        <keyframe time="7s"     value="2.6"  curve="linear"/>
+                                        <keyframe time="7.9s"   value="2.4"  curve="linear"/>
+                                        <keyframe time="11.5s"  value="2.6"  curve="linear"/>
+                                        <keyframe time="15s"    value="2.8"  curve="linear"/>
+                                        <keyframe time="20s"    value="2.6"  curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                            </adjust-transform>
+                        </asset-clip>
+
+                        <!-- Bubble 3 — Danse Macabre. Rest: true px (240, 480), scale 0.85. -->
+                        <asset-clip ref="r9" lane="6" offset="0s" name="Thought – Danse Macabre" duration="20s" tcFormat="NDF">
+                            <adjust-transform>
+                                <param name="scale">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s"     value="0 0"           curve="linear"/>
+                                        <keyframe time="3.68s"  value="0 0"           curve="linear"/>
+                                        <keyframe time="3.7s"   value="0.91 0.91"     curve="linear"/>
+                                        <keyframe time="3.86s"  value="0.91 0.91"     curve="linear"/>
+                                        <keyframe time="3.9s"   value="0.85 0.85"     curve="linear"/>
+                                        <keyframe time="6.8s"   value="0.85 0.85"     curve="linear"/>
+                                        <keyframe time="7.6s"   value="0.856 0.844"   curve="linear"/>
+                                        <keyframe time="8.4s"   value="0.845 0.855"   curve="linear"/>
+                                        <keyframe time="9.3s"   value="0.85 0.85"     curve="linear"/>
+                                        <keyframe time="12s"    value="0.853 0.847"   curve="linear"/>
+                                        <keyframe time="15.5s"  value="0.85 0.85"     curve="linear"/>
+                                        <keyframe time="19s"    value="0.848 0.852"   curve="linear"/>
+                                        <keyframe time="20s"    value="0.85 0.85"     curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="position">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s"     value="22.2222 44.4444"   curve="linear"/>
+                                        <keyframe time="3.9s"   value="22.2222 44.4444"   curve="linear"/>
+                                        <keyframe time="7.6s"   value="22.6852 44.8148"   curve="linear"/>
+                                        <keyframe time="8.4s"   value="21.8519 44.0741"   curve="linear"/>
+                                        <keyframe time="9.3s"   value="22.2222 44.4444"   curve="linear"/>
+                                        <keyframe time="12s"    value="22.5 44.7222"      curve="linear"/>
+                                        <keyframe time="15.5s"  value="22.2222 44.4444"   curve="linear"/>
+                                        <keyframe time="19s"    value="21.9444 44.1667"   curve="linear"/>
+                                        <keyframe time="20s"    value="22.2222 44.4444"   curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="rotation">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s"     value="0"     curve="linear"/>
+                                        <keyframe time="3.68s"  value="0"     curve="linear"/>
+                                        <keyframe time="3.7s"   value="-6.2"  curve="linear"/>
+                                        <keyframe time="3.86s"  value="-6.2"  curve="linear"/>
+                                        <keyframe time="3.9s"   value="-3.4"  curve="linear"/>
+                                        <keyframe time="7.6s"   value="-3.4"  curve="linear"/>
+                                        <keyframe time="8.4s"   value="-3.1"  curve="linear"/>
+                                        <keyframe time="12s"    value="-3.4"  curve="linear"/>
+                                        <keyframe time="15.5s"  value="-3.6"  curve="linear"/>
+                                        <keyframe time="20s"    value="-3.4"  curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                            </adjust-transform>
+                        </asset-clip>
+
+                        <!-- Bubble 4 (furthest, last to arrive) — Witch Trial. Rest: true px (620, 130), scale 0.9. -->
+                        <asset-clip ref="r10" lane="7" offset="0s" name="Thought – Witch Trial" duration="20s" tcFormat="NDF">
+                            <adjust-transform>
+                                <param name="scale">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s"     value="0 0"           curve="linear"/>
+                                        <keyframe time="4.48s"  value="0 0"           curve="linear"/>
+                                        <keyframe time="4.5s"   value="0.97 0.97"     curve="linear"/>
+                                        <keyframe time="4.66s"  value="0.97 0.97"     curve="linear"/>
+                                        <keyframe time="4.7s"   value="0.9 0.9"       curve="linear"/>
+                                        <keyframe time="7.5s"   value="0.9 0.9"       curve="linear"/>
+                                        <keyframe time="8.3s"   value="0.906 0.894"   curve="linear"/>
+                                        <keyframe time="9.2s"   value="0.895 0.905"   curve="linear"/>
+                                        <keyframe time="10s"    value="0.9 0.9"       curve="linear"/>
+                                        <keyframe time="12.5s"  value="0.903 0.897"   curve="linear"/>
+                                        <keyframe time="16s"    value="0.9 0.9"       curve="linear"/>
+                                        <keyframe time="19.5s"  value="0.898 0.902"   curve="linear"/>
+                                        <keyframe time="20s"    value="0.9 0.9"       curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="position">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s"     value="57.4074 12.037"    curve="linear"/>
+                                        <keyframe time="4.7s"   value="57.4074 12.037"    curve="linear"/>
+                                        <keyframe time="8.3s"   value="57.8704 12.4074"   curve="linear"/>
+                                        <keyframe time="9.2s"   value="57.037 11.6667"    curve="linear"/>
+                                        <keyframe time="10s"    value="57.4074 12.037"    curve="linear"/>
+                                        <keyframe time="12.5s"  value="57.6852 12.3148"   curve="linear"/>
+                                        <keyframe time="16s"    value="57.4074 12.037"    curve="linear"/>
+                                        <keyframe time="19.5s"  value="57.1296 11.7593"   curve="linear"/>
+                                        <keyframe time="20s"    value="57.4074 12.037"    curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="rotation">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s"     value="0"    curve="linear"/>
+                                        <keyframe time="4.48s"  value="0"    curve="linear"/>
+                                        <keyframe time="4.5s"   value="4.6"  curve="linear"/>
+                                        <keyframe time="4.66s"  value="4.6"  curve="linear"/>
+                                        <keyframe time="4.7s"   value="2.1"  curve="linear"/>
+                                        <keyframe time="8.3s"   value="2.1"  curve="linear"/>
+                                        <keyframe time="9.2s"   value="1.9"  curve="linear"/>
+                                        <keyframe time="12.5s"  value="2.1"  curve="linear"/>
+                                        <keyframe time="16s"    value="2.3"  curve="linear"/>
+                                        <keyframe time="20s"    value="2.1"  curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                            </adjust-transform>
+                        </asset-clip>
+
+                    </asset-clip>
+                </spine>
+            </sequence>
+        </media>
+
+        <!-- Hessian + paper texture: SAME underlying files as ../three-threats and
+             ../religious-hysteria, reusing their exact uid strings per methodology.md
+             bug #6b (both are already imported into the user's FCP library, so a
+             mismatched uid on these two would be rejected outright). -->
+        <asset id="r3" name="hessian_background" uid="three_threats_hessian_bg_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/infographic/romantic-dream/video/hessian_background.mov"/>
+        </asset>
+        <asset id="r4" name="paper_background" uid="three_threats_paper_bg_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/infographic/romantic-dream/video/paper_background.mov"/>
+        </asset>
+
+        <!-- Scene-local pieces — fresh uids, no reuse elsewhere. -->
+        <asset id="r5" name="piece_hero" uid="romantic_dream_piece_hero_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/infographic/romantic-dream/video/piece_hero.mov"/>
+        </asset>
+        <asset id="r6" name="bubble_trail" uid="romantic_dream_bubble_trail_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/infographic/romantic-dream/video/bubble_trail.mov"/>
+        </asset>
+        <asset id="r7" name="thought_flagellants" uid="romantic_dream_thought_flagellants_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/infographic/romantic-dream/video/thought_flagellants.mov"/>
+        </asset>
+        <asset id="r8" name="thought_death" uid="romantic_dream_thought_death_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/infographic/romantic-dream/video/thought_death.mov"/>
+        </asset>
+        <asset id="r9" name="thought_danse" uid="romantic_dream_thought_danse_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/infographic/romantic-dream/video/thought_danse.mov"/>
+        </asset>
+        <asset id="r10" name="thought_witch" uid="romantic_dream_thought_witch_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/infographic/romantic-dream/video/thought_witch.mov"/>
+        </asset>
+    </resources>
+
+    <library>
+        <event name="Romantic Dream">
+            <project name="Romantic Dream">
+                <sequence format="r1" duration="20s" tcStart="0s" tcFormat="NDF" audioLayout="stereo" audioRate="48k">
+                    <spine>
+                        <ref-clip ref="r2" offset="0s" name="Romantic Dream – Master" duration="20s"/>
+                    </spine>
+                </sequence>
+            </project>
+        </event>
+    </library>
+</fcpxml>

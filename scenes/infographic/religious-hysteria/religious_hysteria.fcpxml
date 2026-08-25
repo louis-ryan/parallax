@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE fcpxml>
+
+<!--
+SOURCE ATTRIBUTION (all public domain, via Wikimedia Commons):
+- Francisco de Goya, "A Procession of Flagellants" (c.1814-1816)
+- Master of the Chronique scandaleuse, "Denise Poncher before a Vision of Death"
+  (c.1500, J. Paul Getty Museum / Poncher Hours)
+- Dirck van Delen, "Beeldenstorm in een kerk" (Iconoclasm in a Church, 17th c.)
+- Hermann Kaulbach, "Weinende Madonna" (Weeping Madonna)
+-->
+
+<fcpxml version="1.14">
+    <resources>
+        <format id="r1" name="FFVideoFormat1080p30" frameDuration="1001/30030s" width="1920" height="1080" colorSpace="1-1-1 (Rec. 709)"/>
+
+        <!-- COMPOUND SCENE — all layers pre-composed here, per the standard project
+             pattern (see ../../../context/methodology.md). No whole-scene camera
+             transform on the outer ref-clip — this is a flat infographic collage,
+             not a moving-camera environment scene. Structure mirrors
+             ../three-threats/three_threats.fcpxml (Hessian base + multiply paper
+             texture + stop-motion paper-cutout pieces), adapted for a scattered
+             "collage cluster" layout instead of fixed side-by-side cards. -->
+        <media id="r2" name="Religious Hysteria Compound" uid="religious_hysteria_compound_uid">
+            <sequence format="r1" duration="20s" tcStart="0s" tcFormat="NDF" audioLayout="stereo" audioRate="48k">
+                <spine>
+
+                    <!-- HESSIAN BACKGROUND — true base layer, full frame, static, opaque.
+                         Reuses the SAME underlying hessian.jpg as ../three-threats, but
+                         this scene has its own re-encoded .mov file (distinct file on
+                         disk), so it gets its own scene-local asset id (r3) — only the
+                         uid must match ../three-threats' registered uid, per
+                         methodology.md bug #6b, since three_threats.fcpxml has already
+                         been imported into the user's FCP library. -->
+                    <asset-clip ref="r3" offset="0s" name="Hessian Background" duration="20s" tcFormat="NDF">
+                        <adjust-transform scale="1.0 1.0"/>
+
+                        <!-- PAPER TEXTURE — multiply-blended over Hessian. NOTE: mode="multiply"
+                             is UNVERIFIED — see ../../../context/requirements.md and
+                             ../three-threats/three_threats.fcpxml's identical note. Confirm via
+                             manual FCP export before trusting it blind. -->
+                        <asset-clip ref="r4" lane="1" offset="0s" name="Paper Texture (multiply)" duration="20s" tcFormat="NDF">
+                            <adjust-transform scale="1.0 1.0"/>
+                            <adjust-blend mode="multiply"/>
+                        </asset-clip>
+
+                        <!-- ================= COLLAGE CLUSTER =================
+                             Four torn-paper photographic cutouts (public-domain paintings,
+                             see bottom of file for source/attribution), scattered/overlapping
+                             at different positions, scales, and slight rotations — a
+                             scrapbook page, not a grid. All position/scale values below are
+                             pre-divided by 10.8 per methodology.md bug #2. Entrances staggered
+                             (0.5s / 1.3s / 2.1s / 2.9s), each a stop-motion snap with
+                             overshoot-bounce (curve="linear" between near-identical-time
+                             keyframes = instant jump, per methodology.md bug #3). Idle stepped
+                             jitter (position + tiny rotation wobble) runs ~4s-9s, then holds
+                             with continued slow jitter through 20s — this is an atmospheric
+                             mood piece, not a punchy reveal/eliminate sequence like
+                             three-threats, so no hard second "event" beat is needed. -->
+
+                        <!-- FLAGELLANTS — largest piece, center-left, the doom-procession
+                             centerpiece. Rest position: true px (-120, -80), scale 1.15. -->
+                        <asset-clip ref="r5" lane="2" offset="0s" name="Piece – Flagellants" duration="20s" tcFormat="NDF">
+                            <adjust-transform>
+                                <param name="scale">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s"     value="0 0"           curve="linear"/>
+                                        <keyframe time="0.48s"  value="0 0"           curve="linear"/>
+                                        <keyframe time="0.5s"   value="1.22 1.22"     curve="linear"/>
+                                        <keyframe time="0.66s"  value="1.22 1.22"     curve="linear"/>
+                                        <keyframe time="0.7s"   value="1.15 1.15"     curve="linear"/>
+                                        <keyframe time="4s"     value="1.15 1.15"     curve="linear"/>
+                                        <keyframe time="4.6s"   value="1.157 1.143"   curve="linear"/>
+                                        <keyframe time="5.3s"   value="1.145 1.153"   curve="linear"/>
+                                        <keyframe time="6.1s"   value="1.15 1.15"     curve="linear"/>
+                                        <keyframe time="7s"     value="1.153 1.148"   curve="linear"/>
+                                        <keyframe time="8.2s"   value="1.15 1.15"     curve="linear"/>
+                                        <keyframe time="10s"    value="1.148 1.152"   curve="linear"/>
+                                        <keyframe time="13s"    value="1.15 1.15"     curve="linear"/>
+                                        <keyframe time="16s"    value="1.152 1.148"   curve="linear"/>
+                                        <keyframe time="20s"    value="1.15 1.15"     curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="position">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s"     value="-11.1111 -7.4074"   curve="linear"/>
+                                        <keyframe time="0.7s"   value="-11.1111 -7.4074"   curve="linear"/>
+                                        <keyframe time="4.6s"   value="-10.6481 -7.037"    curve="linear"/>
+                                        <keyframe time="5.3s"   value="-11.4815 -7.7778"   curve="linear"/>
+                                        <keyframe time="6.1s"   value="-11.1111 -7.4074"   curve="linear"/>
+                                        <keyframe time="7s"     value="-10.8333 -7.6852"   curve="linear"/>
+                                        <keyframe time="8.2s"   value="-11.1111 -7.4074"   curve="linear"/>
+                                        <keyframe time="10s"    value="-11.3889 -7.1296"   curve="linear"/>
+                                        <keyframe time="13s"    value="-11.1111 -7.4074"   curve="linear"/>
+                                        <keyframe time="16s"    value="-10.9259 -7.5926"   curve="linear"/>
+                                        <keyframe time="20s"    value="-11.1111 -7.4074"   curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="rotation">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s"     value="0"      curve="linear"/>
+                                        <keyframe time="0.48s"  value="0"      curve="linear"/>
+                                        <keyframe time="0.5s"   value="-4.5"   curve="linear"/>
+                                        <keyframe time="0.66s"  value="-4.5"   curve="linear"/>
+                                        <keyframe time="0.7s"   value="-2.2"   curve="linear"/>
+                                        <keyframe time="4.6s"   value="-2.2"   curve="linear"/>
+                                        <keyframe time="5.3s"   value="-1.9"   curve="linear"/>
+                                        <keyframe time="6.1s"   value="-2.2"   curve="linear"/>
+                                        <keyframe time="10s"    value="-2.4"   curve="linear"/>
+                                        <keyframe time="13s"    value="-2.2"   curve="linear"/>
+                                        <keyframe time="20s"    value="-2.2"   curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                            </adjust-transform>
+                        </asset-clip>
+
+                        <!-- DEATH / PONCHER — upper-right, tall piece. Rest position: true px
+                             (480, 140), scale 0.85. -->
+                        <asset-clip ref="r6" lane="3" offset="0s" name="Piece – Death" duration="20s" tcFormat="NDF">
+                            <adjust-transform>
+                                <param name="scale">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s"     value="0 0"           curve="linear"/>
+                                        <keyframe time="1.28s"  value="0 0"           curve="linear"/>
+                                        <keyframe time="1.3s"   value="0.92 0.92"     curve="linear"/>
+                                        <keyframe time="1.46s"  value="0.92 0.92"     curve="linear"/>
+                                        <keyframe time="1.5s"   value="0.85 0.85"     curve="linear"/>
+                                        <keyframe time="4.8s"   value="0.85 0.85"     curve="linear"/>
+                                        <keyframe time="5.6s"   value="0.856 0.844"   curve="linear"/>
+                                        <keyframe time="6.4s"   value="0.845 0.855"   curve="linear"/>
+                                        <keyframe time="7.3s"   value="0.85 0.85"     curve="linear"/>
+                                        <keyframe time="9s"     value="0.853 0.847"   curve="linear"/>
+                                        <keyframe time="12s"    value="0.85 0.85"     curve="linear"/>
+                                        <keyframe time="15s"    value="0.848 0.852"   curve="linear"/>
+                                        <keyframe time="20s"    value="0.85 0.85"     curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="position">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s"     value="44.4444 12.963"    curve="linear"/>
+                                        <keyframe time="1.5s"   value="44.4444 12.963"    curve="linear"/>
+                                        <keyframe time="5.6s"   value="44.9074 13.3333"   curve="linear"/>
+                                        <keyframe time="6.4s"   value="44.0741 12.5926"   curve="linear"/>
+                                        <keyframe time="7.3s"   value="44.4444 12.963"    curve="linear"/>
+                                        <keyframe time="9s"     value="44.7222 12.6852"   curve="linear"/>
+                                        <keyframe time="12s"    value="44.4444 12.963"    curve="linear"/>
+                                        <keyframe time="15s"    value="44.2593 13.1481"   curve="linear"/>
+                                        <keyframe time="20s"    value="44.4444 12.963"    curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="rotation">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s"     value="0"     curve="linear"/>
+                                        <keyframe time="1.28s"  value="0"     curve="linear"/>
+                                        <keyframe time="1.3s"   value="6.5"   curve="linear"/>
+                                        <keyframe time="1.46s"  value="6.5"   curve="linear"/>
+                                        <keyframe time="1.5s"   value="3.8"   curve="linear"/>
+                                        <keyframe time="5.6s"   value="3.8"   curve="linear"/>
+                                        <keyframe time="6.4s"   value="4.1"   curve="linear"/>
+                                        <keyframe time="9s"     value="3.8"   curve="linear"/>
+                                        <keyframe time="12s"    value="3.6"   curve="linear"/>
+                                        <keyframe time="20s"    value="3.8"   curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                            </adjust-transform>
+                        </asset-clip>
+
+                        <!-- CHURCH INTERIOR — lower-right. Rest position: true px (420, -220),
+                             scale 0.95. -->
+                        <asset-clip ref="r7" lane="4" offset="0s" name="Piece – Church" duration="20s" tcFormat="NDF">
+                            <adjust-transform>
+                                <param name="scale">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s"     value="0 0"           curve="linear"/>
+                                        <keyframe time="2.08s"  value="0 0"           curve="linear"/>
+                                        <keyframe time="2.1s"   value="1.02 1.02"     curve="linear"/>
+                                        <keyframe time="2.26s"  value="1.02 1.02"     curve="linear"/>
+                                        <keyframe time="2.3s"   value="0.95 0.95"     curve="linear"/>
+                                        <keyframe time="5.4s"   value="0.95 0.95"     curve="linear"/>
+                                        <keyframe time="6.2s"   value="0.956 0.944"   curve="linear"/>
+                                        <keyframe time="7.1s"   value="0.945 0.955"   curve="linear"/>
+                                        <keyframe time="8s"     value="0.95 0.95"     curve="linear"/>
+                                        <keyframe time="10.5s"  value="0.953 0.947"   curve="linear"/>
+                                        <keyframe time="14s"    value="0.95 0.95"     curve="linear"/>
+                                        <keyframe time="17.5s"  value="0.948 0.952"   curve="linear"/>
+                                        <keyframe time="20s"    value="0.95 0.95"     curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="position">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s"     value="38.8889 -20.3704"  curve="linear"/>
+                                        <keyframe time="2.3s"   value="38.8889 -20.3704"  curve="linear"/>
+                                        <keyframe time="6.2s"   value="39.3519 -19.9074"  curve="linear"/>
+                                        <keyframe time="7.1s"   value="38.5185 -20.7407"  curve="linear"/>
+                                        <keyframe time="8s"     value="38.8889 -20.3704"  curve="linear"/>
+                                        <keyframe time="10.5s"  value="39.1667 -20.0926"  curve="linear"/>
+                                        <keyframe time="14s"    value="38.8889 -20.3704"  curve="linear"/>
+                                        <keyframe time="17.5s"  value="38.6111 -20.6481"  curve="linear"/>
+                                        <keyframe time="20s"    value="38.8889 -20.3704"  curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="rotation">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s"     value="0"     curve="linear"/>
+                                        <keyframe time="2.08s"  value="0"     curve="linear"/>
+                                        <keyframe time="2.1s"   value="3.2"   curve="linear"/>
+                                        <keyframe time="2.26s"  value="3.2"   curve="linear"/>
+                                        <keyframe time="2.3s"   value="1.6"   curve="linear"/>
+                                        <keyframe time="6.2s"   value="1.6"   curve="linear"/>
+                                        <keyframe time="7.1s"   value="1.4"   curve="linear"/>
+                                        <keyframe time="10.5s"  value="1.6"   curve="linear"/>
+                                        <keyframe time="14s"    value="1.8"   curve="linear"/>
+                                        <keyframe time="20s"    value="1.6"   curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                            </adjust-transform>
+                        </asset-clip>
+
+                        <!-- WEEPING MADONNA — upper-left, smaller grief accent. Rest position:
+                             true px (-560, 200), scale 0.9. -->
+                        <asset-clip ref="r8" lane="5" offset="0s" name="Piece – Madonna" duration="20s" tcFormat="NDF">
+                            <adjust-transform>
+                                <param name="scale">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s"     value="0 0"           curve="linear"/>
+                                        <keyframe time="2.88s"  value="0 0"           curve="linear"/>
+                                        <keyframe time="2.9s"   value="0.97 0.97"     curve="linear"/>
+                                        <keyframe time="3.06s"  value="0.97 0.97"     curve="linear"/>
+                                        <keyframe time="3.1s"   value="0.9 0.9"       curve="linear"/>
+                                        <keyframe time="6s"     value="0.9 0.9"       curve="linear"/>
+                                        <keyframe time="6.8s"   value="0.906 0.894"   curve="linear"/>
+                                        <keyframe time="7.7s"   value="0.895 0.905"   curve="linear"/>
+                                        <keyframe time="8.6s"   value="0.9 0.9"       curve="linear"/>
+                                        <keyframe time="11s"    value="0.903 0.897"   curve="linear"/>
+                                        <keyframe time="15s"    value="0.9 0.9"       curve="linear"/>
+                                        <keyframe time="18.5s"  value="0.898 0.902"   curve="linear"/>
+                                        <keyframe time="20s"    value="0.9 0.9"       curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="position">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s"     value="-51.8519 18.5185"   curve="linear"/>
+                                        <keyframe time="3.1s"   value="-51.8519 18.5185"   curve="linear"/>
+                                        <keyframe time="6.8s"   value="-51.3889 18.8889"   curve="linear"/>
+                                        <keyframe time="7.7s"   value="-52.3148 18.1481"   curve="linear"/>
+                                        <keyframe time="8.6s"   value="-51.8519 18.5185"   curve="linear"/>
+                                        <keyframe time="11s"    value="-51.5741 18.7407"   curve="linear"/>
+                                        <keyframe time="15s"    value="-51.8519 18.5185"   curve="linear"/>
+                                        <keyframe time="18.5s"  value="-52.1296 18.2963"   curve="linear"/>
+                                        <keyframe time="20s"    value="-51.8519 18.5185"   curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="rotation">
+                                    <keyframeAnimation>
+                                        <keyframe time="0s"     value="0"     curve="linear"/>
+                                        <keyframe time="2.88s"  value="0"     curve="linear"/>
+                                        <keyframe time="2.9s"   value="-5.8"  curve="linear"/>
+                                        <keyframe time="3.06s"  value="-5.8"  curve="linear"/>
+                                        <keyframe time="3.1s"   value="-3.1"  curve="linear"/>
+                                        <keyframe time="6.8s"   value="-3.1"  curve="linear"/>
+                                        <keyframe time="7.7s"   value="-2.8"  curve="linear"/>
+                                        <keyframe time="11s"    value="-3.1"  curve="linear"/>
+                                        <keyframe time="15s"    value="-3.3"  curve="linear"/>
+                                        <keyframe time="20s"    value="-3.1"  curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                            </adjust-transform>
+                        </asset-clip>
+
+                    </asset-clip>
+                </spine>
+            </sequence>
+        </media>
+
+        <!-- Hessian + paper texture: SAME underlying files as ../three-threats, reusing
+             their exact uid strings per methodology.md bug #6b (three_threats.fcpxml is
+             already imported into the user's FCP library, so a mismatched uid on these
+             two would be rejected outright). -->
+        <asset id="r3" name="hessian_background" uid="three_threats_hessian_bg_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/infographic/religious-hysteria/video/hessian_background.mov"/>
+        </asset>
+        <asset id="r4" name="paper_background" uid="three_threats_paper_bg_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/infographic/religious-hysteria/video/paper_background.mov"/>
+        </asset>
+
+        <!-- Collage pieces — scene-local assets, no reuse elsewhere, fresh uids. -->
+        <asset id="r5" name="piece_flagellants" uid="religious_hysteria_piece_flagellants_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/infographic/religious-hysteria/video/piece_flagellants.mov"/>
+        </asset>
+        <asset id="r6" name="piece_death" uid="religious_hysteria_piece_death_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/infographic/religious-hysteria/video/piece_death.mov"/>
+        </asset>
+        <asset id="r7" name="piece_church" uid="religious_hysteria_piece_church_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/infographic/religious-hysteria/video/piece_church.mov"/>
+        </asset>
+        <asset id="r8" name="piece_madonna" uid="religious_hysteria_piece_madonna_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/infographic/religious-hysteria/video/piece_madonna.mov"/>
+        </asset>
+    </resources>
+
+    <library>
+        <event name="Religious Hysteria">
+            <project name="Religious Hysteria">
+                <sequence format="r1" duration="20s" tcStart="0s" tcFormat="NDF" audioLayout="stereo" audioRate="48k">
+                    <spine>
+                        <ref-clip ref="r2" offset="0s" name="Religious Hysteria – Master" duration="20s"/>
+                    </spine>
+                </sequence>
+            </project>
+        </event>
+    </library>
+</fcpxml>

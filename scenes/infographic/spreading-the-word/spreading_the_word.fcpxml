@@ -1,0 +1,1554 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE fcpxml>
+
+<!--
+Procedurally generated art (PIL scripts in source_images/), not sourced imagery.
+Depicts a steam printing press distributing newspapers carrying a doomsday
+religious prophecy across a map of the nineteenth century United States;
+newspapers fly out from the press to distributed points across the map, each
+landing with a warm flame glow burst symbolizing the prophecy "catching fire"
+as it spreads.
+-->
+
+<fcpxml version="1.14">
+    <resources>
+        <format id="r1" name="FFVideoFormat1080p30" frameDuration="1001/30030s" width="1920" height="1080" colorSpace="1-1-1 (Rec. 709)"/>
+
+        <!-- COMPOUND SCENE — see ../../../context/methodology.md. No whole-scene
+             camera transform — flat infographic collage. Structure mirrors
+             ../romantic-dream/romantic_dream.fcpxml (Hessian base + multiply
+             paper texture + stop-motion paper-cutout pieces), adapted for a
+             "map hero + press hero + radiating newspaper pieces + landing
+             flame bursts" composition. -->
+        <media id="r2" name="Spreading the Word Compound" uid="spreading_word_compound_uid">
+            <sequence format="r1" duration="20s" tcStart="0s" tcFormat="NDF" audioLayout="stereo" audioRate="48k">
+                <spine>
+                    <asset-clip ref="r3" offset="0s" name="Hessian Background" duration="20s" tcFormat="NDF">
+                        <adjust-transform scale="1.0 1.0"/>
+                        <adjust-blend amount="0.7"/>
+
+                        <asset-clip ref="r4" lane="1" offset="0s" name="Paper Texture (multiply)" duration="20s" tcFormat="NDF">
+                            <adjust-transform scale="1.0 1.0"/>
+                            <adjust-blend mode="multiply"/>
+                        </asset-clip>
+                        <asset-clip ref="r5" lane="2" offset="0s" name="Hero – US Map" duration="20s" tcFormat="NDF">
+                            <adjust-transform>
+                                <param name="scale" value="0 0">
+                                    <keyframeAnimation>
+                                        <keyframe time="0.00s" value="0 0" curve="linear"/>
+                                        <keyframe time="0.48s" value="1.06 1.06" curve="linear"/>
+                                        <keyframe time="0.50s" value="1.06 1.06" curve="linear"/>
+                                        <keyframe time="0.54s" value="1 1" curve="linear"/>
+                                        <keyframe time="6.40s" value="1.006 1.006" curve="linear"/>
+                                        <keyframe time="7.30s" value="0.994 0.994" curve="linear"/>
+                                        <keyframe time="8.20s" value="1 1" curve="linear"/>
+                                        <keyframe time="10.50s" value="1.003 1.003" curve="linear"/>
+                                        <keyframe time="14.00s" value="1 1" curve="linear"/>
+                                        <keyframe time="17.50s" value="0.998 0.998" curve="linear"/>
+                                        <keyframe time="20.00s" value="1 1" curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="position" value="0 0.9259">
+                                    <keyframeAnimation>
+                                        <keyframe time="0.00s" value="0 0" curve="linear"/>
+                                        <keyframe time="0.48s" value="0 0" curve="linear"/>
+                                        <keyframe time="0.50s" value="0 0.9259" curve="linear"/>
+                                        <keyframe time="6.40s" value="0.463 1.2963" curve="linear"/>
+                                        <keyframe time="7.30s" value="-0.5556 0.6481" curve="linear"/>
+                                        <keyframe time="8.20s" value="0 0.9259" curve="linear"/>
+                                        <keyframe time="10.50s" value="0.3704 0.463" curve="linear"/>
+                                        <keyframe time="14.00s" value="0 0.9259" curve="linear"/>
+                                        <keyframe time="17.50s" value="-0.2778 1.2963" curve="linear"/>
+                                        <keyframe time="20.00s" value="0 0.9259" curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                            </adjust-transform>
+                        </asset-clip>
+                        <asset-clip ref="r6" lane="3" offset="0s" name="Press – Hero" duration="20s" tcFormat="NDF">
+                            <adjust-transform>
+                                <param name="scale" value="0 0">
+                                    <keyframeAnimation>
+                                        <keyframe time="0.00s" value="0 0" curve="linear"/>
+                                        <keyframe time="0.72s" value="0 0" curve="linear"/>
+                                        <keyframe time="1.20s" value="0.62 0.62" curve="linear"/>
+                                        <keyframe time="1.22s" value="0.62 0.62" curve="linear"/>
+                                        <keyframe time="1.26s" value="0.55 0.55" curve="linear"/>
+                                        <keyframe time="6.40s" value="0.556 0.556" curve="linear"/>
+                                        <keyframe time="7.30s" value="0.544 0.544" curve="linear"/>
+                                        <keyframe time="8.20s" value="0.55 0.55" curve="linear"/>
+                                        <keyframe time="10.50s" value="0.553 0.553" curve="linear"/>
+                                        <keyframe time="14.00s" value="0.55 0.55" curve="linear"/>
+                                        <keyframe time="17.50s" value="0.548 0.548" curve="linear"/>
+                                        <keyframe time="20.00s" value="0.55 0.55" curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="position" value="0 -1.8519">
+                                    <keyframeAnimation>
+                                        <keyframe time="0.00s" value="0 -1.8519" curve="linear"/>
+                                        <keyframe time="1.20s" value="0 -1.8519" curve="linear"/>
+                                        <keyframe time="1.22s" value="0 -1.8519" curve="linear"/>
+                                        <keyframe time="6.40s" value="0.463 -1.4815" curve="linear"/>
+                                        <keyframe time="7.30s" value="-0.5556 -2.1296" curve="linear"/>
+                                        <keyframe time="8.20s" value="0 -1.8519" curve="linear"/>
+                                        <keyframe time="10.50s" value="0.3704 -2.3148" curve="linear"/>
+                                        <keyframe time="14.00s" value="0 -1.8519" curve="linear"/>
+                                        <keyframe time="17.50s" value="-0.2778 -1.4815" curve="linear"/>
+                                        <keyframe time="20.00s" value="0 -1.8519" curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                            </adjust-transform>
+                        </asset-clip>
+                        <asset-clip ref="r7" lane="4" offset="0s" name="Newspaper – NE" duration="20s" tcFormat="NDF">
+                            <adjust-transform>
+                                <param name="scale" value="0 0">
+                                    <keyframeAnimation>
+                                        <keyframe time="0.00s" value="0 0" curve="linear"/>
+                                        <keyframe time="1.60s" value="0 0" curve="linear"/>
+                                        <keyframe time="1.62s" value="0.4536 0.4536" curve="linear"/>
+                                        <keyframe time="1.80s" value="0.4536 0.4536" curve="linear"/>
+                                        <keyframe time="1.84s" value="0.42 0.42" curve="linear"/>
+                                        <keyframe time="6.40s" value="0.426 0.426" curve="linear"/>
+                                        <keyframe time="7.30s" value="0.414 0.414" curve="linear"/>
+                                        <keyframe time="8.20s" value="0.42 0.42" curve="linear"/>
+                                        <keyframe time="10.50s" value="0.423 0.423" curve="linear"/>
+                                        <keyframe time="14.00s" value="0.42 0.42" curve="linear"/>
+                                        <keyframe time="17.50s" value="0.418 0.418" curve="linear"/>
+                                        <keyframe time="20.00s" value="0.42 0.42" curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="position" value="0 -1.8519">
+                                    <keyframeAnimation>
+                                        <keyframe time="0.00s" value="0 -1.8519" curve="linear"/>
+                                        <keyframe time="1.62s" value="0 -1.8519" curve="linear"/>
+                                        <keyframe time="1.84s" value="59.6296 -12.3148" curve="linear"/>
+                                        <keyframe time="6.40s" value="60.0926 -11.9444" curve="linear"/>
+                                        <keyframe time="7.30s" value="59.0741 -12.5926" curve="linear"/>
+                                        <keyframe time="8.20s" value="59.6296 -12.3148" curve="linear"/>
+                                        <keyframe time="10.50s" value="60 -12.7778" curve="linear"/>
+                                        <keyframe time="14.00s" value="59.6296 -12.3148" curve="linear"/>
+                                        <keyframe time="17.50s" value="59.3519 -11.9444" curve="linear"/>
+                                        <keyframe time="20.00s" value="59.6296 -12.3148" curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="rotation">
+                                    <keyframeAnimation>
+                                        <keyframe time="0.00s" value="0" curve="linear"/>
+                                        <keyframe time="1.60s" value="0" curve="linear"/>
+                                        <keyframe time="1.62s" value="-16.0" curve="linear"/>
+                                        <keyframe time="1.80s" value="-16.0" curve="linear"/>
+                                        <keyframe time="1.84s" value="-10.0" curve="linear"/>
+                                        <keyframe time="6.40s" value="-9.7" curve="linear"/>
+                                        <keyframe time="7.30s" value="-10.3" curve="linear"/>
+                                        <keyframe time="8.20s" value="-10.0" curve="linear"/>
+                                        <keyframe time="10.50s" value="-9.8" curve="linear"/>
+                                        <keyframe time="14.00s" value="-9.6" curve="linear"/>
+                                        <keyframe time="17.50s" value="-10.2" curve="linear"/>
+                                        <keyframe time="20.00s" value="-10.0" curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                            </adjust-transform>
+                        </asset-clip>
+                        <asset-clip ref="r11" lane="5" offset="0s" name="Newspaper – SE" duration="20s" tcFormat="NDF">
+                            <adjust-transform>
+                                <param name="scale" value="0 0">
+                                    <keyframeAnimation>
+                                        <keyframe time="0.00s" value="0 0" curve="linear"/>
+                                        <keyframe time="2.40s" value="0 0" curve="linear"/>
+                                        <keyframe time="2.42s" value="0.4536 0.4536" curve="linear"/>
+                                        <keyframe time="2.60s" value="0.4536 0.4536" curve="linear"/>
+                                        <keyframe time="2.64s" value="0.42 0.42" curve="linear"/>
+                                        <keyframe time="6.40s" value="0.426 0.426" curve="linear"/>
+                                        <keyframe time="7.30s" value="0.414 0.414" curve="linear"/>
+                                        <keyframe time="8.20s" value="0.42 0.42" curve="linear"/>
+                                        <keyframe time="10.50s" value="0.423 0.423" curve="linear"/>
+                                        <keyframe time="14.00s" value="0.42 0.42" curve="linear"/>
+                                        <keyframe time="17.50s" value="0.418 0.418" curve="linear"/>
+                                        <keyframe time="20.00s" value="0.42 0.42" curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="position" value="0 -1.8519">
+                                    <keyframeAnimation>
+                                        <keyframe time="0.00s" value="0 -1.8519" curve="linear"/>
+                                        <keyframe time="2.42s" value="0 -1.8519" curve="linear"/>
+                                        <keyframe time="2.64s" value="35.463 12.4074" curve="linear"/>
+                                        <keyframe time="6.40s" value="35.9259 12.7778" curve="linear"/>
+                                        <keyframe time="7.30s" value="34.9074 12.1296" curve="linear"/>
+                                        <keyframe time="8.20s" value="35.463 12.4074" curve="linear"/>
+                                        <keyframe time="10.50s" value="35.8333 11.9444" curve="linear"/>
+                                        <keyframe time="14.00s" value="35.463 12.4074" curve="linear"/>
+                                        <keyframe time="17.50s" value="35.1852 12.7778" curve="linear"/>
+                                        <keyframe time="20.00s" value="35.463 12.4074" curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="rotation">
+                                    <keyframeAnimation>
+                                        <keyframe time="0.00s" value="0" curve="linear"/>
+                                        <keyframe time="2.40s" value="0" curve="linear"/>
+                                        <keyframe time="2.42s" value="12.8" curve="linear"/>
+                                        <keyframe time="2.60s" value="12.8" curve="linear"/>
+                                        <keyframe time="2.64s" value="8.0" curve="linear"/>
+                                        <keyframe time="6.40s" value="8.3" curve="linear"/>
+                                        <keyframe time="7.30s" value="7.7" curve="linear"/>
+                                        <keyframe time="8.20s" value="8.0" curve="linear"/>
+                                        <keyframe time="10.50s" value="8.2" curve="linear"/>
+                                        <keyframe time="14.00s" value="8.4" curve="linear"/>
+                                        <keyframe time="17.50s" value="7.8" curve="linear"/>
+                                        <keyframe time="20.00s" value="8.0" curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                            </adjust-transform>
+                        </asset-clip>
+                        <asset-clip ref="r15" lane="6" offset="0s" name="Newspaper – NW" duration="20s" tcFormat="NDF">
+                            <adjust-transform>
+                                <param name="scale" value="0 0">
+                                    <keyframeAnimation>
+                                        <keyframe time="0.00s" value="0 0" curve="linear"/>
+                                        <keyframe time="3.20s" value="0 0" curve="linear"/>
+                                        <keyframe time="3.22s" value="0.4536 0.4536" curve="linear"/>
+                                        <keyframe time="3.40s" value="0.4536 0.4536" curve="linear"/>
+                                        <keyframe time="3.44s" value="0.42 0.42" curve="linear"/>
+                                        <keyframe time="6.40s" value="0.426 0.426" curve="linear"/>
+                                        <keyframe time="7.30s" value="0.414 0.414" curve="linear"/>
+                                        <keyframe time="8.20s" value="0.42 0.42" curve="linear"/>
+                                        <keyframe time="10.50s" value="0.423 0.423" curve="linear"/>
+                                        <keyframe time="14.00s" value="0.42 0.42" curve="linear"/>
+                                        <keyframe time="17.50s" value="0.418 0.418" curve="linear"/>
+                                        <keyframe time="20.00s" value="0.42 0.42" curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="position" value="0 -1.8519">
+                                    <keyframeAnimation>
+                                        <keyframe time="0.00s" value="0 -1.8519" curve="linear"/>
+                                        <keyframe time="3.22s" value="0 -1.8519" curve="linear"/>
+                                        <keyframe time="3.44s" value="-64.537 -19.9074" curve="linear"/>
+                                        <keyframe time="6.40s" value="-64.0741 -19.537" curve="linear"/>
+                                        <keyframe time="7.30s" value="-65.0926 -20.1852" curve="linear"/>
+                                        <keyframe time="8.20s" value="-64.537 -19.9074" curve="linear"/>
+                                        <keyframe time="10.50s" value="-64.1667 -20.3704" curve="linear"/>
+                                        <keyframe time="14.00s" value="-64.537 -19.9074" curve="linear"/>
+                                        <keyframe time="17.50s" value="-64.8148 -19.537" curve="linear"/>
+                                        <keyframe time="20.00s" value="-64.537 -19.9074" curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="rotation">
+                                    <keyframeAnimation>
+                                        <keyframe time="0.00s" value="0" curve="linear"/>
+                                        <keyframe time="3.20s" value="0" curve="linear"/>
+                                        <keyframe time="3.22s" value="19.2" curve="linear"/>
+                                        <keyframe time="3.40s" value="19.2" curve="linear"/>
+                                        <keyframe time="3.44s" value="12.0" curve="linear"/>
+                                        <keyframe time="6.40s" value="12.3" curve="linear"/>
+                                        <keyframe time="7.30s" value="11.7" curve="linear"/>
+                                        <keyframe time="8.20s" value="12.0" curve="linear"/>
+                                        <keyframe time="10.50s" value="12.2" curve="linear"/>
+                                        <keyframe time="14.00s" value="12.4" curve="linear"/>
+                                        <keyframe time="17.50s" value="11.8" curve="linear"/>
+                                        <keyframe time="20.00s" value="12.0" curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                            </adjust-transform>
+                        </asset-clip>
+                        <asset-clip ref="r19" lane="7" offset="0s" name="Newspaper – SW" duration="20s" tcFormat="NDF">
+                            <adjust-transform>
+                                <param name="scale" value="0 0">
+                                    <keyframeAnimation>
+                                        <keyframe time="0.00s" value="0 0" curve="linear"/>
+                                        <keyframe time="4.00s" value="0 0" curve="linear"/>
+                                        <keyframe time="4.02s" value="0.4536 0.4536" curve="linear"/>
+                                        <keyframe time="4.20s" value="0.4536 0.4536" curve="linear"/>
+                                        <keyframe time="4.24s" value="0.42 0.42" curve="linear"/>
+                                        <keyframe time="6.40s" value="0.426 0.426" curve="linear"/>
+                                        <keyframe time="7.30s" value="0.414 0.414" curve="linear"/>
+                                        <keyframe time="8.20s" value="0.42 0.42" curve="linear"/>
+                                        <keyframe time="10.50s" value="0.423 0.423" curve="linear"/>
+                                        <keyframe time="14.00s" value="0.42 0.42" curve="linear"/>
+                                        <keyframe time="17.50s" value="0.418 0.418" curve="linear"/>
+                                        <keyframe time="20.00s" value="0.42 0.42" curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="position" value="0 -1.8519">
+                                    <keyframeAnimation>
+                                        <keyframe time="0.00s" value="0 -1.8519" curve="linear"/>
+                                        <keyframe time="4.02s" value="0 -1.8519" curve="linear"/>
+                                        <keyframe time="4.24s" value="-6.3889 18.8889" curve="linear"/>
+                                        <keyframe time="6.40s" value="-5.9259 19.2593" curve="linear"/>
+                                        <keyframe time="7.30s" value="-6.9444 18.6111" curve="linear"/>
+                                        <keyframe time="8.20s" value="-6.3889 18.8889" curve="linear"/>
+                                        <keyframe time="10.50s" value="-6.0185 18.4259" curve="linear"/>
+                                        <keyframe time="14.00s" value="-6.3889 18.8889" curve="linear"/>
+                                        <keyframe time="17.50s" value="-6.6667 19.2593" curve="linear"/>
+                                        <keyframe time="20.00s" value="-6.3889 18.8889" curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="rotation">
+                                    <keyframeAnimation>
+                                        <keyframe time="0.00s" value="0" curve="linear"/>
+                                        <keyframe time="4.00s" value="0" curve="linear"/>
+                                        <keyframe time="4.02s" value="-14.4" curve="linear"/>
+                                        <keyframe time="4.20s" value="-14.4" curve="linear"/>
+                                        <keyframe time="4.24s" value="-9.0" curve="linear"/>
+                                        <keyframe time="6.40s" value="-8.7" curve="linear"/>
+                                        <keyframe time="7.30s" value="-9.3" curve="linear"/>
+                                        <keyframe time="8.20s" value="-9.0" curve="linear"/>
+                                        <keyframe time="10.50s" value="-8.8" curve="linear"/>
+                                        <keyframe time="14.00s" value="-8.6" curve="linear"/>
+                                        <keyframe time="17.50s" value="-9.2" curve="linear"/>
+                                        <keyframe time="20.00s" value="-9.0" curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                            </adjust-transform>
+                        </asset-clip>
+                        <asset-clip ref="r23" lane="8" offset="0s" name="Newspaper – MW" duration="20s" tcFormat="NDF">
+                            <adjust-transform>
+                                <param name="scale" value="0 0">
+                                    <keyframeAnimation>
+                                        <keyframe time="0.00s" value="0 0" curve="linear"/>
+                                        <keyframe time="4.80s" value="0 0" curve="linear"/>
+                                        <keyframe time="4.82s" value="0.4536 0.4536" curve="linear"/>
+                                        <keyframe time="5.00s" value="0.4536 0.4536" curve="linear"/>
+                                        <keyframe time="5.04s" value="0.42 0.42" curve="linear"/>
+                                        <keyframe time="6.40s" value="0.426 0.426" curve="linear"/>
+                                        <keyframe time="7.30s" value="0.414 0.414" curve="linear"/>
+                                        <keyframe time="8.20s" value="0.42 0.42" curve="linear"/>
+                                        <keyframe time="10.50s" value="0.423 0.423" curve="linear"/>
+                                        <keyframe time="14.00s" value="0.42 0.42" curve="linear"/>
+                                        <keyframe time="17.50s" value="0.418 0.418" curve="linear"/>
+                                        <keyframe time="20.00s" value="0.42 0.42" curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="position" value="0 -1.8519">
+                                    <keyframeAnimation>
+                                        <keyframe time="0.00s" value="0 -1.8519" curve="linear"/>
+                                        <keyframe time="4.82s" value="0 -1.8519" curve="linear"/>
+                                        <keyframe time="5.04s" value="19.7222 -11.1111" curve="linear"/>
+                                        <keyframe time="6.40s" value="20.1852 -10.7407" curve="linear"/>
+                                        <keyframe time="7.30s" value="19.1667 -11.3889" curve="linear"/>
+                                        <keyframe time="8.20s" value="19.7222 -11.1111" curve="linear"/>
+                                        <keyframe time="10.50s" value="20.0926 -11.5741" curve="linear"/>
+                                        <keyframe time="14.00s" value="19.7222 -11.1111" curve="linear"/>
+                                        <keyframe time="17.50s" value="19.4444 -10.7407" curve="linear"/>
+                                        <keyframe time="20.00s" value="19.7222 -11.1111" curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="rotation">
+                                    <keyframeAnimation>
+                                        <keyframe time="0.00s" value="0" curve="linear"/>
+                                        <keyframe time="4.80s" value="0" curve="linear"/>
+                                        <keyframe time="4.82s" value="8.0" curve="linear"/>
+                                        <keyframe time="5.00s" value="8.0" curve="linear"/>
+                                        <keyframe time="5.04s" value="5.0" curve="linear"/>
+                                        <keyframe time="6.40s" value="5.3" curve="linear"/>
+                                        <keyframe time="7.30s" value="4.7" curve="linear"/>
+                                        <keyframe time="8.20s" value="5.0" curve="linear"/>
+                                        <keyframe time="10.50s" value="5.2" curve="linear"/>
+                                        <keyframe time="14.00s" value="5.4" curve="linear"/>
+                                        <keyframe time="17.50s" value="4.8" curve="linear"/>
+                                        <keyframe time="20.00s" value="5.0" curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                            </adjust-transform>
+                        </asset-clip>
+                        <asset-clip ref="r27" lane="9" offset="0s" name="Newspaper – C" duration="20s" tcFormat="NDF">
+                            <adjust-transform>
+                                <param name="scale" value="0 0">
+                                    <keyframeAnimation>
+                                        <keyframe time="0.00s" value="0 0" curve="linear"/>
+                                        <keyframe time="5.60s" value="0 0" curve="linear"/>
+                                        <keyframe time="5.62s" value="0.4536 0.4536" curve="linear"/>
+                                        <keyframe time="5.80s" value="0.4536 0.4536" curve="linear"/>
+                                        <keyframe time="5.84s" value="0.42 0.42" curve="linear"/>
+                                        <keyframe time="6.40s" value="0.426 0.426" curve="linear"/>
+                                        <keyframe time="7.30s" value="0.414 0.414" curve="linear"/>
+                                        <keyframe time="8.20s" value="0.42 0.42" curve="linear"/>
+                                        <keyframe time="10.50s" value="0.423 0.423" curve="linear"/>
+                                        <keyframe time="14.00s" value="0.42 0.42" curve="linear"/>
+                                        <keyframe time="17.50s" value="0.418 0.418" curve="linear"/>
+                                        <keyframe time="20.00s" value="0.42 0.42" curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="position" value="0 -1.8519">
+                                    <keyframeAnimation>
+                                        <keyframe time="0.00s" value="0 -1.8519" curve="linear"/>
+                                        <keyframe time="5.62s" value="0 -1.8519" curve="linear"/>
+                                        <keyframe time="5.84s" value="13.6111 -3.3333" curve="linear"/>
+                                        <keyframe time="6.40s" value="14.0741 -2.963" curve="linear"/>
+                                        <keyframe time="7.30s" value="13.0556 -3.6111" curve="linear"/>
+                                        <keyframe time="8.20s" value="13.6111 -3.3333" curve="linear"/>
+                                        <keyframe time="10.50s" value="13.9815 -3.7963" curve="linear"/>
+                                        <keyframe time="14.00s" value="13.6111 -3.3333" curve="linear"/>
+                                        <keyframe time="17.50s" value="13.3333 -2.963" curve="linear"/>
+                                        <keyframe time="20.00s" value="13.6111 -3.3333" curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="rotation">
+                                    <keyframeAnimation>
+                                        <keyframe time="0.00s" value="0" curve="linear"/>
+                                        <keyframe time="5.60s" value="0" curve="linear"/>
+                                        <keyframe time="5.62s" value="-9.6" curve="linear"/>
+                                        <keyframe time="5.80s" value="-9.6" curve="linear"/>
+                                        <keyframe time="5.84s" value="-6.0" curve="linear"/>
+                                        <keyframe time="6.40s" value="-5.7" curve="linear"/>
+                                        <keyframe time="7.30s" value="-6.3" curve="linear"/>
+                                        <keyframe time="8.20s" value="-6.0" curve="linear"/>
+                                        <keyframe time="10.50s" value="-5.8" curve="linear"/>
+                                        <keyframe time="14.00s" value="-5.6" curve="linear"/>
+                                        <keyframe time="17.50s" value="-6.2" curve="linear"/>
+                                        <keyframe time="20.00s" value="-6.0" curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                            </adjust-transform>
+                        </asset-clip>
+                        <asset-clip ref="r31" lane="10" offset="0s" name="Newspaper – S" duration="20s" tcFormat="NDF">
+                            <adjust-transform>
+                                <param name="scale" value="0 0">
+                                    <keyframeAnimation>
+                                        <keyframe time="0.00s" value="0 0" curve="linear"/>
+                                        <keyframe time="6.40s" value="0.426 0.426" curve="linear"/>
+                                        <keyframe time="6.42s" value="0.4536 0.4536" curve="linear"/>
+                                        <keyframe time="6.60s" value="0.4536 0.4536" curve="linear"/>
+                                        <keyframe time="6.64s" value="0.42 0.42" curve="linear"/>
+                                        <keyframe time="7.30s" value="0.414 0.414" curve="linear"/>
+                                        <keyframe time="8.20s" value="0.42 0.42" curve="linear"/>
+                                        <keyframe time="10.50s" value="0.423 0.423" curve="linear"/>
+                                        <keyframe time="14.00s" value="0.42 0.42" curve="linear"/>
+                                        <keyframe time="17.50s" value="0.418 0.418" curve="linear"/>
+                                        <keyframe time="20.00s" value="0.42 0.42" curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="position" value="0 -1.8519">
+                                    <keyframeAnimation>
+                                        <keyframe time="0.00s" value="0 -1.8519" curve="linear"/>
+                                        <keyframe time="6.40s" value="14.3519 17.963" curve="linear"/>
+                                        <keyframe time="6.42s" value="0 -1.8519" curve="linear"/>
+                                        <keyframe time="6.64s" value="13.8889 17.5926" curve="linear"/>
+                                        <keyframe time="7.30s" value="13.3333 17.3148" curve="linear"/>
+                                        <keyframe time="8.20s" value="13.8889 17.5926" curve="linear"/>
+                                        <keyframe time="10.50s" value="14.2593 17.1296" curve="linear"/>
+                                        <keyframe time="14.00s" value="13.8889 17.5926" curve="linear"/>
+                                        <keyframe time="17.50s" value="13.6111 17.963" curve="linear"/>
+                                        <keyframe time="20.00s" value="13.8889 17.5926" curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="rotation">
+                                    <keyframeAnimation>
+                                        <keyframe time="0.00s" value="0" curve="linear"/>
+                                        <keyframe time="6.40s" value="11.3" curve="linear"/>
+                                        <keyframe time="6.42s" value="17.6" curve="linear"/>
+                                        <keyframe time="6.60s" value="17.6" curve="linear"/>
+                                        <keyframe time="6.64s" value="11.0" curve="linear"/>
+                                        <keyframe time="7.30s" value="10.7" curve="linear"/>
+                                        <keyframe time="8.20s" value="11.0" curve="linear"/>
+                                        <keyframe time="10.50s" value="11.2" curve="linear"/>
+                                        <keyframe time="14.00s" value="11.4" curve="linear"/>
+                                        <keyframe time="17.50s" value="10.8" curve="linear"/>
+                                        <keyframe time="20.00s" value="11.0" curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                            </adjust-transform>
+                        </asset-clip>
+                        <asset-clip ref="r8" lane="11" offset="0s" name="Burst – NE a" duration="20s" tcFormat="NDF">
+                            <adjust-transform>
+                                <param name="scale" value="0 0">
+                                    <keyframeAnimation>
+                                        <keyframe time="0.00s" value="0 0" curve="linear"/>
+                                        <keyframe time="1.86s" value="0 0" curve="linear"/>
+                                        <keyframe time="1.88s" value="1 1" curve="linear"/>
+                                        <keyframe time="2.73s" value="1 1" curve="linear"/>
+                                        <keyframe time="2.75s" value="0 0" curve="linear"/>
+                                        <keyframe time="3.58s" value="0 0" curve="linear"/>
+                                        <keyframe time="4.13s" value="0 0" curve="linear"/>
+                                        <keyframe time="4.15s" value="1 1" curve="linear"/>
+                                        <keyframe time="4.79s" value="1 1" curve="linear"/>
+                                        <keyframe time="4.81s" value="0 0" curve="linear"/>
+                                        <keyframe time="5.54s" value="0 0" curve="linear"/>
+                                        <keyframe time="6.31s" value="0 0" curve="linear"/>
+                                        <keyframe time="6.33s" value="1 1" curve="linear"/>
+                                        <keyframe time="7.28s" value="1 1" curve="linear"/>
+                                        <keyframe time="7.30s" value="0 0" curve="linear"/>
+                                        <keyframe time="7.87s" value="0 0" curve="linear"/>
+                                        <keyframe time="8.70s" value="0 0" curve="linear"/>
+                                        <keyframe time="8.72s" value="1 1" curve="linear"/>
+                                        <keyframe time="9.36s" value="1 1" curve="linear"/>
+                                        <keyframe time="9.38s" value="0 0" curve="linear"/>
+                                        <keyframe time="10.13s" value="0 0" curve="linear"/>
+                                        <keyframe time="10.73s" value="0 0" curve="linear"/>
+                                        <keyframe time="10.75s" value="1 1" curve="linear"/>
+                                        <keyframe time="11.54s" value="1 1" curve="linear"/>
+                                        <keyframe time="11.56s" value="0 0" curve="linear"/>
+                                        <keyframe time="12.18s" value="0 0" curve="linear"/>
+                                        <keyframe time="12.90s" value="0 0" curve="linear"/>
+                                        <keyframe time="12.92s" value="1 1" curve="linear"/>
+                                        <keyframe time="13.41s" value="1 1" curve="linear"/>
+                                        <keyframe time="13.43s" value="0 0" curve="linear"/>
+                                        <keyframe time="14.41s" value="0 0" curve="linear"/>
+                                        <keyframe time="15.16s" value="0 0" curve="linear"/>
+                                        <keyframe time="15.18s" value="1 1" curve="linear"/>
+                                        <keyframe time="15.87s" value="1 1" curve="linear"/>
+                                        <keyframe time="15.89s" value="0 0" curve="linear"/>
+                                        <keyframe time="16.74s" value="0 0" curve="linear"/>
+                                        <keyframe time="17.45s" value="0 0" curve="linear"/>
+                                        <keyframe time="17.47s" value="1 1" curve="linear"/>
+                                        <keyframe time="18.38s" value="1 1" curve="linear"/>
+                                        <keyframe time="18.40s" value="0 0" curve="linear"/>
+                                        <keyframe time="18.91s" value="0 0" curve="linear"/>
+                                        <keyframe time="20.00s" value="0 0" curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="position" value="59.6296 -12.3148"/>
+                            </adjust-transform>
+                            <adjust-blend mode="add"/>
+                        </asset-clip>
+                        <asset-clip ref="r9" lane="12" offset="0s" name="Burst – NE b" duration="20s" tcFormat="NDF">
+                            <adjust-transform>
+                                <param name="scale" value="0 0">
+                                    <keyframeAnimation>
+                                        <keyframe time="0.00s" value="0 0" curve="linear"/>
+                                        <keyframe time="1.86s" value="0 0" curve="linear"/>
+                                        <keyframe time="2.75s" value="0 0" curve="linear"/>
+                                        <keyframe time="2.77s" value="1 1" curve="linear"/>
+                                        <keyframe time="3.56s" value="1 1" curve="linear"/>
+                                        <keyframe time="3.58s" value="0 0" curve="linear"/>
+                                        <keyframe time="4.13s" value="0 0" curve="linear"/>
+                                        <keyframe time="4.81s" value="0 0" curve="linear"/>
+                                        <keyframe time="4.83s" value="1 1" curve="linear"/>
+                                        <keyframe time="5.52s" value="1 1" curve="linear"/>
+                                        <keyframe time="5.54s" value="0 0" curve="linear"/>
+                                        <keyframe time="6.31s" value="0 0" curve="linear"/>
+                                        <keyframe time="7.30s" value="0 0" curve="linear"/>
+                                        <keyframe time="7.32s" value="1 1" curve="linear"/>
+                                        <keyframe time="7.85s" value="1 1" curve="linear"/>
+                                        <keyframe time="7.87s" value="0 0" curve="linear"/>
+                                        <keyframe time="8.70s" value="0 0" curve="linear"/>
+                                        <keyframe time="9.38s" value="0 0" curve="linear"/>
+                                        <keyframe time="9.40s" value="1 1" curve="linear"/>
+                                        <keyframe time="10.11s" value="1 1" curve="linear"/>
+                                        <keyframe time="10.13s" value="0 0" curve="linear"/>
+                                        <keyframe time="10.73s" value="0 0" curve="linear"/>
+                                        <keyframe time="11.56s" value="0 0" curve="linear"/>
+                                        <keyframe time="11.58s" value="1 1" curve="linear"/>
+                                        <keyframe time="12.16s" value="1 1" curve="linear"/>
+                                        <keyframe time="12.18s" value="0 0" curve="linear"/>
+                                        <keyframe time="12.90s" value="0 0" curve="linear"/>
+                                        <keyframe time="13.43s" value="0 0" curve="linear"/>
+                                        <keyframe time="13.45s" value="1 1" curve="linear"/>
+                                        <keyframe time="14.39s" value="1 1" curve="linear"/>
+                                        <keyframe time="14.41s" value="0 0" curve="linear"/>
+                                        <keyframe time="15.16s" value="0 0" curve="linear"/>
+                                        <keyframe time="15.89s" value="0 0" curve="linear"/>
+                                        <keyframe time="15.91s" value="1 1" curve="linear"/>
+                                        <keyframe time="16.72s" value="1 1" curve="linear"/>
+                                        <keyframe time="16.74s" value="0 0" curve="linear"/>
+                                        <keyframe time="17.45s" value="0 0" curve="linear"/>
+                                        <keyframe time="18.40s" value="0 0" curve="linear"/>
+                                        <keyframe time="18.42s" value="1 1" curve="linear"/>
+                                        <keyframe time="18.89s" value="1 1" curve="linear"/>
+                                        <keyframe time="18.91s" value="0 0" curve="linear"/>
+                                        <keyframe time="20.00s" value="0 0" curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="position" value="59.6296 -12.3148"/>
+                            </adjust-transform>
+                            <adjust-blend mode="add"/>
+                        </asset-clip>
+                        <asset-clip ref="r10" lane="13" offset="0s" name="Burst – NE c" duration="20s" tcFormat="NDF">
+                            <adjust-transform>
+                                <param name="scale" value="0 0">
+                                    <keyframeAnimation>
+                                        <keyframe time="0.00s" value="0 0" curve="linear"/>
+                                        <keyframe time="1.86s" value="0 0" curve="linear"/>
+                                        <keyframe time="2.75s" value="0 0" curve="linear"/>
+                                        <keyframe time="3.58s" value="0 0" curve="linear"/>
+                                        <keyframe time="3.60s" value="1 1" curve="linear"/>
+                                        <keyframe time="4.11s" value="1 1" curve="linear"/>
+                                        <keyframe time="4.13s" value="0 0" curve="linear"/>
+                                        <keyframe time="4.81s" value="0 0" curve="linear"/>
+                                        <keyframe time="5.54s" value="0 0" curve="linear"/>
+                                        <keyframe time="5.56s" value="1 1" curve="linear"/>
+                                        <keyframe time="6.29s" value="1 1" curve="linear"/>
+                                        <keyframe time="6.31s" value="0 0" curve="linear"/>
+                                        <keyframe time="7.30s" value="0 0" curve="linear"/>
+                                        <keyframe time="7.87s" value="0 0" curve="linear"/>
+                                        <keyframe time="7.89s" value="1 1" curve="linear"/>
+                                        <keyframe time="8.68s" value="1 1" curve="linear"/>
+                                        <keyframe time="8.70s" value="0 0" curve="linear"/>
+                                        <keyframe time="9.38s" value="0 0" curve="linear"/>
+                                        <keyframe time="10.13s" value="0 0" curve="linear"/>
+                                        <keyframe time="10.15s" value="1 1" curve="linear"/>
+                                        <keyframe time="10.71s" value="1 1" curve="linear"/>
+                                        <keyframe time="10.73s" value="0 0" curve="linear"/>
+                                        <keyframe time="11.56s" value="0 0" curve="linear"/>
+                                        <keyframe time="12.18s" value="0 0" curve="linear"/>
+                                        <keyframe time="12.20s" value="1 1" curve="linear"/>
+                                        <keyframe time="12.88s" value="1 1" curve="linear"/>
+                                        <keyframe time="12.90s" value="0 0" curve="linear"/>
+                                        <keyframe time="13.43s" value="0 0" curve="linear"/>
+                                        <keyframe time="14.41s" value="0 0" curve="linear"/>
+                                        <keyframe time="14.43s" value="1 1" curve="linear"/>
+                                        <keyframe time="15.14s" value="1 1" curve="linear"/>
+                                        <keyframe time="15.16s" value="0 0" curve="linear"/>
+                                        <keyframe time="15.89s" value="0 0" curve="linear"/>
+                                        <keyframe time="16.74s" value="0 0" curve="linear"/>
+                                        <keyframe time="16.76s" value="1 1" curve="linear"/>
+                                        <keyframe time="17.43s" value="1 1" curve="linear"/>
+                                        <keyframe time="17.45s" value="0 0" curve="linear"/>
+                                        <keyframe time="18.40s" value="0 0" curve="linear"/>
+                                        <keyframe time="18.91s" value="0 0" curve="linear"/>
+                                        <keyframe time="18.93s" value="1 1" curve="linear"/>
+                                        <keyframe time="19.80s" value="1 1" curve="linear"/>
+                                        <keyframe time="19.82s" value="0 0" curve="linear"/>
+                                        <keyframe time="20.00s" value="0 0" curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="position" value="59.6296 -12.3148"/>
+                            </adjust-transform>
+                            <adjust-blend mode="add"/>
+                        </asset-clip>
+                        <asset-clip ref="r12" lane="14" offset="0s" name="Burst – SE a" duration="20s" tcFormat="NDF">
+                            <adjust-transform>
+                                <param name="scale" value="0 0">
+                                    <keyframeAnimation>
+                                        <keyframe time="0.00s" value="0 0" curve="linear"/>
+                                        <keyframe time="2.66s" value="0 0" curve="linear"/>
+                                        <keyframe time="2.68s" value="1 1" curve="linear"/>
+                                        <keyframe time="3.54s" value="1 1" curve="linear"/>
+                                        <keyframe time="3.56s" value="0 0" curve="linear"/>
+                                        <keyframe time="4.09s" value="0 0" curve="linear"/>
+                                        <keyframe time="4.97s" value="0 0" curve="linear"/>
+                                        <keyframe time="4.99s" value="1 1" curve="linear"/>
+                                        <keyframe time="5.88s" value="1 1" curve="linear"/>
+                                        <keyframe time="5.90s" value="0 0" curve="linear"/>
+                                        <keyframe time="6.44s" value="0 0" curve="linear"/>
+                                        <keyframe time="7.40s" value="0 0" curve="linear"/>
+                                        <keyframe time="7.42s" value="1 1" curve="linear"/>
+                                        <keyframe time="8.27s" value="1 1" curve="linear"/>
+                                        <keyframe time="8.29s" value="0 0" curve="linear"/>
+                                        <keyframe time="8.99s" value="0 0" curve="linear"/>
+                                        <keyframe time="9.68s" value="0 0" curve="linear"/>
+                                        <keyframe time="9.70s" value="1 1" curve="linear"/>
+                                        <keyframe time="10.48s" value="1 1" curve="linear"/>
+                                        <keyframe time="10.50s" value="0 0" curve="linear"/>
+                                        <keyframe time="11.20s" value="0 0" curve="linear"/>
+                                        <keyframe time="11.99s" value="0 0" curve="linear"/>
+                                        <keyframe time="12.01s" value="1 1" curve="linear"/>
+                                        <keyframe time="12.77s" value="1 1" curve="linear"/>
+                                        <keyframe time="12.79s" value="0 0" curve="linear"/>
+                                        <keyframe time="13.32s" value="0 0" curve="linear"/>
+                                        <keyframe time="14.19s" value="0 0" curve="linear"/>
+                                        <keyframe time="14.21s" value="1 1" curve="linear"/>
+                                        <keyframe time="15.02s" value="1 1" curve="linear"/>
+                                        <keyframe time="15.04s" value="0 0" curve="linear"/>
+                                        <keyframe time="16.00s" value="0 0" curve="linear"/>
+                                        <keyframe time="16.86s" value="0 0" curve="linear"/>
+                                        <keyframe time="16.88s" value="1 1" curve="linear"/>
+                                        <keyframe time="17.67s" value="1 1" curve="linear"/>
+                                        <keyframe time="17.69s" value="0 0" curve="linear"/>
+                                        <keyframe time="18.56s" value="0 0" curve="linear"/>
+                                        <keyframe time="19.15s" value="0 0" curve="linear"/>
+                                        <keyframe time="19.17s" value="1 1" curve="linear"/>
+                                        <keyframe time="19.88s" value="1 1" curve="linear"/>
+                                        <keyframe time="19.90s" value="0 0" curve="linear"/>
+                                        <keyframe time="20.00s" value="0 0" curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="position" value="35.463 12.4074"/>
+                            </adjust-transform>
+                            <adjust-blend mode="add"/>
+                        </asset-clip>
+                        <asset-clip ref="r13" lane="15" offset="0s" name="Burst – SE b" duration="20s" tcFormat="NDF">
+                            <adjust-transform>
+                                <param name="scale" value="0 0">
+                                    <keyframeAnimation>
+                                        <keyframe time="0.00s" value="0 0" curve="linear"/>
+                                        <keyframe time="2.66s" value="0 0" curve="linear"/>
+                                        <keyframe time="3.56s" value="0 0" curve="linear"/>
+                                        <keyframe time="3.58s" value="1 1" curve="linear"/>
+                                        <keyframe time="4.07s" value="1 1" curve="linear"/>
+                                        <keyframe time="4.09s" value="0 0" curve="linear"/>
+                                        <keyframe time="4.97s" value="0 0" curve="linear"/>
+                                        <keyframe time="5.90s" value="0 0" curve="linear"/>
+                                        <keyframe time="5.92s" value="1 1" curve="linear"/>
+                                        <keyframe time="6.42s" value="1 1" curve="linear"/>
+                                        <keyframe time="6.44s" value="0 0" curve="linear"/>
+                                        <keyframe time="7.40s" value="0 0" curve="linear"/>
+                                        <keyframe time="8.29s" value="0 0" curve="linear"/>
+                                        <keyframe time="8.31s" value="1 1" curve="linear"/>
+                                        <keyframe time="8.97s" value="1 1" curve="linear"/>
+                                        <keyframe time="8.99s" value="0 0" curve="linear"/>
+                                        <keyframe time="9.68s" value="0 0" curve="linear"/>
+                                        <keyframe time="10.50s" value="0 0" curve="linear"/>
+                                        <keyframe time="10.52s" value="1 1" curve="linear"/>
+                                        <keyframe time="11.18s" value="1 1" curve="linear"/>
+                                        <keyframe time="11.20s" value="0 0" curve="linear"/>
+                                        <keyframe time="11.99s" value="0 0" curve="linear"/>
+                                        <keyframe time="12.79s" value="0 0" curve="linear"/>
+                                        <keyframe time="12.81s" value="1 1" curve="linear"/>
+                                        <keyframe time="13.30s" value="1 1" curve="linear"/>
+                                        <keyframe time="13.32s" value="0 0" curve="linear"/>
+                                        <keyframe time="14.19s" value="0 0" curve="linear"/>
+                                        <keyframe time="15.04s" value="0 0" curve="linear"/>
+                                        <keyframe time="15.06s" value="1 1" curve="linear"/>
+                                        <keyframe time="15.98s" value="1 1" curve="linear"/>
+                                        <keyframe time="16.00s" value="0 0" curve="linear"/>
+                                        <keyframe time="16.86s" value="0 0" curve="linear"/>
+                                        <keyframe time="17.69s" value="0 0" curve="linear"/>
+                                        <keyframe time="17.71s" value="1 1" curve="linear"/>
+                                        <keyframe time="18.54s" value="1 1" curve="linear"/>
+                                        <keyframe time="18.56s" value="0 0" curve="linear"/>
+                                        <keyframe time="19.15s" value="0 0" curve="linear"/>
+                                        <keyframe time="20.00s" value="0 0" curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="position" value="35.463 12.4074"/>
+                            </adjust-transform>
+                            <adjust-blend mode="add"/>
+                        </asset-clip>
+                        <asset-clip ref="r14" lane="16" offset="0s" name="Burst – SE c" duration="20s" tcFormat="NDF">
+                            <adjust-transform>
+                                <param name="scale" value="0 0">
+                                    <keyframeAnimation>
+                                        <keyframe time="0.00s" value="0 0" curve="linear"/>
+                                        <keyframe time="2.66s" value="0 0" curve="linear"/>
+                                        <keyframe time="3.56s" value="0 0" curve="linear"/>
+                                        <keyframe time="4.09s" value="0 0" curve="linear"/>
+                                        <keyframe time="4.11s" value="1 1" curve="linear"/>
+                                        <keyframe time="4.95s" value="1 1" curve="linear"/>
+                                        <keyframe time="4.97s" value="0 0" curve="linear"/>
+                                        <keyframe time="5.90s" value="0 0" curve="linear"/>
+                                        <keyframe time="6.44s" value="0 0" curve="linear"/>
+                                        <keyframe time="6.46s" value="1 1" curve="linear"/>
+                                        <keyframe time="7.38s" value="1 1" curve="linear"/>
+                                        <keyframe time="7.40s" value="0 0" curve="linear"/>
+                                        <keyframe time="8.29s" value="0 0" curve="linear"/>
+                                        <keyframe time="8.99s" value="0 0" curve="linear"/>
+                                        <keyframe time="9.01s" value="1 1" curve="linear"/>
+                                        <keyframe time="9.66s" value="1 1" curve="linear"/>
+                                        <keyframe time="9.68s" value="0 0" curve="linear"/>
+                                        <keyframe time="10.50s" value="0 0" curve="linear"/>
+                                        <keyframe time="11.20s" value="0 0" curve="linear"/>
+                                        <keyframe time="11.22s" value="1 1" curve="linear"/>
+                                        <keyframe time="11.97s" value="1 1" curve="linear"/>
+                                        <keyframe time="11.99s" value="0 0" curve="linear"/>
+                                        <keyframe time="12.79s" value="0 0" curve="linear"/>
+                                        <keyframe time="13.32s" value="0 0" curve="linear"/>
+                                        <keyframe time="13.34s" value="1 1" curve="linear"/>
+                                        <keyframe time="14.17s" value="1 1" curve="linear"/>
+                                        <keyframe time="14.19s" value="0 0" curve="linear"/>
+                                        <keyframe time="15.04s" value="0 0" curve="linear"/>
+                                        <keyframe time="16.00s" value="0 0" curve="linear"/>
+                                        <keyframe time="16.02s" value="1 1" curve="linear"/>
+                                        <keyframe time="16.84s" value="1 1" curve="linear"/>
+                                        <keyframe time="16.86s" value="0 0" curve="linear"/>
+                                        <keyframe time="17.69s" value="0 0" curve="linear"/>
+                                        <keyframe time="18.56s" value="0 0" curve="linear"/>
+                                        <keyframe time="18.58s" value="1 1" curve="linear"/>
+                                        <keyframe time="19.13s" value="1 1" curve="linear"/>
+                                        <keyframe time="19.15s" value="0 0" curve="linear"/>
+                                        <keyframe time="20.00s" value="0 0" curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="position" value="35.463 12.4074"/>
+                            </adjust-transform>
+                            <adjust-blend mode="add"/>
+                        </asset-clip>
+                        <asset-clip ref="r16" lane="17" offset="0s" name="Burst – NW a" duration="20s" tcFormat="NDF">
+                            <adjust-transform>
+                                <param name="scale" value="0 0">
+                                    <keyframeAnimation>
+                                        <keyframe time="0.00s" value="0 0" curve="linear"/>
+                                        <keyframe time="3.46s" value="0 0" curve="linear"/>
+                                        <keyframe time="3.48s" value="1 1" curve="linear"/>
+                                        <keyframe time="4.20s" value="1 1" curve="linear"/>
+                                        <keyframe time="4.22s" value="0 0" curve="linear"/>
+                                        <keyframe time="4.93s" value="0 0" curve="linear"/>
+                                        <keyframe time="5.54s" value="0 0" curve="linear"/>
+                                        <keyframe time="5.56s" value="1 1" curve="linear"/>
+                                        <keyframe time="6.09s" value="1 1" curve="linear"/>
+                                        <keyframe time="6.11s" value="0 0" curve="linear"/>
+                                        <keyframe time="6.85s" value="0 0" curve="linear"/>
+                                        <keyframe time="7.66s" value="0 0" curve="linear"/>
+                                        <keyframe time="7.68s" value="1 1" curve="linear"/>
+                                        <keyframe time="8.45s" value="1 1" curve="linear"/>
+                                        <keyframe time="8.47s" value="0 0" curve="linear"/>
+                                        <keyframe time="9.33s" value="0 0" curve="linear"/>
+                                        <keyframe time="10.04s" value="0 0" curve="linear"/>
+                                        <keyframe time="10.06s" value="1 1" curve="linear"/>
+                                        <keyframe time="10.55s" value="1 1" curve="linear"/>
+                                        <keyframe time="10.57s" value="0 0" curve="linear"/>
+                                        <keyframe time="11.18s" value="0 0" curve="linear"/>
+                                        <keyframe time="12.07s" value="0 0" curve="linear"/>
+                                        <keyframe time="12.09s" value="1 1" curve="linear"/>
+                                        <keyframe time="12.77s" value="1 1" curve="linear"/>
+                                        <keyframe time="12.79s" value="0 0" curve="linear"/>
+                                        <keyframe time="13.57s" value="0 0" curve="linear"/>
+                                        <keyframe time="14.41s" value="0 0" curve="linear"/>
+                                        <keyframe time="14.43s" value="1 1" curve="linear"/>
+                                        <keyframe time="15.26s" value="1 1" curve="linear"/>
+                                        <keyframe time="15.28s" value="0 0" curve="linear"/>
+                                        <keyframe time="15.87s" value="0 0" curve="linear"/>
+                                        <keyframe time="16.60s" value="0 0" curve="linear"/>
+                                        <keyframe time="16.62s" value="1 1" curve="linear"/>
+                                        <keyframe time="17.41s" value="1 1" curve="linear"/>
+                                        <keyframe time="17.43s" value="0 0" curve="linear"/>
+                                        <keyframe time="18.39s" value="0 0" curve="linear"/>
+                                        <keyframe time="19.03s" value="0 0" curve="linear"/>
+                                        <keyframe time="19.05s" value="1 1" curve="linear"/>
+                                        <keyframe time="19.96s" value="1 1" curve="linear"/>
+                                        <keyframe time="19.98s" value="0 0" curve="linear"/>
+                                        <keyframe time="20.00s" value="0 0" curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="position" value="-64.537 -19.9074"/>
+                            </adjust-transform>
+                            <adjust-blend mode="add"/>
+                        </asset-clip>
+                        <asset-clip ref="r17" lane="18" offset="0s" name="Burst – NW b" duration="20s" tcFormat="NDF">
+                            <adjust-transform>
+                                <param name="scale" value="0 0">
+                                    <keyframeAnimation>
+                                        <keyframe time="0.00s" value="0 0" curve="linear"/>
+                                        <keyframe time="3.46s" value="0 0" curve="linear"/>
+                                        <keyframe time="4.22s" value="0 0" curve="linear"/>
+                                        <keyframe time="4.24s" value="1 1" curve="linear"/>
+                                        <keyframe time="4.91s" value="1 1" curve="linear"/>
+                                        <keyframe time="4.93s" value="0 0" curve="linear"/>
+                                        <keyframe time="5.54s" value="0 0" curve="linear"/>
+                                        <keyframe time="6.11s" value="0 0" curve="linear"/>
+                                        <keyframe time="6.13s" value="1 1" curve="linear"/>
+                                        <keyframe time="6.83s" value="1 1" curve="linear"/>
+                                        <keyframe time="6.85s" value="0 0" curve="linear"/>
+                                        <keyframe time="7.66s" value="0 0" curve="linear"/>
+                                        <keyframe time="8.47s" value="0 0" curve="linear"/>
+                                        <keyframe time="8.49s" value="1 1" curve="linear"/>
+                                        <keyframe time="9.31s" value="1 1" curve="linear"/>
+                                        <keyframe time="9.33s" value="0 0" curve="linear"/>
+                                        <keyframe time="10.04s" value="0 0" curve="linear"/>
+                                        <keyframe time="10.57s" value="0 0" curve="linear"/>
+                                        <keyframe time="10.59s" value="1 1" curve="linear"/>
+                                        <keyframe time="11.16s" value="1 1" curve="linear"/>
+                                        <keyframe time="11.18s" value="0 0" curve="linear"/>
+                                        <keyframe time="12.07s" value="0 0" curve="linear"/>
+                                        <keyframe time="12.79s" value="0 0" curve="linear"/>
+                                        <keyframe time="12.81s" value="1 1" curve="linear"/>
+                                        <keyframe time="13.55s" value="1 1" curve="linear"/>
+                                        <keyframe time="13.57s" value="0 0" curve="linear"/>
+                                        <keyframe time="14.41s" value="0 0" curve="linear"/>
+                                        <keyframe time="15.28s" value="0 0" curve="linear"/>
+                                        <keyframe time="15.30s" value="1 1" curve="linear"/>
+                                        <keyframe time="15.85s" value="1 1" curve="linear"/>
+                                        <keyframe time="15.87s" value="0 0" curve="linear"/>
+                                        <keyframe time="16.60s" value="0 0" curve="linear"/>
+                                        <keyframe time="17.43s" value="0 0" curve="linear"/>
+                                        <keyframe time="17.45s" value="1 1" curve="linear"/>
+                                        <keyframe time="18.37s" value="1 1" curve="linear"/>
+                                        <keyframe time="18.39s" value="0 0" curve="linear"/>
+                                        <keyframe time="19.03s" value="0 0" curve="linear"/>
+                                        <keyframe time="20.00s" value="0 0" curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="position" value="-64.537 -19.9074"/>
+                            </adjust-transform>
+                            <adjust-blend mode="add"/>
+                        </asset-clip>
+                        <asset-clip ref="r18" lane="19" offset="0s" name="Burst – NW c" duration="20s" tcFormat="NDF">
+                            <adjust-transform>
+                                <param name="scale" value="0 0">
+                                    <keyframeAnimation>
+                                        <keyframe time="0.00s" value="0 0" curve="linear"/>
+                                        <keyframe time="3.46s" value="0 0" curve="linear"/>
+                                        <keyframe time="4.22s" value="0 0" curve="linear"/>
+                                        <keyframe time="4.93s" value="0 0" curve="linear"/>
+                                        <keyframe time="4.95s" value="1 1" curve="linear"/>
+                                        <keyframe time="5.52s" value="1 1" curve="linear"/>
+                                        <keyframe time="5.54s" value="0 0" curve="linear"/>
+                                        <keyframe time="6.11s" value="0 0" curve="linear"/>
+                                        <keyframe time="6.85s" value="0 0" curve="linear"/>
+                                        <keyframe time="6.87s" value="1 1" curve="linear"/>
+                                        <keyframe time="7.64s" value="1 1" curve="linear"/>
+                                        <keyframe time="7.66s" value="0 0" curve="linear"/>
+                                        <keyframe time="8.47s" value="0 0" curve="linear"/>
+                                        <keyframe time="9.33s" value="0 0" curve="linear"/>
+                                        <keyframe time="9.35s" value="1 1" curve="linear"/>
+                                        <keyframe time="10.02s" value="1 1" curve="linear"/>
+                                        <keyframe time="10.04s" value="0 0" curve="linear"/>
+                                        <keyframe time="10.57s" value="0 0" curve="linear"/>
+                                        <keyframe time="11.18s" value="0 0" curve="linear"/>
+                                        <keyframe time="11.20s" value="1 1" curve="linear"/>
+                                        <keyframe time="12.05s" value="1 1" curve="linear"/>
+                                        <keyframe time="12.07s" value="0 0" curve="linear"/>
+                                        <keyframe time="12.79s" value="0 0" curve="linear"/>
+                                        <keyframe time="13.57s" value="0 0" curve="linear"/>
+                                        <keyframe time="13.59s" value="1 1" curve="linear"/>
+                                        <keyframe time="14.39s" value="1 1" curve="linear"/>
+                                        <keyframe time="14.41s" value="0 0" curve="linear"/>
+                                        <keyframe time="15.28s" value="0 0" curve="linear"/>
+                                        <keyframe time="15.87s" value="0 0" curve="linear"/>
+                                        <keyframe time="15.89s" value="1 1" curve="linear"/>
+                                        <keyframe time="16.58s" value="1 1" curve="linear"/>
+                                        <keyframe time="16.60s" value="0 0" curve="linear"/>
+                                        <keyframe time="17.43s" value="0 0" curve="linear"/>
+                                        <keyframe time="18.39s" value="0 0" curve="linear"/>
+                                        <keyframe time="18.41s" value="1 1" curve="linear"/>
+                                        <keyframe time="19.01s" value="1 1" curve="linear"/>
+                                        <keyframe time="19.03s" value="0 0" curve="linear"/>
+                                        <keyframe time="20.00s" value="0 0" curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="position" value="-64.537 -19.9074"/>
+                            </adjust-transform>
+                            <adjust-blend mode="add"/>
+                        </asset-clip>
+                        <asset-clip ref="r20" lane="20" offset="0s" name="Burst – SW a" duration="20s" tcFormat="NDF">
+                            <adjust-transform>
+                                <param name="scale" value="0 0">
+                                    <keyframeAnimation>
+                                        <keyframe time="0.00s" value="0 0" curve="linear"/>
+                                        <keyframe time="4.26s" value="0 0" curve="linear"/>
+                                        <keyframe time="4.28s" value="1 1" curve="linear"/>
+                                        <keyframe time="4.99s" value="1 1" curve="linear"/>
+                                        <keyframe time="5.01s" value="0 0" curve="linear"/>
+                                        <keyframe time="5.69s" value="0 0" curve="linear"/>
+                                        <keyframe time="6.55s" value="0 0" curve="linear"/>
+                                        <keyframe time="6.57s" value="1 1" curve="linear"/>
+                                        <keyframe time="7.25s" value="1 1" curve="linear"/>
+                                        <keyframe time="7.27s" value="0 0" curve="linear"/>
+                                        <keyframe time="8.00s" value="0 0" curve="linear"/>
+                                        <keyframe time="8.51s" value="0 0" curve="linear"/>
+                                        <keyframe time="8.53s" value="1 1" curve="linear"/>
+                                        <keyframe time="9.16s" value="1 1" curve="linear"/>
+                                        <keyframe time="9.18s" value="0 0" curve="linear"/>
+                                        <keyframe time="9.92s" value="0 0" curve="linear"/>
+                                        <keyframe time="10.64s" value="0 0" curve="linear"/>
+                                        <keyframe time="10.66s" value="1 1" curve="linear"/>
+                                        <keyframe time="11.17s" value="1 1" curve="linear"/>
+                                        <keyframe time="11.19s" value="0 0" curve="linear"/>
+                                        <keyframe time="11.84s" value="0 0" curve="linear"/>
+                                        <keyframe time="12.50s" value="0 0" curve="linear"/>
+                                        <keyframe time="12.52s" value="1 1" curve="linear"/>
+                                        <keyframe time="13.44s" value="1 1" curve="linear"/>
+                                        <keyframe time="13.46s" value="0 0" curve="linear"/>
+                                        <keyframe time="14.31s" value="0 0" curve="linear"/>
+                                        <keyframe time="15.26s" value="0 0" curve="linear"/>
+                                        <keyframe time="15.28s" value="1 1" curve="linear"/>
+                                        <keyframe time="15.76s" value="1 1" curve="linear"/>
+                                        <keyframe time="15.78s" value="0 0" curve="linear"/>
+                                        <keyframe time="16.39s" value="0 0" curve="linear"/>
+                                        <keyframe time="17.16s" value="0 0" curve="linear"/>
+                                        <keyframe time="17.18s" value="1 1" curve="linear"/>
+                                        <keyframe time="17.67s" value="1 1" curve="linear"/>
+                                        <keyframe time="17.69s" value="0 0" curve="linear"/>
+                                        <keyframe time="18.31s" value="0 0" curve="linear"/>
+                                        <keyframe time="19.09s" value="0 0" curve="linear"/>
+                                        <keyframe time="19.11s" value="1 1" curve="linear"/>
+                                        <keyframe time="19.57s" value="1 1" curve="linear"/>
+                                        <keyframe time="19.59s" value="0 0" curve="linear"/>
+                                        <keyframe time="20.00s" value="0 0" curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="position" value="-6.3889 18.8889"/>
+                            </adjust-transform>
+                            <adjust-blend mode="add"/>
+                        </asset-clip>
+                        <asset-clip ref="r21" lane="21" offset="0s" name="Burst – SW b" duration="20s" tcFormat="NDF">
+                            <adjust-transform>
+                                <param name="scale" value="0 0">
+                                    <keyframeAnimation>
+                                        <keyframe time="0.00s" value="0 0" curve="linear"/>
+                                        <keyframe time="4.26s" value="0 0" curve="linear"/>
+                                        <keyframe time="5.01s" value="0 0" curve="linear"/>
+                                        <keyframe time="5.03s" value="1 1" curve="linear"/>
+                                        <keyframe time="5.67s" value="1 1" curve="linear"/>
+                                        <keyframe time="5.69s" value="0 0" curve="linear"/>
+                                        <keyframe time="6.55s" value="0 0" curve="linear"/>
+                                        <keyframe time="7.27s" value="0 0" curve="linear"/>
+                                        <keyframe time="7.29s" value="1 1" curve="linear"/>
+                                        <keyframe time="7.98s" value="1 1" curve="linear"/>
+                                        <keyframe time="8.00s" value="0 0" curve="linear"/>
+                                        <keyframe time="8.51s" value="0 0" curve="linear"/>
+                                        <keyframe time="9.18s" value="0 0" curve="linear"/>
+                                        <keyframe time="9.20s" value="1 1" curve="linear"/>
+                                        <keyframe time="9.90s" value="1 1" curve="linear"/>
+                                        <keyframe time="9.92s" value="0 0" curve="linear"/>
+                                        <keyframe time="10.64s" value="0 0" curve="linear"/>
+                                        <keyframe time="11.19s" value="0 0" curve="linear"/>
+                                        <keyframe time="11.21s" value="1 1" curve="linear"/>
+                                        <keyframe time="11.82s" value="1 1" curve="linear"/>
+                                        <keyframe time="11.84s" value="0 0" curve="linear"/>
+                                        <keyframe time="12.50s" value="0 0" curve="linear"/>
+                                        <keyframe time="13.46s" value="0 0" curve="linear"/>
+                                        <keyframe time="13.48s" value="1 1" curve="linear"/>
+                                        <keyframe time="14.29s" value="1 1" curve="linear"/>
+                                        <keyframe time="14.31s" value="0 0" curve="linear"/>
+                                        <keyframe time="15.26s" value="0 0" curve="linear"/>
+                                        <keyframe time="15.78s" value="0 0" curve="linear"/>
+                                        <keyframe time="15.80s" value="1 1" curve="linear"/>
+                                        <keyframe time="16.37s" value="1 1" curve="linear"/>
+                                        <keyframe time="16.39s" value="0 0" curve="linear"/>
+                                        <keyframe time="17.16s" value="0 0" curve="linear"/>
+                                        <keyframe time="17.69s" value="0 0" curve="linear"/>
+                                        <keyframe time="17.71s" value="1 1" curve="linear"/>
+                                        <keyframe time="18.29s" value="1 1" curve="linear"/>
+                                        <keyframe time="18.31s" value="0 0" curve="linear"/>
+                                        <keyframe time="19.09s" value="0 0" curve="linear"/>
+                                        <keyframe time="19.59s" value="0 0" curve="linear"/>
+                                        <keyframe time="19.61s" value="1 1" curve="linear"/>
+                                        <keyframe time="19.98s" value="1 1" curve="linear"/>
+                                        <keyframe time="20.00s" value="0 0" curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="position" value="-6.3889 18.8889"/>
+                            </adjust-transform>
+                            <adjust-blend mode="add"/>
+                        </asset-clip>
+                        <asset-clip ref="r22" lane="22" offset="0s" name="Burst – SW c" duration="20s" tcFormat="NDF">
+                            <adjust-transform>
+                                <param name="scale" value="0 0">
+                                    <keyframeAnimation>
+                                        <keyframe time="0.00s" value="0 0" curve="linear"/>
+                                        <keyframe time="4.26s" value="0 0" curve="linear"/>
+                                        <keyframe time="5.01s" value="0 0" curve="linear"/>
+                                        <keyframe time="5.69s" value="0 0" curve="linear"/>
+                                        <keyframe time="5.71s" value="1 1" curve="linear"/>
+                                        <keyframe time="6.53s" value="1 1" curve="linear"/>
+                                        <keyframe time="6.55s" value="0 0" curve="linear"/>
+                                        <keyframe time="7.27s" value="0 0" curve="linear"/>
+                                        <keyframe time="8.00s" value="0 0" curve="linear"/>
+                                        <keyframe time="8.02s" value="1 1" curve="linear"/>
+                                        <keyframe time="8.49s" value="1 1" curve="linear"/>
+                                        <keyframe time="8.51s" value="0 0" curve="linear"/>
+                                        <keyframe time="9.18s" value="0 0" curve="linear"/>
+                                        <keyframe time="9.92s" value="0 0" curve="linear"/>
+                                        <keyframe time="9.94s" value="1 1" curve="linear"/>
+                                        <keyframe time="10.62s" value="1 1" curve="linear"/>
+                                        <keyframe time="10.64s" value="0 0" curve="linear"/>
+                                        <keyframe time="11.19s" value="0 0" curve="linear"/>
+                                        <keyframe time="11.84s" value="0 0" curve="linear"/>
+                                        <keyframe time="11.86s" value="1 1" curve="linear"/>
+                                        <keyframe time="12.48s" value="1 1" curve="linear"/>
+                                        <keyframe time="12.50s" value="0 0" curve="linear"/>
+                                        <keyframe time="13.46s" value="0 0" curve="linear"/>
+                                        <keyframe time="14.31s" value="0 0" curve="linear"/>
+                                        <keyframe time="14.33s" value="1 1" curve="linear"/>
+                                        <keyframe time="15.24s" value="1 1" curve="linear"/>
+                                        <keyframe time="15.26s" value="0 0" curve="linear"/>
+                                        <keyframe time="15.78s" value="0 0" curve="linear"/>
+                                        <keyframe time="16.39s" value="0 0" curve="linear"/>
+                                        <keyframe time="16.41s" value="1 1" curve="linear"/>
+                                        <keyframe time="17.14s" value="1 1" curve="linear"/>
+                                        <keyframe time="17.16s" value="0 0" curve="linear"/>
+                                        <keyframe time="17.69s" value="0 0" curve="linear"/>
+                                        <keyframe time="18.31s" value="0 0" curve="linear"/>
+                                        <keyframe time="18.33s" value="1 1" curve="linear"/>
+                                        <keyframe time="19.07s" value="1 1" curve="linear"/>
+                                        <keyframe time="19.09s" value="0 0" curve="linear"/>
+                                        <keyframe time="19.59s" value="0 0" curve="linear"/>
+                                        <keyframe time="20.00s" value="0 0" curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="position" value="-6.3889 18.8889"/>
+                            </adjust-transform>
+                            <adjust-blend mode="add"/>
+                        </asset-clip>
+                        <asset-clip ref="r24" lane="23" offset="0s" name="Burst – MW a" duration="20s" tcFormat="NDF">
+                            <adjust-transform>
+                                <param name="scale" value="0 0">
+                                    <keyframeAnimation>
+                                        <keyframe time="0.00s" value="0 0" curve="linear"/>
+                                        <keyframe time="5.06s" value="0 0" curve="linear"/>
+                                        <keyframe time="5.08s" value="1 1" curve="linear"/>
+                                        <keyframe time="5.75s" value="1 1" curve="linear"/>
+                                        <keyframe time="5.77s" value="0 0" curve="linear"/>
+                                        <keyframe time="6.76s" value="0 0" curve="linear"/>
+                                        <keyframe time="7.57s" value="0 0" curve="linear"/>
+                                        <keyframe time="7.59s" value="1 1" curve="linear"/>
+                                        <keyframe time="8.39s" value="1 1" curve="linear"/>
+                                        <keyframe time="8.41s" value="0 0" curve="linear"/>
+                                        <keyframe time="9.17s" value="0 0" curve="linear"/>
+                                        <keyframe time="9.76s" value="0 0" curve="linear"/>
+                                        <keyframe time="9.78s" value="1 1" curve="linear"/>
+                                        <keyframe time="10.66s" value="1 1" curve="linear"/>
+                                        <keyframe time="10.68s" value="0 0" curve="linear"/>
+                                        <keyframe time="11.60s" value="0 0" curve="linear"/>
+                                        <keyframe time="12.20s" value="0 0" curve="linear"/>
+                                        <keyframe time="12.22s" value="1 1" curve="linear"/>
+                                        <keyframe time="13.01s" value="1 1" curve="linear"/>
+                                        <keyframe time="13.03s" value="0 0" curve="linear"/>
+                                        <keyframe time="13.88s" value="0 0" curve="linear"/>
+                                        <keyframe time="14.74s" value="0 0" curve="linear"/>
+                                        <keyframe time="14.76s" value="1 1" curve="linear"/>
+                                        <keyframe time="15.62s" value="1 1" curve="linear"/>
+                                        <keyframe time="15.64s" value="0 0" curve="linear"/>
+                                        <keyframe time="16.56s" value="0 0" curve="linear"/>
+                                        <keyframe time="17.25s" value="0 0" curve="linear"/>
+                                        <keyframe time="17.27s" value="1 1" curve="linear"/>
+                                        <keyframe time="17.98s" value="1 1" curve="linear"/>
+                                        <keyframe time="18.00s" value="0 0" curve="linear"/>
+                                        <keyframe time="18.86s" value="0 0" curve="linear"/>
+                                        <keyframe time="19.43s" value="0 0" curve="linear"/>
+                                        <keyframe time="19.45s" value="1 1" curve="linear"/>
+                                        <keyframe time="19.93s" value="1 1" curve="linear"/>
+                                        <keyframe time="19.95s" value="0 0" curve="linear"/>
+                                        <keyframe time="20.00s" value="0 0" curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="position" value="19.7222 -11.1111"/>
+                            </adjust-transform>
+                            <adjust-blend mode="add"/>
+                        </asset-clip>
+                        <asset-clip ref="r25" lane="24" offset="0s" name="Burst – MW b" duration="20s" tcFormat="NDF">
+                            <adjust-transform>
+                                <param name="scale" value="0 0">
+                                    <keyframeAnimation>
+                                        <keyframe time="0.00s" value="0 0" curve="linear"/>
+                                        <keyframe time="5.06s" value="0 0" curve="linear"/>
+                                        <keyframe time="5.77s" value="0 0" curve="linear"/>
+                                        <keyframe time="5.79s" value="1 1" curve="linear"/>
+                                        <keyframe time="6.74s" value="1 1" curve="linear"/>
+                                        <keyframe time="6.76s" value="0 0" curve="linear"/>
+                                        <keyframe time="7.57s" value="0 0" curve="linear"/>
+                                        <keyframe time="8.41s" value="0 0" curve="linear"/>
+                                        <keyframe time="8.43s" value="1 1" curve="linear"/>
+                                        <keyframe time="9.15s" value="1 1" curve="linear"/>
+                                        <keyframe time="9.17s" value="0 0" curve="linear"/>
+                                        <keyframe time="9.76s" value="0 0" curve="linear"/>
+                                        <keyframe time="10.68s" value="0 0" curve="linear"/>
+                                        <keyframe time="10.70s" value="1 1" curve="linear"/>
+                                        <keyframe time="11.58s" value="1 1" curve="linear"/>
+                                        <keyframe time="11.60s" value="0 0" curve="linear"/>
+                                        <keyframe time="12.20s" value="0 0" curve="linear"/>
+                                        <keyframe time="13.03s" value="0 0" curve="linear"/>
+                                        <keyframe time="13.05s" value="1 1" curve="linear"/>
+                                        <keyframe time="13.86s" value="1 1" curve="linear"/>
+                                        <keyframe time="13.88s" value="0 0" curve="linear"/>
+                                        <keyframe time="14.74s" value="0 0" curve="linear"/>
+                                        <keyframe time="15.64s" value="0 0" curve="linear"/>
+                                        <keyframe time="15.66s" value="1 1" curve="linear"/>
+                                        <keyframe time="16.54s" value="1 1" curve="linear"/>
+                                        <keyframe time="16.56s" value="0 0" curve="linear"/>
+                                        <keyframe time="17.25s" value="0 0" curve="linear"/>
+                                        <keyframe time="18.00s" value="0 0" curve="linear"/>
+                                        <keyframe time="18.02s" value="1 1" curve="linear"/>
+                                        <keyframe time="18.84s" value="1 1" curve="linear"/>
+                                        <keyframe time="18.86s" value="0 0" curve="linear"/>
+                                        <keyframe time="19.43s" value="0 0" curve="linear"/>
+                                        <keyframe time="20.00s" value="0 0" curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="position" value="19.7222 -11.1111"/>
+                            </adjust-transform>
+                            <adjust-blend mode="add"/>
+                        </asset-clip>
+                        <asset-clip ref="r26" lane="25" offset="0s" name="Burst – MW c" duration="20s" tcFormat="NDF">
+                            <adjust-transform>
+                                <param name="scale" value="0 0">
+                                    <keyframeAnimation>
+                                        <keyframe time="0.00s" value="0 0" curve="linear"/>
+                                        <keyframe time="5.06s" value="0 0" curve="linear"/>
+                                        <keyframe time="5.77s" value="0 0" curve="linear"/>
+                                        <keyframe time="6.76s" value="0 0" curve="linear"/>
+                                        <keyframe time="6.78s" value="1 1" curve="linear"/>
+                                        <keyframe time="7.55s" value="1 1" curve="linear"/>
+                                        <keyframe time="7.57s" value="0 0" curve="linear"/>
+                                        <keyframe time="8.41s" value="0 0" curve="linear"/>
+                                        <keyframe time="9.17s" value="0 0" curve="linear"/>
+                                        <keyframe time="9.19s" value="1 1" curve="linear"/>
+                                        <keyframe time="9.74s" value="1 1" curve="linear"/>
+                                        <keyframe time="9.76s" value="0 0" curve="linear"/>
+                                        <keyframe time="10.68s" value="0 0" curve="linear"/>
+                                        <keyframe time="11.60s" value="0 0" curve="linear"/>
+                                        <keyframe time="11.62s" value="1 1" curve="linear"/>
+                                        <keyframe time="12.18s" value="1 1" curve="linear"/>
+                                        <keyframe time="12.20s" value="0 0" curve="linear"/>
+                                        <keyframe time="13.03s" value="0 0" curve="linear"/>
+                                        <keyframe time="13.88s" value="0 0" curve="linear"/>
+                                        <keyframe time="13.90s" value="1 1" curve="linear"/>
+                                        <keyframe time="14.72s" value="1 1" curve="linear"/>
+                                        <keyframe time="14.74s" value="0 0" curve="linear"/>
+                                        <keyframe time="15.64s" value="0 0" curve="linear"/>
+                                        <keyframe time="16.56s" value="0 0" curve="linear"/>
+                                        <keyframe time="16.58s" value="1 1" curve="linear"/>
+                                        <keyframe time="17.23s" value="1 1" curve="linear"/>
+                                        <keyframe time="17.25s" value="0 0" curve="linear"/>
+                                        <keyframe time="18.00s" value="0 0" curve="linear"/>
+                                        <keyframe time="18.86s" value="0 0" curve="linear"/>
+                                        <keyframe time="18.88s" value="1 1" curve="linear"/>
+                                        <keyframe time="19.41s" value="1 1" curve="linear"/>
+                                        <keyframe time="19.43s" value="0 0" curve="linear"/>
+                                        <keyframe time="20.00s" value="0 0" curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="position" value="19.7222 -11.1111"/>
+                            </adjust-transform>
+                            <adjust-blend mode="add"/>
+                        </asset-clip>
+                        <asset-clip ref="r28" lane="26" offset="0s" name="Burst – C a" duration="20s" tcFormat="NDF">
+                            <adjust-transform>
+                                <param name="scale" value="0 0">
+                                    <keyframeAnimation>
+                                        <keyframe time="0.00s" value="0 0" curve="linear"/>
+                                        <keyframe time="5.86s" value="0 0" curve="linear"/>
+                                        <keyframe time="5.88s" value="1 1" curve="linear"/>
+                                        <keyframe time="6.58s" value="1 1" curve="linear"/>
+                                        <keyframe time="6.60s" value="0 0" curve="linear"/>
+                                        <keyframe time="7.55s" value="0 0" curve="linear"/>
+                                        <keyframe time="8.32s" value="0 0" curve="linear"/>
+                                        <keyframe time="8.34s" value="1 1" curve="linear"/>
+                                        <keyframe time="9.24s" value="1 1" curve="linear"/>
+                                        <keyframe time="9.26s" value="0 0" curve="linear"/>
+                                        <keyframe time="10.05s" value="0 0" curve="linear"/>
+                                        <keyframe time="11.04s" value="0 0" curve="linear"/>
+                                        <keyframe time="11.06s" value="1 1" curve="linear"/>
+                                        <keyframe time="11.70s" value="1 1" curve="linear"/>
+                                        <keyframe time="11.72s" value="0 0" curve="linear"/>
+                                        <keyframe time="12.55s" value="0 0" curve="linear"/>
+                                        <keyframe time="13.30s" value="0 0" curve="linear"/>
+                                        <keyframe time="13.32s" value="1 1" curve="linear"/>
+                                        <keyframe time="14.06s" value="1 1" curve="linear"/>
+                                        <keyframe time="14.08s" value="0 0" curve="linear"/>
+                                        <keyframe time="14.75s" value="0 0" curve="linear"/>
+                                        <keyframe time="15.65s" value="0 0" curve="linear"/>
+                                        <keyframe time="15.67s" value="1 1" curve="linear"/>
+                                        <keyframe time="16.53s" value="1 1" curve="linear"/>
+                                        <keyframe time="16.55s" value="0 0" curve="linear"/>
+                                        <keyframe time="17.38s" value="0 0" curve="linear"/>
+                                        <keyframe time="18.17s" value="0 0" curve="linear"/>
+                                        <keyframe time="18.19s" value="1 1" curve="linear"/>
+                                        <keyframe time="18.68s" value="1 1" curve="linear"/>
+                                        <keyframe time="18.70s" value="0 0" curve="linear"/>
+                                        <keyframe time="19.58s" value="0 0" curve="linear"/>
+                                        <keyframe time="20.00s" value="0 0" curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="position" value="13.6111 -3.3333"/>
+                            </adjust-transform>
+                            <adjust-blend mode="add"/>
+                        </asset-clip>
+                        <asset-clip ref="r29" lane="27" offset="0s" name="Burst – C b" duration="20s" tcFormat="NDF">
+                            <adjust-transform>
+                                <param name="scale" value="0 0">
+                                    <keyframeAnimation>
+                                        <keyframe time="0.00s" value="0 0" curve="linear"/>
+                                        <keyframe time="5.86s" value="0 0" curve="linear"/>
+                                        <keyframe time="6.60s" value="0 0" curve="linear"/>
+                                        <keyframe time="6.62s" value="1 1" curve="linear"/>
+                                        <keyframe time="7.53s" value="1 1" curve="linear"/>
+                                        <keyframe time="7.55s" value="0 0" curve="linear"/>
+                                        <keyframe time="8.32s" value="0 0" curve="linear"/>
+                                        <keyframe time="9.26s" value="0 0" curve="linear"/>
+                                        <keyframe time="9.28s" value="1 1" curve="linear"/>
+                                        <keyframe time="10.03s" value="1 1" curve="linear"/>
+                                        <keyframe time="10.05s" value="0 0" curve="linear"/>
+                                        <keyframe time="11.04s" value="0 0" curve="linear"/>
+                                        <keyframe time="11.72s" value="0 0" curve="linear"/>
+                                        <keyframe time="11.74s" value="1 1" curve="linear"/>
+                                        <keyframe time="12.53s" value="1 1" curve="linear"/>
+                                        <keyframe time="12.55s" value="0 0" curve="linear"/>
+                                        <keyframe time="13.30s" value="0 0" curve="linear"/>
+                                        <keyframe time="14.08s" value="0 0" curve="linear"/>
+                                        <keyframe time="14.10s" value="1 1" curve="linear"/>
+                                        <keyframe time="14.73s" value="1 1" curve="linear"/>
+                                        <keyframe time="14.75s" value="0 0" curve="linear"/>
+                                        <keyframe time="15.65s" value="0 0" curve="linear"/>
+                                        <keyframe time="16.55s" value="0 0" curve="linear"/>
+                                        <keyframe time="16.57s" value="1 1" curve="linear"/>
+                                        <keyframe time="17.36s" value="1 1" curve="linear"/>
+                                        <keyframe time="17.38s" value="0 0" curve="linear"/>
+                                        <keyframe time="18.17s" value="0 0" curve="linear"/>
+                                        <keyframe time="18.70s" value="0 0" curve="linear"/>
+                                        <keyframe time="18.72s" value="1 1" curve="linear"/>
+                                        <keyframe time="19.56s" value="1 1" curve="linear"/>
+                                        <keyframe time="19.58s" value="0 0" curve="linear"/>
+                                        <keyframe time="20.00s" value="0 0" curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="position" value="13.6111 -3.3333"/>
+                            </adjust-transform>
+                            <adjust-blend mode="add"/>
+                        </asset-clip>
+                        <asset-clip ref="r30" lane="28" offset="0s" name="Burst – C c" duration="20s" tcFormat="NDF">
+                            <adjust-transform>
+                                <param name="scale" value="0 0">
+                                    <keyframeAnimation>
+                                        <keyframe time="0.00s" value="0 0" curve="linear"/>
+                                        <keyframe time="5.86s" value="0 0" curve="linear"/>
+                                        <keyframe time="6.60s" value="0 0" curve="linear"/>
+                                        <keyframe time="7.55s" value="0 0" curve="linear"/>
+                                        <keyframe time="7.57s" value="1 1" curve="linear"/>
+                                        <keyframe time="8.30s" value="1 1" curve="linear"/>
+                                        <keyframe time="8.32s" value="0 0" curve="linear"/>
+                                        <keyframe time="9.26s" value="0 0" curve="linear"/>
+                                        <keyframe time="10.05s" value="0 0" curve="linear"/>
+                                        <keyframe time="10.07s" value="1 1" curve="linear"/>
+                                        <keyframe time="11.02s" value="1 1" curve="linear"/>
+                                        <keyframe time="11.04s" value="0 0" curve="linear"/>
+                                        <keyframe time="11.72s" value="0 0" curve="linear"/>
+                                        <keyframe time="12.55s" value="0 0" curve="linear"/>
+                                        <keyframe time="12.57s" value="1 1" curve="linear"/>
+                                        <keyframe time="13.28s" value="1 1" curve="linear"/>
+                                        <keyframe time="13.30s" value="0 0" curve="linear"/>
+                                        <keyframe time="14.08s" value="0 0" curve="linear"/>
+                                        <keyframe time="14.75s" value="0 0" curve="linear"/>
+                                        <keyframe time="14.77s" value="1 1" curve="linear"/>
+                                        <keyframe time="15.63s" value="1 1" curve="linear"/>
+                                        <keyframe time="15.65s" value="0 0" curve="linear"/>
+                                        <keyframe time="16.55s" value="0 0" curve="linear"/>
+                                        <keyframe time="17.38s" value="0 0" curve="linear"/>
+                                        <keyframe time="17.40s" value="1 1" curve="linear"/>
+                                        <keyframe time="18.15s" value="1 1" curve="linear"/>
+                                        <keyframe time="18.17s" value="0 0" curve="linear"/>
+                                        <keyframe time="18.70s" value="0 0" curve="linear"/>
+                                        <keyframe time="19.58s" value="0 0" curve="linear"/>
+                                        <keyframe time="19.60s" value="1 1" curve="linear"/>
+                                        <keyframe time="19.98s" value="1 1" curve="linear"/>
+                                        <keyframe time="20.00s" value="0 0" curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="position" value="13.6111 -3.3333"/>
+                            </adjust-transform>
+                            <adjust-blend mode="add"/>
+                        </asset-clip>
+                        <asset-clip ref="r32" lane="29" offset="0s" name="Burst – S a" duration="20s" tcFormat="NDF">
+                            <adjust-transform>
+                                <param name="scale" value="0 0">
+                                    <keyframeAnimation>
+                                        <keyframe time="0.00s" value="0 0" curve="linear"/>
+                                        <keyframe time="6.66s" value="0 0" curve="linear"/>
+                                        <keyframe time="6.68s" value="1 1" curve="linear"/>
+                                        <keyframe time="7.31s" value="1 1" curve="linear"/>
+                                        <keyframe time="7.33s" value="0 0" curve="linear"/>
+                                        <keyframe time="7.95s" value="0 0" curve="linear"/>
+                                        <keyframe time="8.45s" value="0 0" curve="linear"/>
+                                        <keyframe time="8.47s" value="1 1" curve="linear"/>
+                                        <keyframe time="9.40s" value="1 1" curve="linear"/>
+                                        <keyframe time="9.42s" value="0 0" curve="linear"/>
+                                        <keyframe time="10.08s" value="0 0" curve="linear"/>
+                                        <keyframe time="10.58s" value="0 0" curve="linear"/>
+                                        <keyframe time="10.60s" value="1 1" curve="linear"/>
+                                        <keyframe time="11.17s" value="1 1" curve="linear"/>
+                                        <keyframe time="11.19s" value="0 0" curve="linear"/>
+                                        <keyframe time="11.94s" value="0 0" curve="linear"/>
+                                        <keyframe time="12.83s" value="0 0" curve="linear"/>
+                                        <keyframe time="12.85s" value="1 1" curve="linear"/>
+                                        <keyframe time="13.46s" value="1 1" curve="linear"/>
+                                        <keyframe time="13.48s" value="0 0" curve="linear"/>
+                                        <keyframe time="14.06s" value="0 0" curve="linear"/>
+                                        <keyframe time="14.59s" value="0 0" curve="linear"/>
+                                        <keyframe time="14.61s" value="1 1" curve="linear"/>
+                                        <keyframe time="15.51s" value="1 1" curve="linear"/>
+                                        <keyframe time="15.53s" value="0 0" curve="linear"/>
+                                        <keyframe time="16.18s" value="0 0" curve="linear"/>
+                                        <keyframe time="16.82s" value="0 0" curve="linear"/>
+                                        <keyframe time="16.84s" value="1 1" curve="linear"/>
+                                        <keyframe time="17.79s" value="1 1" curve="linear"/>
+                                        <keyframe time="17.81s" value="0 0" curve="linear"/>
+                                        <keyframe time="18.68s" value="0 0" curve="linear"/>
+                                        <keyframe time="19.56s" value="0 0" curve="linear"/>
+                                        <keyframe time="19.58s" value="1 1" curve="linear"/>
+                                        <keyframe time="19.98s" value="1 1" curve="linear"/>
+                                        <keyframe time="20.00s" value="0 0" curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="position" value="13.8889 17.5926"/>
+                            </adjust-transform>
+                            <adjust-blend mode="add"/>
+                        </asset-clip>
+                        <asset-clip ref="r33" lane="30" offset="0s" name="Burst – S b" duration="20s" tcFormat="NDF">
+                            <adjust-transform>
+                                <param name="scale" value="0 0">
+                                    <keyframeAnimation>
+                                        <keyframe time="0.00s" value="0 0" curve="linear"/>
+                                        <keyframe time="6.66s" value="0 0" curve="linear"/>
+                                        <keyframe time="7.33s" value="0 0" curve="linear"/>
+                                        <keyframe time="7.35s" value="1 1" curve="linear"/>
+                                        <keyframe time="7.93s" value="1 1" curve="linear"/>
+                                        <keyframe time="7.95s" value="0 0" curve="linear"/>
+                                        <keyframe time="8.45s" value="0 0" curve="linear"/>
+                                        <keyframe time="9.42s" value="0 0" curve="linear"/>
+                                        <keyframe time="9.44s" value="1 1" curve="linear"/>
+                                        <keyframe time="10.06s" value="1 1" curve="linear"/>
+                                        <keyframe time="10.08s" value="0 0" curve="linear"/>
+                                        <keyframe time="10.58s" value="0 0" curve="linear"/>
+                                        <keyframe time="11.19s" value="0 0" curve="linear"/>
+                                        <keyframe time="11.21s" value="1 1" curve="linear"/>
+                                        <keyframe time="11.92s" value="1 1" curve="linear"/>
+                                        <keyframe time="11.94s" value="0 0" curve="linear"/>
+                                        <keyframe time="12.83s" value="0 0" curve="linear"/>
+                                        <keyframe time="13.48s" value="0 0" curve="linear"/>
+                                        <keyframe time="13.50s" value="1 1" curve="linear"/>
+                                        <keyframe time="14.04s" value="1 1" curve="linear"/>
+                                        <keyframe time="14.06s" value="0 0" curve="linear"/>
+                                        <keyframe time="14.59s" value="0 0" curve="linear"/>
+                                        <keyframe time="15.53s" value="0 0" curve="linear"/>
+                                        <keyframe time="15.55s" value="1 1" curve="linear"/>
+                                        <keyframe time="16.16s" value="1 1" curve="linear"/>
+                                        <keyframe time="16.18s" value="0 0" curve="linear"/>
+                                        <keyframe time="16.82s" value="0 0" curve="linear"/>
+                                        <keyframe time="17.81s" value="0 0" curve="linear"/>
+                                        <keyframe time="17.83s" value="1 1" curve="linear"/>
+                                        <keyframe time="18.66s" value="1 1" curve="linear"/>
+                                        <keyframe time="18.68s" value="0 0" curve="linear"/>
+                                        <keyframe time="19.56s" value="0 0" curve="linear"/>
+                                        <keyframe time="20.00s" value="0 0" curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="position" value="13.8889 17.5926"/>
+                            </adjust-transform>
+                            <adjust-blend mode="add"/>
+                        </asset-clip>
+                        <asset-clip ref="r34" lane="31" offset="0s" name="Burst – S c" duration="20s" tcFormat="NDF">
+                            <adjust-transform>
+                                <param name="scale" value="0 0">
+                                    <keyframeAnimation>
+                                        <keyframe time="0.00s" value="0 0" curve="linear"/>
+                                        <keyframe time="6.66s" value="0 0" curve="linear"/>
+                                        <keyframe time="7.33s" value="0 0" curve="linear"/>
+                                        <keyframe time="7.95s" value="0 0" curve="linear"/>
+                                        <keyframe time="7.97s" value="1 1" curve="linear"/>
+                                        <keyframe time="8.43s" value="1 1" curve="linear"/>
+                                        <keyframe time="8.45s" value="0 0" curve="linear"/>
+                                        <keyframe time="9.42s" value="0 0" curve="linear"/>
+                                        <keyframe time="10.08s" value="0 0" curve="linear"/>
+                                        <keyframe time="10.10s" value="1 1" curve="linear"/>
+                                        <keyframe time="10.56s" value="1 1" curve="linear"/>
+                                        <keyframe time="10.58s" value="0 0" curve="linear"/>
+                                        <keyframe time="11.19s" value="0 0" curve="linear"/>
+                                        <keyframe time="11.94s" value="0 0" curve="linear"/>
+                                        <keyframe time="11.96s" value="1 1" curve="linear"/>
+                                        <keyframe time="12.81s" value="1 1" curve="linear"/>
+                                        <keyframe time="12.83s" value="0 0" curve="linear"/>
+                                        <keyframe time="13.48s" value="0 0" curve="linear"/>
+                                        <keyframe time="14.06s" value="0 0" curve="linear"/>
+                                        <keyframe time="14.08s" value="1 1" curve="linear"/>
+                                        <keyframe time="14.57s" value="1 1" curve="linear"/>
+                                        <keyframe time="14.59s" value="0 0" curve="linear"/>
+                                        <keyframe time="15.53s" value="0 0" curve="linear"/>
+                                        <keyframe time="16.18s" value="0 0" curve="linear"/>
+                                        <keyframe time="16.20s" value="1 1" curve="linear"/>
+                                        <keyframe time="16.80s" value="1 1" curve="linear"/>
+                                        <keyframe time="16.82s" value="0 0" curve="linear"/>
+                                        <keyframe time="17.81s" value="0 0" curve="linear"/>
+                                        <keyframe time="18.68s" value="0 0" curve="linear"/>
+                                        <keyframe time="18.70s" value="1 1" curve="linear"/>
+                                        <keyframe time="19.54s" value="1 1" curve="linear"/>
+                                        <keyframe time="19.56s" value="0 0" curve="linear"/>
+                                        <keyframe time="20.00s" value="0 0" curve="linear"/>
+                                    </keyframeAnimation>
+                                </param>
+                                <param name="position" value="13.8889 17.5926"/>
+                            </adjust-transform>
+                            <adjust-blend mode="add"/>
+                        </asset-clip>
+                    </asset-clip>
+                </spine>
+            </sequence>
+        </media>
+
+        <asset id="r3" name="hessian_background" uid="three_threats_hessian_bg_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/infographic/spreading-the-word/video/hessian_background.mov"/>
+        </asset>
+        <asset id="r4" name="paper_background" uid="three_threats_paper_bg_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/infographic/spreading-the-word/video/paper_background.mov"/>
+        </asset>
+        <asset id="r5" name="us_map" uid="spreading_word_us_map_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/infographic/spreading-the-word/video/us_map.mov"/>
+        </asset>
+        <asset id="r6" name="press" uid="spreading_word_press_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/infographic/spreading-the-word/video/press.mov"/>
+        </asset>
+        <asset id="r7" name="newspaper_ne" uid="spreading_word_newspaper_ne_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/infographic/spreading-the-word/video/newspaper_ne.mov"/>
+        </asset>
+        <asset id="r8" name="burst_newspaper_ne_a" uid="spreading_word_burst_ne_a_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/infographic/spreading-the-word/video/burst_newspaper_ne_a.mov"/>
+        </asset>
+        <asset id="r9" name="burst_newspaper_ne_b" uid="spreading_word_burst_ne_b_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/infographic/spreading-the-word/video/burst_newspaper_ne_b.mov"/>
+        </asset>
+        <asset id="r10" name="burst_newspaper_ne_c" uid="spreading_word_burst_ne_c_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/infographic/spreading-the-word/video/burst_newspaper_ne_c.mov"/>
+        </asset>
+        <asset id="r11" name="newspaper_se" uid="spreading_word_newspaper_se_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/infographic/spreading-the-word/video/newspaper_se.mov"/>
+        </asset>
+        <asset id="r12" name="burst_newspaper_se_a" uid="spreading_word_burst_se_a_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/infographic/spreading-the-word/video/burst_newspaper_se_a.mov"/>
+        </asset>
+        <asset id="r13" name="burst_newspaper_se_b" uid="spreading_word_burst_se_b_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/infographic/spreading-the-word/video/burst_newspaper_se_b.mov"/>
+        </asset>
+        <asset id="r14" name="burst_newspaper_se_c" uid="spreading_word_burst_se_c_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/infographic/spreading-the-word/video/burst_newspaper_se_c.mov"/>
+        </asset>
+        <asset id="r15" name="newspaper_nw" uid="spreading_word_newspaper_nw_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/infographic/spreading-the-word/video/newspaper_nw.mov"/>
+        </asset>
+        <asset id="r16" name="burst_newspaper_nw_a" uid="spreading_word_burst_nw_a_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/infographic/spreading-the-word/video/burst_newspaper_nw_a.mov"/>
+        </asset>
+        <asset id="r17" name="burst_newspaper_nw_b" uid="spreading_word_burst_nw_b_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/infographic/spreading-the-word/video/burst_newspaper_nw_b.mov"/>
+        </asset>
+        <asset id="r18" name="burst_newspaper_nw_c" uid="spreading_word_burst_nw_c_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/infographic/spreading-the-word/video/burst_newspaper_nw_c.mov"/>
+        </asset>
+        <asset id="r19" name="newspaper_sw" uid="spreading_word_newspaper_sw_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/infographic/spreading-the-word/video/newspaper_sw.mov"/>
+        </asset>
+        <asset id="r20" name="burst_newspaper_sw_a" uid="spreading_word_burst_sw_a_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/infographic/spreading-the-word/video/burst_newspaper_sw_a.mov"/>
+        </asset>
+        <asset id="r21" name="burst_newspaper_sw_b" uid="spreading_word_burst_sw_b_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/infographic/spreading-the-word/video/burst_newspaper_sw_b.mov"/>
+        </asset>
+        <asset id="r22" name="burst_newspaper_sw_c" uid="spreading_word_burst_sw_c_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/infographic/spreading-the-word/video/burst_newspaper_sw_c.mov"/>
+        </asset>
+        <asset id="r23" name="newspaper_mw" uid="spreading_word_newspaper_mw_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/infographic/spreading-the-word/video/newspaper_mw.mov"/>
+        </asset>
+        <asset id="r24" name="burst_newspaper_mw_a" uid="spreading_word_burst_mw_a_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/infographic/spreading-the-word/video/burst_newspaper_mw_a.mov"/>
+        </asset>
+        <asset id="r25" name="burst_newspaper_mw_b" uid="spreading_word_burst_mw_b_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/infographic/spreading-the-word/video/burst_newspaper_mw_b.mov"/>
+        </asset>
+        <asset id="r26" name="burst_newspaper_mw_c" uid="spreading_word_burst_mw_c_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/infographic/spreading-the-word/video/burst_newspaper_mw_c.mov"/>
+        </asset>
+        <asset id="r27" name="newspaper_c" uid="spreading_word_newspaper_c_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/infographic/spreading-the-word/video/newspaper_c.mov"/>
+        </asset>
+        <asset id="r28" name="burst_newspaper_c_a" uid="spreading_word_burst_c_a_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/infographic/spreading-the-word/video/burst_newspaper_c_a.mov"/>
+        </asset>
+        <asset id="r29" name="burst_newspaper_c_b" uid="spreading_word_burst_c_b_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/infographic/spreading-the-word/video/burst_newspaper_c_b.mov"/>
+        </asset>
+        <asset id="r30" name="burst_newspaper_c_c" uid="spreading_word_burst_c_c_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/infographic/spreading-the-word/video/burst_newspaper_c_c.mov"/>
+        </asset>
+        <asset id="r31" name="newspaper_s" uid="spreading_word_newspaper_s_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/infographic/spreading-the-word/video/newspaper_s.mov"/>
+        </asset>
+        <asset id="r32" name="burst_newspaper_s_a" uid="spreading_word_burst_s_a_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/infographic/spreading-the-word/video/burst_newspaper_s_a.mov"/>
+        </asset>
+        <asset id="r33" name="burst_newspaper_s_b" uid="spreading_word_burst_s_b_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/infographic/spreading-the-word/video/burst_newspaper_s_b.mov"/>
+        </asset>
+        <asset id="r34" name="burst_newspaper_s_c" uid="spreading_word_burst_s_c_mov_uid" start="0s" duration="20s" hasVideo="1" format="r1" videoSources="1">
+            <media-rep kind="original-media" src="file:///Users/louisryan/Desktop/parallax/scenes/infographic/spreading-the-word/video/burst_newspaper_s_c.mov"/>
+        </asset>
+    </resources>
+
+    <library>
+        <event name="Spreading the Word">
+            <project name="Spreading the Word">
+                <sequence format="r1" duration="20s" tcStart="0s" tcFormat="NDF" audioLayout="stereo" audioRate="48k">
+                    <spine>
+                        <ref-clip ref="r2" offset="0s" name="Spreading the Word – Master" duration="20s"/>
+                    </spine>
+                </sequence>
+            </project>
+        </event>
+    </library>
+</fcpxml>

@@ -1,0 +1,7 @@
+# Encoded video/audio outputs are too large for git (individual files up to
+# ~700MB, ~21GB total). Keep these local only; FCP references them directly.
+scenes/*/*/video/
+scenes/*/*/audio/
+
+.DS_Store
+.claude/
