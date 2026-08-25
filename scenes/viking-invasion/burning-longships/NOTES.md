@@ -34,26 +34,26 @@ move fastest, burning ships (midground) move slower, storm sky/sea
 
 ## Manual steps remaining (yours, in Final Cut Pro)
 
-1. Encode every PNG in `source_images/` to `.mov` per
-   `context/methodology.md`'s ffmpeg reference (ProRes 4444 for
-   alpha/foreground layers — burning_longships, viking_backs, embers_overlay;
-   ProRes 422 HQ for the opaque background — sky_sea_background).
-2. Source/encode `video/` audio assets referenced in the FCPXML (Thunder,
-   Ocean Waves) if not already present from another scene sharing them —
-   check `uid` match per methodology.md's asset-reuse rule if reusing files
-   from `viking-ocean` or `approaching-britain`.
-3. **Lightning overlay (done 2026-08-25)**: this scene reuses the shared
-   `lightning.mov` asset (same `uid` as `viking-ocean`/`approaching-britain`/
-   `church-on-the-hill`) rather than generating its own — the FCPXML pointed
-   at `video/lightning.mov` in this scene's own folder, but that file didn't
-   exist yet (no corresponding PNG in `source_images/`, since it's a direct
-   reuse, not a new encode). Copied `lightning.mov` from `viking-ocean/video/`
-   into this scene's `video/` folder to fix a "video frame rates don't match"
-   import error that was actually a missing-file error (see methodology.md
-   #6d — that error message can be misleading).
-4. Import `burning_longships.fcpxml` into FCP, confirm both audio tracks
-   are present (the lane fix above) and lightning imports cleanly (the copy
-   fix above), then iterate visually as needed.
+All asset files are now in place locally (done 2026-08-25 — `video/` and
+`audio/` are gitignored, so this happened outside the repo):
+
+- Encoded `sky_sea_background.mov` (ProRes 422 HQ, opaque), and
+  `burning_longships.mov` / `viking_backs.mov` / `embers_overlay.mov`
+  (ProRes 4444, alpha) from the PNGs in `source_images/`, per
+  `context/methodology.md`'s ffmpeg reference.
+- Copied `paper_background.mp4` from `universal-assets/`.
+- Copied `lightning.mov`, `thunder.wav`, `ocean_waves.wav` from
+  `viking-ocean`'s `video/`/`audio/` folders — these are shared assets
+  (matching `uid`) reused across viking-invasion scenes, not new encodes.
+  The FCPXML referencing a reused asset only works once the file is
+  physically copied into *this* scene's own `video/`/`audio/` folder, not
+  just uid-matched — see methodology.md's note under bug #6b. (This was
+  the actual cause of an earlier "video frame rates don't match" import
+  error — a missing lightning.mov file, not a real encoding mismatch.)
+
+1. Import `burning_longships.fcpxml` into FCP — all 8 referenced assets
+   (6 video, 2 audio) now exist and should resolve. Confirm both audio
+   tracks are present (the lane fix above) and iterate visually as needed.
 
 ## Questions for you
 
