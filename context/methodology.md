@@ -202,6 +202,23 @@ This is distinct from bug #6 above (duplicate `ref` corrupting position) — thi
 is about duplicate/mismatched `uid` for the same underlying file being rejected at
 import time entirely, with no position corruption involved.
 
+**A reused asset needs its own physical file copy in the new scene's `video/`/
+`audio/` folder — the shared `uid` does not mean a shared file path.** Each
+scene's `media-rep src` points at a path inside that scene's own directory
+(e.g. `scenes/viking-invasion/burning-longships/video/lightning.mov`), not at
+the original scene's copy. When writing a new scene's FCPXML that reuses an
+existing asset (matching `uid` per the fix above), the corresponding file must
+actually be copied into the new scene's `video/`/`audio/` folder — `cp` the
+file from whichever sibling scene first introduced it. This is easy to miss
+when authoring the FCPXML headlessly (no `source_images/` PNG exists for a
+reused asset, since it's not a new encode), and produces a confusing failure:
+FCP reports **"The video frame rates don't match"** on import, which looks
+like a real encoding mismatch but is actually a missing-file error — see bug
+#6d below, which documents the same misleading-error pattern for a different
+root cause (stale path after a directory move). Confirmed the hard way in
+`burning-longships.fcpxml`, which reused `lightning.mov`'s `uid` from
+`viking-ocean` correctly but never got its own physical copy of the file.
+
 ### 6c. `adjust-transform` must come before `adjust-blend` inside an `asset-clip`
 
 The DTD requires a fixed child-element order inside `asset-clip`:

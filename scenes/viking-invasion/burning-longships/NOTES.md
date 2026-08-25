@@ -42,8 +42,18 @@ move fastest, burning ships (midground) move slower, storm sky/sea
    Ocean Waves) if not already present from another scene sharing them —
    check `uid` match per methodology.md's asset-reuse rule if reusing files
    from `viking-ocean` or `approaching-britain`.
-3. Import `burning_longships.fcpxml` into FCP, confirm both audio tracks
-   are present (the lane fix above), and iterate visually as needed.
+3. **Lightning overlay (done 2026-08-25)**: this scene reuses the shared
+   `lightning.mov` asset (same `uid` as `viking-ocean`/`approaching-britain`/
+   `church-on-the-hill`) rather than generating its own — the FCPXML pointed
+   at `video/lightning.mov` in this scene's own folder, but that file didn't
+   exist yet (no corresponding PNG in `source_images/`, since it's a direct
+   reuse, not a new encode). Copied `lightning.mov` from `viking-ocean/video/`
+   into this scene's `video/` folder to fix a "video frame rates don't match"
+   import error that was actually a missing-file error (see methodology.md
+   #6d — that error message can be misleading).
+4. Import `burning_longships.fcpxml` into FCP, confirm both audio tracks
+   are present (the lane fix above) and lightning imports cleanly (the copy
+   fix above), then iterate visually as needed.
 
 ## Questions for you
 
